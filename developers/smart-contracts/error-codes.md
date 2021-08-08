@@ -30,6 +30,7 @@ Pool errors starts with 2000.
 | get-expiry-fail-err | 2013 | get-expiry fail on pool logic |
 | yield-token-equation-call-err | 2014 | yield token equation calling error |
 | get-price-fail-err | 2015 | get-price error |
+| dy-bigger-than-available-err | 2016 | thrown if dy &gt; balance-aytoken |
 
 ## Vault Error
 

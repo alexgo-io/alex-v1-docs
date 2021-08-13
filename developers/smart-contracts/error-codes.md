@@ -90,6 +90,7 @@ Token error starts with 6000.
 | Error | Code | Description |
 | :--- | :---: | :---: |
 | get-symbol-fail-err | 6000 | get-symbol failed |
+| get-balance-fail-err | 6001 | get-balance failed |
 
 ## Oracle Error
 

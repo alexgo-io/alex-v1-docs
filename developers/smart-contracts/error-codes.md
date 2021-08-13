@@ -26,7 +26,7 @@ Pool errors starts with 2000.
 | invalid-balance-err | 2008 | Accesing invalid balance |
 | invalid-expiry-err | 2009 | expiry &gt; max-expiry |
 | already-expiry-err | 2010 | current block-height &gt; expiry |
-| internal-get-weight-err | 2012 | get-weight fail on pool logic |
+| get-weight-fail-err | 2012 | get-weight fail on pool logic |
 | get-expiry-fail-err | 2013 | get-expiry fail on pool logic |
 | yield-token-equation-call-err | 2014 | yield token equation calling error |
 | get-price-fail-err | 2015 | get-price error |

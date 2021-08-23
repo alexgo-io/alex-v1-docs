@@ -6,6 +6,26 @@ Stacks makes Bitcoin programmable, enabling decentralized apps and smart contrac
 
 For example, with ALEX on Stacks, Bitcoin holders will be able to lend and borrow Bitcoin with better user experience at a more competitive rate. Bitcoin traders can build sophisticated services and strategies on ALEX to provide liquidity and participate in yield farming across multiple pools available at ALEX. Start-ups can issue tokens and raise Bitcoin on ALEX to build better community-owned projects with low capital requirements from the team.
 
+## What is Yield Token?
+
+Yield Token, for example, yield-BTC-2020sep30, is like a "certificate of deposit" on BTC that pays a fixed interest to its holder at a pre-defined maturity \(that is, Sep 30, 2020\).
+
+## What is Collateral Rebalancing Pool?
+
+Collateral Rebalancing Pool \("CRP"\) uses [Weighted Equation](https://docs.alexgo.io/protocol/platform-architecture-that-supports-ecosystem-development) and dynamically rebalances between Token and Collateral.
+
+CRP dynamically rebalances collateral to ensure the ayToken minted \(i.e. the loan\) remain solvent especially in an adverse market environment \(i.e. the value of the loan does not exceed the value of collateral\). This dynamic rebalancing, together with a careful choice of the key parameters \(including LTV and volatilty assumption\) allows ALEX to eliminate the needs for liquidation. Any residual gap risk \(which CRP cannot address entirely\) is addressed through maintaining a strong reserve fund.
+
+## What is Liquidity Bootstrapping Pool?
+
+Liquidity Bootstrapping Pool \("LBP"\) uses [Weighted Equation](https://docs.alexgo.io/protocol/platform-architecture-that-supports-ecosystem-development) and is designed to facilitate a capital efficient launch of a token \(the "Base Token"\) relative to another token \(the "Target Token"\).
+
+LBP was first offered by [Balancer](https://docs.balancer.fi/v/v1/guides/smart-pool-templates-gui/liquidity-bootstrapping-pool) in 2020 and can be an interesting alternative to ICOs, IDOs or IEOs to bootstrap liquidity with little initial investment from the team.
+
+ALEX brings LBP to Stacks, allowing Stacks projects to build deep liquidity and find its price efficiently with low capital requirements.
+
+LBPs can result in a significantly better-funded project whose governance tokens are more evenly distributed among the community. This means the tokens remain in the hands of those that are invested in the project in the long term, instead of speculators looking for quick profits.
+
 ## How does Stacks allow much better DeFi user experience for Bitcoin holders?
 
 Currently for a Bitcoin holders to use DeFi on Ethereum, he/she needs to “wrap” his/her Bitcoin.
@@ -48,10 +68,10 @@ ALEX will support all native/SIP10-compatible tokens on Stacks.
 
 There are five actors on ALEX:
 
-* **Lender**: Go to Yield Token Pool =&gt; Sell Token / Buy ayToken
-* **Borrower**: Go to Collateral Rebalancing Pool =&gt; Deposit Collateral =&gt; Mint ayToken =&gt; Go to Yield Token Pool =&gt; Sell ayToken / Buy Token
-* **Liquidity Provider**: Go to Yield Token Pool =&gt; Deposit ayToken & Token =&gt; Mint Yield Token Pool Token
-* **Arbitrageur / Flash Loan User**: Go to Vault =&gt; Create Flash Loan =&gt; Trade at Pools
+* **Lender**: Lender deposits tokens at fixed yield for a fixed term.
+* **Borrower**: Borrower posts collateral and borrows tokens at a fixed ield for a fixed term.
+* **Liquidity Provider**: Liquidity Provider provides liquidity and ensures smooth functioning of pools at ALEX
+* **Arbitrageur**: Arbitrageurs work with Liquidity Providers to ensure smooth functioning of pools at ALEX.
 
 See[ Use Case](https://docs.alexgo.io/developers/smart-contracts/diagrams/protocol-use-case).
 
@@ -78,4 +98,6 @@ Yes, we will develop cross chain capability in the future. Our [core architectur
 ## What’s your borrowing rate right now?
 
 Our lending and borrowing rates are [market driven](https://docs.alexgo.io/protocol/automated-market-making-designed-for-lending-protocols).
+
+
 

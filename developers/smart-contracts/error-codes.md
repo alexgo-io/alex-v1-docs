@@ -6,7 +6,7 @@ General error starts with 1000.
 
 | Error | Code | Description |
 | :--- | :---: | :---: |
-| authorisation-err | 1000 | Unauthorised access |
+| not-authorized-err | 1000 | Unauthorised access |
 | internal-function-call-err | 1001 | function call error in the same contract |
 
 ## Pool Error

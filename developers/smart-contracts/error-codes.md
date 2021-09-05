@@ -32,6 +32,7 @@ Pool errors starts with 2000.
 | get-price-fail-err | 2015 | get-price error |
 | dy-bigger-than-available-err | 2016 | thrown if dy &gt; balance-aytoken |
 | expiry-err | 2017 | yield token expiry error |
+| stacking-in-progress-err | 2018 | stacking is in progress |
 
 ## Vault Error
 

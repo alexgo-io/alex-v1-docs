@@ -1,6 +1,6 @@
 # Automated Market Making of Collateral Rebalancing Pool
 
-
+## Abstract
 
 Collateral pools of many DeFi platforms typically comprise a single asset reflecting a borrower’s crypto ownership and risk appetite. While single asset pools benefit from asset appreciation, a pool's value can diminish swiftly in volatile market conditions. The increasing chance of default and potential shortening of the loan term affect both borrowers and lenders who enter fixed-term and fixed-rate contract hoping to remove uncertainties. 
 

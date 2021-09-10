@@ -9,8 +9,6 @@ To start, at ALEX you can
 * Mitigate risk with BTC short positions
 * Maximize upside with BTC leveraged long positions
 
-## Think of us as [Compound](https://compound.finance) / [AAVE](https://aave.com) with underlying technology like [Uniswap](https://www.uniswap.org) / [Balancer](https://balancer.finance), and the user experience of [Robinhood](https://www.robinhood.com).
-
 Our initial focus \(v1\) is
 
 * Build DeFi primitives targeting developers looking to build ecosystem on Stacks, and

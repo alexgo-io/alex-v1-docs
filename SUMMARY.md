@@ -2,7 +2,11 @@
 
 * [What is ALEX?](README.md)
 * [Lending and Borrowing at fixed yield with no risk of liquidation](lending-protocol-with-fixed-yield-and-no-risk-of-liquidation.md)
-* [FAQ](faq.md)
+
+## Whitepaper
+
+* [Automated Market Making of Yield Token Pool](whitepaper/automated-market-making-of-alex.md)
+* [Automated Market Making of Collateral Rebalancing Pool](whitepaper/automated-market-making-of-collateral-rebalancing-pool.md)
 
 ## Protocol
 
@@ -24,9 +28,4 @@
     * [Use Case](developers/smart-contracts/diagrams/protocol-use-case.md)
     * [Class Diagram](developers/smart-contracts/diagrams/class-diagram.md)
   * [Error Codes](developers/smart-contracts/error-codes.md)
-
-## Whitepaper
-
-* [Automated Market Making of Yield Token Pool](whitepaper/automated-market-making-of-alex.md)
-* [Automated Market Making of Collateral Rebalancing Pool](whitepaper/automated-market-making-of-collateral-rebalancing-pool.md)
 

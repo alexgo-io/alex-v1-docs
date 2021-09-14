@@ -46,9 +46,8 @@ Vault errors starts with 3000.
 | insufficient-flash-loan-balance-err | 3003 | Insufficient Flash Loan balance |
 | invalid-post-loan-balance-err | 3004 | Invalid Post loan balance |
 | user-execute-err | 3005 | User execution error of Flashloan |
-| transfer-one-by-one-err | 3006 | Error on Transfer flash loan |
-| none-token-err | 3007 | Flash loan none token error |
-| get-token-fail | 3008 | Token acquiring fail in flash loan |
+| loan-transfer-failed-err | 3006 | Error on Transfer flash loan |
+| post-loan-transfer-failed-err | 3007 | Error on Transfer flash loan |
 
 ## Equation Error
 

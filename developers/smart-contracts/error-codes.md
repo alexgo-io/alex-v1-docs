@@ -25,7 +25,8 @@ Pool errors starts with 2000.
 | invalid-token-err | 2007 | Accesing invalid Token |
 | invalid-balance-err | 2008 | Accesing invalid balance |
 | invalid-expiry-err | 2009 | expiry &gt; max-expiry |
-| already-expiry-err | 2010 | current block-height &gt; expiry |
+| math-call-err | 2010 | Math library call error |
+| already-expiry-err | 2011 | current block-height &gt; expiry |
 | get-weight-fail-err | 2012 | get-weight fail on pool logic |
 | get-expiry-fail-err | 2013 | get-expiry fail on pool logic |
 | yield-token-equation-call-err | 2014 | yield token equation calling error |
@@ -48,6 +49,7 @@ Vault errors starts with 3000.
 | user-execute-err | 3005 | User execution error of Flashloan |
 | loan-transfer-failed-err | 3006 | Error on Transfer flash loan |
 | post-loan-transfer-failed-err | 3007 | Error on Transfer flash loan |
+| invalid-flash-loan-balance-err | 3008 | Error on retrieving balance from flashloan token |
 
 ## Equation Error
 
@@ -59,6 +61,7 @@ Equation error starts with 4000.
 | max-in-ratio-err | 4001 | In ratio Error |
 | max-out-ratio-err | 4002 | Out ration Error |
 | math-call-err | 4003 | Error while calling math functions on library |
+| insufficient-balance-err | 4004 | input value is larger than current balance on equation |
 
 ## Math Error
 
@@ -100,4 +103,18 @@ Token error starts with 7000.
 | :--- | :---: | :---: |
 | get-oracle-price-fail-err | 7000 | get-price failed |
 | err-token-not-in-oracle | 7001 | Token cannot be found on given oracle source |
+
+## Multisig Error <a id="oracle-error"></a>
+
+‌
+
+Multisig error starts with 8000.
+
+| Error | Code | Description |
+| :--- | :--- | :--- |
+| not-enough-balance-err | 8000 | Proposer does not have enough balance to meet the condition of proposing |
+| no-fee-change-err | 8001 | Proposer attempts with unchanged value of fee |
+| invalid-pool-token-err | 8002 | Voters attempts to vote with wrong pool token |
+| block-height-not-reached-err | 8003 | Current block height is not reached for starting / ending the proposal |
+|  |  |  |
 

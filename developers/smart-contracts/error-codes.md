@@ -95,6 +95,9 @@ Token error starts with 6000.
 | :--- | :---: | :---: |
 | get-symbol-fail-err | 6000 | get-symbol failed |
 | get-balance-fail-err | 6001 | get-balance failed |
+| ERR-MINT-FAILED | 6002 | mint failed |
+| ERR-BURN-FAILED | 6003 | burn failed |
+| ERR-STX-TRANSFER-FAILED | 6004 | STX transfer failed |
 
 ## Oracle Error
 

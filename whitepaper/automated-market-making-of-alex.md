@@ -130,8 +130,6 @@ $$
 
 Then, the added amount of $$\Delta x$$ can be calculated from the formula below 
 
-
-
 $$
 \begin{split}
 &(x+\lambda\Delta x)^{1-t}+(y-\Delta y)^{1-t}=x^{1-t}+y^{1-t}\\
@@ -140,6 +138,8 @@ $$
 &\Delta x=\frac{x}{\lambda}\left[\left(\frac{1+p^{\frac{1-t}{t}}}{1+p'^{\frac{1-t}{t}}}\right)^{\frac{1}{1-t}}-1\right]\\
 \end{split}
 $$
+
+
 
 Denote $$r$$ and $$r'$$ the current and trader's target interest rate respectively. Because $$p=e^{rt}$$ and $$p'=e^{r't}$$, the above equation can also be rewritten as 
 

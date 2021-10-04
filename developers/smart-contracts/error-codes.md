@@ -35,6 +35,7 @@ Pool errors starts with 2000.
 | expiry-err | 2017 | yield token expiry error |
 | stacking-in-progress-err | 2018 | stacking is in progress |
 | ltv-greater-than-one-err | 2019 | LTV &gt; 100%, i.e. default |
+| ERR-EXCEED-MAX-SLIPPAGE | 2020 | Output exceeds maximum slippage target |
 
 ## Vault Error
 

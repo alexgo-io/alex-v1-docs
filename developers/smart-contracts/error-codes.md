@@ -61,7 +61,7 @@ Equation error starts with 4000.
 | :--- | :---: | :---: |
 | weight-sum-err | 4000 | Sum of weight should be always 1 |
 | max-in-ratio-err | 4001 | In ratio Error |
-| max-out-ratio-err | 4002 | Out ration Error |
+| max-out-ratio-err | 4002 | Out ratio Error |
 | math-call-err | 4003 | Error while calling math functions on library |
 | insufficient-balance-err | 4004 | input value is larger than current balance on equation |
 

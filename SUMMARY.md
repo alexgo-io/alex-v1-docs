@@ -9,6 +9,10 @@
 * [Automated Market Making of Collateral Rebalancing Pool](whitepaper/automated-market-making-of-collateral-rebalancing-pool.md)
 * [Dive Into Collateral Rebalancing Pool!](whitepaper/dive-into-collateral-rebalancing-pool.md)
 
+## User Guides
+
+* [Liquidity Mining](user-guides/liquidity-mining.md)
+
 ## Protocol
 
 * [Overview](protocol/platform-architecture-that-supports-ecosystem-development.md)

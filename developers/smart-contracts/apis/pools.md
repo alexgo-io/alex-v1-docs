@@ -804,7 +804,7 @@ Allows swapping between yield token and target token in pool. With given dy, fin
 $ Usage
 ```
 
-&#x20;**get-x-given-y**
+### **get-x-given-y**
 
 **Prototype: **`(define-read-only (get-x-given-y (token-x-trait) (dy))`
 

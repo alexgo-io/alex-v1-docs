@@ -14,7 +14,7 @@ description: >-
 
 ## Fixed Weight Pool <a href="fixed-weight-pool" id="fixed-weight-pool"></a>
 
-Fixed weight pool is a pool driven by \`weighted-equation\` with fixed weights (i.e. similar to Uniswap):
+Fixed weight pool is a pool driven by `weighted-equation` with fixed weights (i.e. similar to Uniswap):
 
 ### **get-pool-count**
 
@@ -108,7 +108,25 @@ $ Usage
 $ Usage
 ```
 
-### ****
+### **get-oracle-resilient**
+
+**Prototype: **`(define-read-only (get-oracle-resilient (token-x-trait) (token-y-trait) (weight-x) (weight-y))`
+
+**Input: **`<ft-trait>, <ft-trait>, uint, uint`
+
+**Output:** `uint | uint`
+
+Returns pool-implied oracle price that is less up-to-date but more resilient to manipulation.
+
+### get-oracle-instant
+
+**Prototype: **`(define-read-only (get-oracle-resilient (token-x-trait) (token-y-trait) (weight-x) (weight-y))`
+
+**Input: **`<ft-trait>, <ft-trait>, uint, uint`
+
+**Output:** `uint | uint`
+
+Returns pool-implied oracle price that is more up-to-date but less resilient to manipulation.
 
 ### **swap-x-for-y**
 

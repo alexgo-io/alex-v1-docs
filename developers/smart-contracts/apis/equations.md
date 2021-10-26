@@ -23,9 +23,7 @@ description: >-
 
 Get the appropriate value of dy from given dx which maintains the balance of given pool.
 
-```
-$ Usage
-```
+
 
 ### **get-x-given-y**
 
@@ -39,9 +37,7 @@ $ Usage
 
 Get the appropriate value of dx from given dy which maintains the balance of given pool.
 
-```
-$ Usage
-```
+
 
 ### **get-**x-given-price
 
@@ -55,9 +51,7 @@ $ Usage
 
 Get the appropriate value of dx from given price which maintains the balance of given pool.
 
-```
-$ Usage
-```
+
 
 ### **get-**token-given-position
 
@@ -71,9 +65,7 @@ $ Usage
 
 Get the appropriate value of token from given parameters which maintains the balance of given pool.
 
-```
-$ Usage
-```
+
 
 ### **get-**position-given-mint
 
@@ -87,9 +79,7 @@ $ Usage
 
 Get the appropriate position value \(dx and dy\) from given parameters such as minted amount and total supply which maintains the balance of given pool. 
 
-```
-$ Usage
-```
+
 
 ### **get-**position-given-burn
 
@@ -103,9 +93,7 @@ $ Usage
 
 Identical to `get-position-given-mint` since it is reverse of calculation.
 
-```
-$ Usage
-```
+
 
 
 

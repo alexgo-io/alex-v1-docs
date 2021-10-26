@@ -158,8 +158,6 @@ Returns a dx which conforms the weighted equation using dy. This API is used to 
 
 Returns a dy which conforms the weighted equation using dx. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx that corresponds to given dy.&#x20;
 
-### ****
-
 ### **set-fee-to-address**
 
 **Prototype: **`(define-public (set-fee-to-address (token-x-trait ) (token-y-trait ) (weight-x) (weight-y) (address))`
@@ -169,10 +167,6 @@ Returns a dy which conforms the weighted equation using dx. This API is used to 
 **Output:** `bool | uint`
 
 &#x20;Set the platform fee collector address of given pool. Platform fee gathered on each pool action will be collected to the given address after execution.
-
-```
-$ Usage
-```
 
 ### **get-fee-to-address**
 
@@ -184,9 +178,7 @@ $ Usage
 
 &#x20;Get the platform fee collector address which is currently set on the given pool.&#x20;
 
-```
-$ Usage
-```
+
 
 ### **get-fees**
 
@@ -198,9 +190,7 @@ $ Usage
 
 &#x20;Get the current platform fee of given pool.
 
-```
-$ Usage
-```
+
 
 ### collect-fees
 
@@ -212,9 +202,7 @@ $ Usage
 
 &#x20;Collect the platform fee from the collector address which is set on the given pool. The balance of each token in collector address will be initialized back to zero.
 
-```
-$ Usage
-```
+
 
 ### get-token-given-position
 
@@ -226,9 +214,7 @@ $ Usage
 
 &#x20;Returns a token which conforms the weighted equation using dx and dy. This API is used to maintain the pool ratio using the equation and use to get token.
 
-```
-$ Usage
-```
+
 
 ### get-x-given-price
 
@@ -240,9 +226,7 @@ $ Usage
 
 &#x20;Returns a dx which conforms the weighted equation using price. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx that corresponds to given price.&#x20;
 
-```
-$ Usage
-```
+
 
 ### get-position-given-mint
 
@@ -254,9 +238,7 @@ $ Usage
 
 &#x20;Returns a position which conforms the weighted equation using mint token. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx and dy that corresponds to given token mint. Mainly wraps the weighted equation of 'get-position-given-mint' for the easy usage in smart contract.
 
-```
-$ Usage
-```
+
 
 ### get-position-given-burn
 
@@ -268,9 +250,7 @@ $ Usage
 
 &#x20; Returns a position which conforms the weighted equation using burnt token. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx and dy that corresponds to given token burn. Mainly wraps the weighted equation of 'get-position-given-burn' for the easy usage in smart contract.
 
-```
-$ Usage
-```
+
 
 ## &#x20;Collateral Rebalancing Pool
 
@@ -288,9 +268,7 @@ Collateral Rebalancing pool is a pool which users inject their collateral and mi
 
 Get the number of currently existing pools.
 
-```
-$ Usage
-```
+
 
 
 
@@ -306,9 +284,7 @@ $ Usage
 
 Get the list of currently existing pools.
 
-```
-$ Usage
-```
+
 
 
 
@@ -324,9 +300,7 @@ $ Usage
 
 Gets the details of pool which matches the given parameter. Notice that pools are predefined map data structure, using token traits and weights as key and various detailed attributes as values.
 
-```
-$ Usage
-```
+
 
 ### **get-pool-contracts**
 
@@ -340,9 +314,7 @@ $ Usage
 
 Gets the details of pool using pool id. Notice that pools are predefined map data structure, using token traits and weights as key and various detailed attributes as values.
 
-```
-$ Usage
-```
+
 
 
 
@@ -358,9 +330,7 @@ $ Usage
 
 Gets the parameter corresponding weight through the internal calculation. Weight retrieving formula is implemented inside this function.&#x20;
 
-```
-$ Usage
-```
+
 
 ### **create-pool **
 
@@ -374,9 +344,7 @@ $ Usage
 
 Creates a pool using the given parameter. Created pool can be reached through the unique id which is allocated through this function. dx and dy is initially added to the created pool.
 
-```
-$ Usage
-```
+
 
 
 
@@ -390,9 +358,7 @@ $ Usage
 
 Adds Liquidity to the given pool. First retrieve the existing pool with token traits, then add liquidity of x and y to the specified pool. Adding the liquidity to the pool should conform with equation. Liquidity Provider receives ayToken as a reward, which represents the ownership of the liquidity provided pool. For example,  borrower can inject collateral(usda) to the CRP pool and mint ayToken(ayUsda).
 
-```
-$ Usage
-```
+
 
 ### ****
 
@@ -406,9 +372,7 @@ $ Usage
 
 &#x20;Remove Liquidity from the given pool. First retrieve the existing pool with token traits, then remove liquidity of x and y to the specified pool using the requested user (tx-sender)'s pool token. Removing the liquidity to the pool should conform with equation. Liquidity Provider receives corresponding dx and dy to his own vault while the used pool token is burnt.
 
-```
-$ Usage
-```
+
 
 ### ****
 
@@ -422,9 +386,7 @@ $ Usage
 
 Allows swapping between the two tokens in a pool. With given dx, find the corresponding amount for swapping to dy using weighted equation. Then conduct swapping by transferring between tx-sender and pool. For the CRP use cases, arbitrageurs uses to gain profit by swapping in the pool.
 
-```
-$ Usage
-```
+
 
 
 
@@ -438,9 +400,7 @@ $ Usage
 
 Allows swapping between the two tokens in a pool. With given dy, find the corresponding amount for swapping to dx using weighted equation. Then conduct swapping by transferring between tx-sender and pool. For the CRP use cases, arbitrageurs uses to gain profit by swapping in the pool.
 
-```
-$ Usage
-```
+
 
 ### **get-x-given-y**
 
@@ -452,9 +412,7 @@ $ Usage
 
 Returns a dx which conforms the weighted equation using dy. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx that corresponds to given dy.&#x20;
 
-```
-$ Usage
-```
+
 
 ### ****
 
@@ -468,9 +426,7 @@ $ Usage
 
 Returns a dy which conforms the weighted equation using dx. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dy that corresponds to given dx.&#x20;
 
-```
-$ Usage
-```
+
 
 ### ****
 
@@ -484,9 +440,7 @@ $ Usage
 
 &#x20;Set the platform fee collector address of given pool. Platform fee gathered on each pool action will be collected to the given address after execution.
 
-```
-$ Usage
-```
+
 
 ### **get-fee-to-address**
 
@@ -498,9 +452,7 @@ $ Usage
 
 &#x20;Get the platform fee collector address which is currently set on the given pool.&#x20;
 
-```
-$ Usage
-```
+
 
 ### **get-fees**
 
@@ -512,9 +464,7 @@ $ Usage
 
 &#x20;Get the current platform fee of given pool.
 
-```
-$ Usage
-```
+
 
 ### collect-fees
 
@@ -526,9 +476,7 @@ $ Usage
 
 &#x20;Collect the platform fee from the collector address which is set on the given pool. The balance of each token in collector address will be initialized back to zero.
 
-```
-$ Usage
-```
+
 
 ### get-token-given-position
 
@@ -540,9 +488,7 @@ $ Usage
 
 &#x20;Returns a token which conforms the weighted equation using dx and dy. This API is used to maintain the pool ratio using the equation and use to get token.
 
-```
-$ Usage
-```
+
 
 ### get-x-given-price
 
@@ -554,9 +500,7 @@ $ Usage
 
 &#x20;Returns a dx which conforms the weighted equation using price. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx that corresponds to given price.&#x20;
 
-```
-$ Usage
-```
+
 
 ### get-position-given-mint
 
@@ -568,9 +512,7 @@ $ Usage
 
 &#x20;Returns a position which conforms the weighted equation using amount of minted token. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx and dy that corresponds to given token mint. Mainly wraps the weighted equation of 'get-position-given-mint' for the easy usage in smart contract.
 
-```
-$ Usage
-```
+
 
 ### get-position-given-burn
 
@@ -582,9 +524,7 @@ $ Usage
 
 &#x20; Returns a position which conforms the weighted equation using amount of burnt token. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx and dy that corresponds to given token burn. Mainly wraps the weighted equation of 'get-position-given-burn' for the easy usage in smart contract.
 
-```
-$ Usage
-```
+
 
 ##
 
@@ -606,9 +546,7 @@ $ Usage
 
 Get the maximum expiry of current Yield Token Pool
 
-```
-$ Usage
-```
+
 
 ### **get-t**
 
@@ -622,9 +560,7 @@ $ Usage
 
 Get the computed value of given expiry for the usage in yield token equation
 
-```
-$ Usage
-```
+
 
 ### **get-pool-count**
 
@@ -638,9 +574,7 @@ $ Usage
 
 Get the number of currently existing pools.
 
-```
-$ Usage
-```
+
 
 
 
@@ -656,9 +590,7 @@ $ Usage
 
 Get the list of currently existing yield token pools.
 
-```
-$ Usage
-```
+
 
 
 
@@ -674,9 +606,7 @@ $ Usage
 
 Gets the details of yield token pool which matches the given token trait. Notice that pools are predefined map data structure, using token traits and weights as key and various detailed attributes as values.
 
-```
-$ Usage
-```
+
 
 ### **get-pool-contracts**
 
@@ -690,9 +620,7 @@ $ Usage
 
 Gets the details of yield token pool using pool id. Notice that pools are predefined map data structure, using token traits and weights as key and various detailed attributes as values.
 
-```
-$ Usage
-```
+
 
 
 
@@ -708,9 +636,7 @@ $ Usage
 
 Create a yield-token pool using the given parameter. Created pool can be reached through the unique id which is allocated through this function. dx and dy is initially added to the created pool.
 
-```
-$ Usage
-```
+
 
 ### **add-to-position**
 
@@ -722,9 +648,7 @@ $ Usage
 
 Add Liquidity to the given pool. First retrieve the existing pool with token traits, then add liquidity of x and y to the specified pool. Adding the liquidity to the pool should conform with equation. Liquidity Provider receives pool token as a reward, which represents the ownership of the liquidity provided pool.
 
-```
-$ Usage
-```
+
 
 ### ****
 
@@ -738,9 +662,7 @@ $ Usage
 
 &#x20;Remove Liquidity from the given pool. First retrieve the existing pool with token traits, then remove liquidity of x and y to the specified pool using the requested user (tx-sender)'s pool token. Removing the liquidity to the pool should conform with equation. Liquidity Provider receives corresponding dx and dy to his own vault while the used pool token is burnt.
 
-```
-$ Usage
-```
+
 
 ### ****
 
@@ -754,9 +676,7 @@ $ Usage
 
 Allows swapping between yield token and target token in a pool. With given dx, find the corresponding amount for swapping to dy using equation. Then conduct swapping by transferring between tx-sender and pool.
 
-```
-$ Usage
-```
+
 
 
 
@@ -770,9 +690,7 @@ $ Usage
 
 Allows swapping between yield token and target token in pool. With given dy, find the corresponding amount for swapping to dx using equation. Then conduct swapping by transferring between tx-sender and pool.
 
-```
-$ Usage
-```
+
 
 ### **get-x-given-y**
 
@@ -784,9 +702,7 @@ $ Usage
 
 Returns a dx which conforms the weighted equation using dy. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx that corresponds to given dy.&#x20;
 
-```
-$ Usage
-```
+
 
 ### ****
 
@@ -800,9 +716,7 @@ $ Usage
 
 Returns a dy which conforms the weighted equation using dx. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dy that corresponds to given dx.&#x20;
 
-```
-$ Usage
-```
+
 
 ### ****
 
@@ -816,9 +730,7 @@ $ Usage
 
 &#x20;Set the platform fee collector address of given yield token pool. Platform fee gathered on each pool action will be collected to the given address after execution.
 
-```
-$ Usage
-```
+
 
 ### **get-fee-to-address**
 
@@ -830,9 +742,7 @@ $ Usage
 
 &#x20;Get the platform fee collector address which is currently set on the yield token pool.&#x20;
 
-```
-$ Usage
-```
+
 
 ### **get-fees**
 
@@ -844,9 +754,7 @@ $ Usage
 
 &#x20;Get the current platform fee of given yield token pool.
 
-```
-$ Usage
-```
+
 
 ### collect-fees
 
@@ -858,9 +766,7 @@ $ Usage
 
 &#x20;Collect the platform fee from the collector address which is set on the given pool. The balance of each token in collector address will be initialized back to zero.
 
-```
-$ Usage
-```
+
 
 ### get-token-given-position
 
@@ -872,9 +778,7 @@ $ Usage
 
 &#x20;Returns a token which conforms the weighted equation using dx and yield token. This API is used to maintain the pool ratio using the yield token equation and use to get token.
 
-```
-$ Usage
-```
+
 
 ### get-x-given-price
 
@@ -886,9 +790,7 @@ $ Usage
 
 &#x20;Returns a dx which conforms the yield token equation using price. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx that corresponds to given price.&#x20;
 
-```
-$ Usage
-```
+
 
 ### get-position-given-mint
 
@@ -900,9 +802,7 @@ $ Usage
 
 &#x20;Returns a position which conforms the yield token equation using amount of minted token. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx and dy that corresponds to given token mint. Mainly wraps the yield token equation of 'get-position-given-mint' for the easy usage in smart contract.
 
-```
-$ Usage
-```
+
 
 ### get-position-given-burn
 
@@ -914,9 +814,7 @@ $ Usage
 
 &#x20; Returns a position which conforms the yield token equation using amount of burnt token. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx and dy that corresponds to given token burn. Mainly wraps the yield token equation of 'get-position-given-burn' for the easy usage in smart contract.
 
-```
-$ Usage
-```
+
 
 
 
@@ -940,9 +838,7 @@ Liquidity Bootstrapping pool is used for initializing all Yield Token Pools, whi
 
 Get the number of currently existing pools.
 
-```
-$ Usage
-```
+
 
 
 
@@ -958,9 +854,7 @@ $ Usage
 
 Get the list of currently existing pools.
 
-```
-$ Usage
-```
+
 
 
 
@@ -976,9 +870,7 @@ $ Usage
 
 Gets the details of pool which matches the given parameter. Notice that pools are predefined map data structure, using token traits and weights as key and various detailed attributes as values.
 
-```
-$ Usage
-```
+
 
 ### **get-pool-contracts**
 
@@ -992,9 +884,7 @@ $ Usage
 
 Gets the details of pool using pool id. Notice that pools are predefined map data structure, using token traits and weights as key and various detailed attributes as values.
 
-```
-$ Usage
-```
+
 
 
 
@@ -1010,9 +900,7 @@ $ Usage
 
 Gets the parameter corresponding weight through the internal calculation. Weight retrieving formula is implemented inside this API.&#x20;
 
-```
-$ Usage
-```
+
 
 ### **create-pool **
 
@@ -1026,9 +914,7 @@ $ Usage
 
 Creates a pool using the given parameter. Created pool can be reached through the unique id which is allocated through this function. dx and dy is initially added to the created pool.
 
-```
-$ Usage
-```
+
 
 
 
@@ -1042,9 +928,7 @@ $ Usage
 
 Adds Liquidity to the given pool. First retrieve the existing pool with token traits, then add liquidity of x and y to the specified pool. Adding the liquidity to the pool should conform with equation. Liquidity Provider receives ayToken as a reward, which represents the ownership of the liquidity provided pool.&#x20;
 
-```
-$ Usage
-```
+
 
 ### ****
 
@@ -1058,9 +942,7 @@ $ Usage
 
 &#x20;Remove Liquidity from the given pool. First retrieve the existing pool with token traits, then remove liquidity of x and y to the specified pool using the requested user (tx-sender)'s pool token. Removing the liquidity to the pool should conform with equation. Liquidity Provider receives corresponding dx and dy to his own vault while the used pool token is burnt.
 
-```
-$ Usage
-```
+
 
 ### ****
 
@@ -1074,9 +956,7 @@ $ Usage
 
 Allows swapping between the two tokens in a pool. With given dx, find the corresponding amount for swapping to dy using weighted equation. Then conduct swapping by transferring between tx-sender and pool.&#x20;
 
-```
-$ Usage
-```
+
 
 
 
@@ -1090,9 +970,7 @@ $ Usage
 
 Allows swapping between the two tokens in a pool. With given dy, find the corresponding amount for swapping to dx using weighted equation. Then conduct swapping by transferring between tx-sender and pool.&#x20;
 
-```
-$ Usage
-```
+
 
 
 
@@ -1106,9 +984,7 @@ $ Usage
 
 Collects the accrued platform fee. Transaction occurs from pool to designated fee-to-address principal. As a result, platform fees collected in pool (fee-balance) is reseted to zero.
 
-```
-$ Usage
-```
+
 
 ### ****
 
@@ -1122,9 +998,7 @@ $ Usage
 
 Returns a dx which conforms the weighted equation using dy. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx that corresponds to given dy.&#x20;
 
-```
-$ Usage
-```
+
 
 ### ****
 
@@ -1138,9 +1012,7 @@ $ Usage
 
 Returns a dy which conforms the weighted equation using dx. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dy that corresponds to given dx.&#x20;
 
-```
-$ Usage
-```
+
 
 ### ****
 
@@ -1154,9 +1026,7 @@ $ Usage
 
 &#x20;Set the platform fee collector address of given pool. Platform fee gathered on each pool action will be collected to the given address after execution.
 
-```
-$ Usage
-```
+
 
 ### **get-fee-to-address**
 
@@ -1168,9 +1038,7 @@ $ Usage
 
 &#x20;Get the platform fee collector address which is currently set on the given pool.&#x20;
 
-```
-$ Usage
-```
+
 
 ### **get-fees**
 
@@ -1182,9 +1050,7 @@ $ Usage
 
 &#x20;Get the current platform fee of given pool.
 
-```
-$ Usage
-```
+
 
 ### get-token-given-position
 
@@ -1196,9 +1062,7 @@ $ Usage
 
 &#x20;Returns a token which conforms the weighted equation using dx and dy. This API is used to maintain the pool ratio using the equation and use to get token.
 
-```
-$ Usage
-```
+
 
 ### get-x-given-price
 
@@ -1210,9 +1074,7 @@ $ Usage
 
 &#x20;Returns a dx which conforms the weighted equation using price. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx that corresponds to given price.&#x20;
 
-```
-$ Usage
-```
+
 
 ### get-position-given-mint
 
@@ -1224,9 +1086,7 @@ $ Usage
 
 &#x20;Returns a position which conforms the weighted equation using amount of minted token. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx and dy that corresponds to given token mint. Mainly wraps the weighted equation of 'get-position-given-mint' for the easy usage in smart contract.
 
-```
-$ Usage
-```
+
 
 ### get-position-given-burn
 
@@ -1238,8 +1098,6 @@ $ Usage
 
 &#x20; Returns a position which conforms the weighted equation using amount of burnt token. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx and dy that corresponds to given token burn. Mainly wraps the weighted equation of 'get-position-given-burn' for the easy usage in smart contract.
 
-```
-$ Usage
-```
+
 
 &#x20;

@@ -23,9 +23,7 @@ Vault is responsible for managing assets of all ALEX pools. Transaction in all t
 
 Get the balance of `tx-sender` of given token from vault. parameter "token'' should be an implemented token, which returns balance internally using `ft-get-balance`
 
-```
-$ Usage
-```
+
 
 ### **get-balances**
 
@@ -39,9 +37,7 @@ $ Usage
 
 Get the all the list of \(token, value\) object of `tx-sender`
 
-```
-$ Usage
-```
+
 
 ### **flash-loan**
 
@@ -55,7 +51,5 @@ $ Usage
 
 Executes flash loan up to 3 tokens of amounts specified. User can only make 2 token inputs if executing in single pool, while can also make 3 token inputs for executing flash loan two different pools. It first transfers each tokens to user, then execute flash loan by triggering `execute` function. Validating the exact amount of returned loan is followed by execution. For the detailed use cases, check [Flash Loan Protocol](https://docs.alexgo.io/protocol/vault#flash-loan).
 
-```
-$ Usage
-```
+
 

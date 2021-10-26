@@ -76,8 +76,6 @@ Gets the details of pool using pool id. Notice that pools are predefined map dat
 
 Creates a pool using the given parameter. Created pool can be reached through the unique id which is allocated through this function. dx and dy is initially added to the created pool.
 
-
-
 ### **add-to-position**
 
 **Prototype:** `(define-public (add-to-position (token-x-trait) (token-y-trait) (weight-x) (weight-y) (the-pool-token) (the-vault) (dx) (dy))`
@@ -88,12 +86,6 @@ Creates a pool using the given parameter. Created pool can be reached through th
 
 Add Liquidity to the given pool. First retrieve the existing pool with token traits, then add liquidity of x and y to the specified pool. Adding the liquidity to the pool should conform with equation. Liquidity Provider receives pool token as a reward, which represents the ownership of the liquidity provided pool.
 
-```
-$ Usage
-```
-
-### ****
-
 ### **reduce-position**
 
 **Prototype:** `(define-public (reduce-position (token-x-trait) (token-y-trait) (weight-x) (weight-y) (the-pool-token) (the-vault) (percent))`
@@ -103,10 +95,6 @@ $ Usage
 **Output:** `bool | uint`
 
 &#x20;Remove Liquidity from the given pool. First retrieve the existing pool with token traits, then remove liquidity of x and y to the specified pool using the requested user (tx-sender)'s pool token. Removing the liquidity to the pool should conform with equation. Liquidity Provider receives corresponding dx and dy to his own vault while the used pool token is burnt.
-
-```
-$ Usage
-```
 
 ### **get-oracle-resilient**
 
@@ -138,12 +126,6 @@ Returns pool-implied oracle price that is more up-to-date but less resilient to 
 
 Allows swapping between the two tokens in a pool. With given dx, find the corresponding amount for swapping to dy using equation. Then conduct swapping by transferring between tx-sender and pool.
 
-```
-$ Usage
-```
-
-
-
 ### **swap-y-for-x**
 
 **Prototype:**`(define-public (swap-x-for-y (token-x-trait) (token-y-trait) (weight-x) (weight-y) (the-equation) (dy))`
@@ -154,10 +136,6 @@ $ Usage
 
 Allows swapping between the two tokens in a pool. With given dy, find the corresponding amount for swapping to dx using equation. Then conduct swapping by transferring between tx-sender and pool.
 
-```
-$ Usage
-```
-
 ### **get-x-given-y**
 
 **Prototype: **`(define-read-only (get-x-given-y (token-x-trait ) (token-y-trait ) (weight-x ) (weight-y) (dy))`
@@ -167,10 +145,6 @@ $ Usage
 **Output:** `bool | uint`
 
 Returns a dx which conforms the weighted equation using dy. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dy that corresponds to given dx.&#x20;
-
-```
-$ Usage
-```
 
 ### ****
 
@@ -183,10 +157,6 @@ $ Usage
 **Output:** `bool | uint`
 
 Returns a dy which conforms the weighted equation using dx. This API is used to maintain the pool ratio using the equation and use to get an adequate amount of dx that corresponds to given dy.&#x20;
-
-```
-$ Usage
-```
 
 ### ****
 

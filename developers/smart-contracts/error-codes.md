@@ -39,6 +39,7 @@ Pool errors starts with 2000.
 | ERR-PRICE-LOWER-THAN-MIN      | 2021 |  Swap price is lower than specified min  |
 | ERR-PRICE-GREATER-THAN-MAX    | 2022 | Swap price is greater than specified max |
 | ERR-INVALID-POOL-TOKEN        | 2023 |  Provided pool token trait is incorrect  |
+| ERR-AMOUNT-EXCEED-RESERVE     | 2024 |      Transfer amount exceeds reserve     |
 
 ## Vault Error
 

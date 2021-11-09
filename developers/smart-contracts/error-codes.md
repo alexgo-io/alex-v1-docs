@@ -40,6 +40,8 @@ Pool errors starts with 2000.
 | ERR-PRICE-GREATER-THAN-MAX    | 2022 | Swap price is greater than specified max |
 | ERR-INVALID-POOL-TOKEN        | 2023 |  Provided pool token trait is incorrect  |
 | ERR-AMOUNT-EXCEED-RESERVE     | 2024 |      Transfer amount exceeds reserve     |
+| ERR-TOO-MANY-TOKENS           | 2025 |        Too many stake-able tokens        |
+| ERR-INVALID-TOKEN             | 2026 |      Token is not a stake-able token     |
 
 ## Vault Error
 
@@ -96,13 +98,12 @@ Math error starts with 5000.
 
 Token error starts with 6000.
 
-| Error                   | Code |     Description     |
-| ----------------------- | :--: | :-----------------: |
-| get-symbol-fail-err     | 6000 |  get-symbol failed  |
-| get-balance-fail-err    | 6001 |  get-balance failed |
-| ERR-MINT-FAILED         | 6002 |     mint failed     |
-| ERR-BURN-FAILED         | 6003 |     burn failed     |
-| ERR-STX-TRANSFER-FAILED | 6004 | STX transfer failed |
+| Error                | Code |     Description    |
+| -------------------- | :--: | :----------------: |
+| get-symbol-fail-err  | 6000 |  get-symbol failed |
+| get-balance-fail-err | 6001 | get-balance failed |
+| ERR-MINT-FAILED      | 6002 |     mint failed    |
+| ERR-BURN-FAILED      | 6003 |     burn failed    |
 
 ## Oracle Error
 
@@ -126,3 +127,15 @@ Multisig error starts with 8000.
 | invalid-pool-token-err       | 8002 | Voters attempts to vote with wrong pool token                            |
 | block-height-not-reached-err | 8003 | Current block height is not reached for starting / ending the proposal   |
 |                              |      |                                                                          |
+
+## Faucet Error
+
+Faucet error starts with 9000.
+
+| Error                    | Code | Description                              |
+| ------------------------ | ---- | ---------------------------------------- |
+| ERR-EXCEEDS-MAX-USE      | 9000 | User attempted more than max use allowed |
+| ERR-USDA-TRANSFER-FAILED | 9001 | USDA transfer failed                     |
+| ERR-WBTC-TRANSFER-FAILED | 9002 | WBTC transfer failed                     |
+| ERR-STX-TRANSFER-FAILED  | 9003 | STX transfer failed                      |
+| ERR-ALEX-TRANSFER-FAILED | 9004 | ALEX transfer failed                     |

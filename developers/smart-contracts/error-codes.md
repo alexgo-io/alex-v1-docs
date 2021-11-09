@@ -4,10 +4,9 @@
 
 General error starts with 1000.
 
-| Error                      | Code |                Description               |
-| -------------------------- | :--: | :--------------------------------------: |
-| not-authorized-err         | 1000 |            Unauthorised access           |
-| internal-function-call-err | 1001 | function call error in the same contract |
+| Error              | Code |     Description     |
+| ------------------ | :--: | :-----------------: |
+| ERR-NOT-AUTHORIZED | 1000 | Unauthorised access |
 
 ## Pool Error
 

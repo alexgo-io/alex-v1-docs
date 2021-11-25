@@ -95,12 +95,13 @@ Math error starts with 5000.
 
 Token error starts with 6000.
 
-| Error                      | Code |     Description    |
-| -------------------------- | :--: | :----------------: |
-| ERR-GET-SYMBOL-FAIL        | 6000 |  get-symbol failed |
-| ERR-GET-BALANCE-FIXED-FAIL | 6001 | get-balance failed |
-| ERR-MINT-FAILED            | 6002 |     mint failed    |
-| ERR-BURN-FAILED            | 6003 |     burn failed    |
+| Error                      | Code |           Description           |
+| -------------------------- | :--: | :-----------------------------: |
+| ERR-GET-SYMBOL-FAIL        | 6000 |        get-symbol failed        |
+| ERR-GET-BALANCE-FIXED-FAIL | 6001 |        get-balance failed       |
+| ERR-MINT-FAILED            | 6002 |           mint failed           |
+| ERR-BURN-FAILED            | 6003 |           burn failed           |
+| ERR-NO-TOKEN-OWNED         | 6004 | no token owned in semi-fungible |
 
 ## Oracle Error
 

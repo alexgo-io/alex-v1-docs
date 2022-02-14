@@ -9,10 +9,6 @@
 * [Automated Market Making of Collateral Rebalancing Pool](whitepaper/automated-market-making-of-collateral-rebalancing-pool.md)
 * [Dive Into Collateral Rebalancing Pool!](whitepaper/dive-into-collateral-rebalancing-pool.md)
 
-## User Guides
-
-* [Liquidity Mining](user-guides/liquidity-mining.md)
-
 ## Protocol
 
 * [Overview](protocol/platform-architecture-that-supports-ecosystem-development.md)
@@ -20,7 +16,6 @@
 * [Yield Token Pool](protocol/automated-market-making-designed-for-lending-protocols.md)
 * [Liquidity Bootstrapping Pool](protocol/liquidity-bootstrapping-pool.md)
 * [Vault](protocol/vault.md)
-* [Yield Farming on ALEX](protocol/yield-farming-on-alex.md)
 
 ## Developers
 
@@ -33,4 +28,3 @@
     * [Use Case](developers/smart-contracts/diagrams/protocol-use-case.md)
     * [Class Diagram](developers/smart-contracts/diagrams/class-diagram.md)
   * [Error Codes](developers/smart-contracts/error-codes.md)
-

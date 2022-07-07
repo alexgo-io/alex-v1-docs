@@ -1,7 +1,6 @@
 # Table of contents
 
 * [What is ALEX?](README.md)
-* [Lending and Borrowing at fixed yield with no risk of liquidation](lending-protocol-with-fixed-yield-and-no-risk-of-liquidation.md)
 
 ## Whitepaper
 

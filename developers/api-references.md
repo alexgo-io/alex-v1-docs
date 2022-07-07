@@ -1,5 +1,9 @@
 # API References
 
+The following endpoints are available at [https://api.alexlab.co/](https://api.alexlab.co/).
+
+Documentation is also available in json format at [https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json).
+
 {% swagger src="https://api.alexlab.co/swagger-api.json" path="undefined" method="undefined" %}
 [https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
 {% endswagger %}

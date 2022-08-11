@@ -4,6 +4,7 @@ The following endpoints are available at [https://api.alexlab.co/](https://api.a
 
 Documentation is also available in json format at [https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json).
 
+### General 
 
 {% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/pool_stats/{pool_token}" method="get" %}
 [https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)

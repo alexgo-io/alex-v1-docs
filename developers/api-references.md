@@ -76,4 +76,6 @@ Documentation is also available in json format at [https://api.alexlab.co/swagge
 [https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
 {% endswagger %}
 
-
+{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/orderbook/{ticker_id}" method="get" %}
+[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
+{% endswagger %}

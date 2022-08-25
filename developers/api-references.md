@@ -4,9 +4,11 @@ The following endpoints are available at [https://api.alexlab.co/](https://api.a
 
 Documentation is also available in json format at [https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json).
 
-### General 
+### General
 
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/pool_stats/{pool_token}" method="get" %}
+
+
+{% swagger src="https://api.alexlab.co/swagger-api.json" path="undefined" method="undefined" %}
 [https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
 {% endswagger %}
 
@@ -64,18 +66,138 @@ Documentation is also available in json format at [https://api.alexlab.co/swagge
 
 ### DEX
 
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/pairs" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
+{% swagger method="get" path="" baseUrl="https://api.alexlab.co/v1/pairs" summary="" %}
+{% swagger-description %}
+Returns all existing pairs
+{% endswagger-description %}
+
+{% swagger-response status="200: OK" description="Succesfully returning all existing pairs" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
 {% endswagger %}
 
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/tickers" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
+{% swagger method="get" path="" baseUrl="https://api.alexlab.co/v1/tickers" summary="" %}
+{% swagger-description %}
+Returns all markets statistics for the last 24 hours
+{% endswagger-description %}
+
+{% swagger-response status="200: OK" description="uccesfully returning all markets statistics for the last 24 hours" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
 {% endswagger %}
 
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/historical_swaps/{ticker}" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
+{% swagger method="get" path="" baseUrl="https://api.alexlab.co/v1/historical_swaps" summary="" %}
+{% swagger-description %}
+Returns all existing historical trades
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="ticker" required="true" %}
+ticker with delimiter between different cryptoassets eg. ALEX_WSLM
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="limit" type="Int" %}
+Specifies number of recent block heights to be returned, default value is 1000
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Succesfully returning all historical trades of certain ticker" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
 {% endswagger %}
 
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/orderbook/{ticker_id}" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
+{% swagger method="get" path="" baseUrl="https://api.alexlab.co/v1/orderbook" summary="" %}
+{% swagger-description %}
+Returns orderbook information
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="ticker_id" required="true" %}
+ticker with delimiter between different cryptoassets eg. ALEX_WSLM
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="depth" required="true" type="Int" %}
+specifies value of depth on either side of bid/ask
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Return orderbook information of queried ticker" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
 {% endswagger %}

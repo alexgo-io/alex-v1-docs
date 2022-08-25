@@ -2,7 +2,7 @@
 
 ## Abstract
 
-ALEX aims to provide a fixed rate borrowing and lending service with pre-determined maturity in the world of decentralised finance \(DeFi\). We include forward contracts in our trading pool, with Automated Market Making \(AMM\) engine in association with generalised mean. While we formalise the trading practise swapping forward contracts with underlying asset, we incorporate the latest innovation in the industry - concentrated liquidity. Consequently, liquidity provider of ALEX can save decent amount of capital by making markets on a selected range of interest rate.
+ALEX aims to provide a fixed rate borrowing and lending service with pre-determined maturity in the world of decentralised finance (DeFi). We include forward contracts in our trading pool, with Automated Market Making (AMM) engine in association with generalised mean. While we formalise the trading practise swapping forward contracts with underlying asset, we incorporate the latest innovation in the industry - concentrated liquidity. Consequently, liquidity provider of ALEX can save decent amount of capital by making markets on a selected range of interest rate.
 
 ## Introduction
 
@@ -16,7 +16,7 @@ This paper focuses on technical aspects of AMM and is the first of a series of A
 
 ## AMM and Invariant Function
 
-ALEX AMM is built on three beliefs: \(i\) it is mathematically neat and reflect economic demand and supply; \(ii\) it is a type of mean, like other AMMs; and \(iii\) it is derived and can be interpreted in terms of yield and is somehow related to conventional finance, where research has been conducted for decades.
+ALEX AMM is built on three beliefs: (i) it is mathematically neat and reflect economic demand and supply; (ii) it is a type of mean, like other AMMs; and (iii) it is derived and can be interpreted in terms of yield and is somehow related to conventional finance, where research has been conducted for decades.
 
 We will firstly review some desirable features of AMM that ALEX hopes to exhibit.
 
@@ -27,7 +27,7 @@ AMM protocol, which provides liquidity algorithmically, is the core engine of De
 * monotonically decreasing, i.e. $$\frac{dg(x_1)}{dx_1}<0$$. This is because price is often defined as $$-\frac{dg(x_1)}{dx_1}$$. A decreasing function ensures price to be positive.
 * convex, i.e. $$\frac{d^2g(x_1)}{dx_1^2} \geq 0$$. This is equivalent to say that $$-\frac{dg(x_1)}{dx_1}$$ is a non-increasing function of $$x_1$$. It is within the expectation of economic theory of demand and supply, as more reserve of $$x_1$$ means declining price.
 
-Meanwhile, $$f$$ can usually be interpreted as a form of mean, for example, [mStable](https://docs.mstable.org) relates to arithmetic mean, where $$x_1+x_2=L$$ \(constant sum formula\); one of the most popular platforms [Uniswap](https://uniswap.org/whitepaper-v3.pdf) relates to geometric mean, where $$x_1 x_2=L$$ \(constant product formula\); [Balancer](https://balancer.fi/whitepaper.pdf), which our collateral rebalancing pool employs, applies weighted geometric mean. Its AMM is $$x_1^{w_1} x_2^{w_2}=L$$ where $$w_1$$ and $$w_2$$ are fixed weights. However, none of these three protocols consider time to maturity, which is essential in modern interest rate theory.
+Meanwhile, $$f$$ can usually be interpreted as a form of mean, for example, [mStable](https://docs.mstable.org) relates to arithmetic mean, where $$x_1+x_2=L$$ (constant sum formula); one of the most popular platforms [Uniswap](https://uniswap.org/whitepaper-v3.pdf) relates to geometric mean, where $$x_1 x_2=L$$ (constant product formula); [Balancer](https://balancer.fi/whitepaper.pdf), which our collateral rebalancing pool employs, applies weighted geometric mean. Its AMM is $$x_1^{w_1} x_2^{w_2}=L$$ where $$w_1$$ and $$w_2$$ are fixed weights. However, none of these three protocols consider time to maturity, which is essential in modern interest rate theory.
 
 ### ALEX AMM
 
@@ -39,13 +39,13 @@ $$
 
 where $$0 \leq p \leq 1$$. The expression might remind readers of $$p$$-norm when $$x_i \geq 0$$. It is however not true when $$p<1$$ as triangle inequality doesn't hold.
 
-When $$d=2$$ and $$p$$ is fixed, the core component of generalised mean is assumed constant as below. 
+When $$d=2$$ and $$p$$ is fixed, the core component of generalised mean is assumed constant as below.
 
 $$
 x_1^p+x_2^p=L
 $$
 
-This equation is regarded reasonable as AMM, because \(i\) function $$g$$ where $$x_2=g(x_1)$$ is monotonically decreasing and convex; and \(ii\) The boundary value of $$p=1$$ and $$p=0$$ corresponds to constant sum and constant product formula respectively. When $$p$$ increases from 0 to 1, price $$-\frac{dg(x_1)}{x_1}$$ gradually converges to 1. This is what ALEX hopes to achieve when forward becomes spot. This also means that $$p$$ is somehow related to time to maturity. Please refer to [Appendix 1](automated-market-making-of-alex.md#appendix-1-generalised-mean-when-d-2) for a detailed discussion.
+This equation is regarded reasonable as AMM, because (i) function $$g$$ where $$x_2=g(x_1)$$ is monotonically decreasing and convex; and (ii) The boundary value of $$p=1$$ and $$p=0$$ corresponds to constant sum and constant product formula respectively. When $$p$$ increases from 0 to 1, price $$-\frac{dg(x_1)}{x_1}$$ gradually converges to 1. This is what ALEX hopes to achieve when forward becomes spot. This also means that $$p$$ is somehow related to time to maturity. Please refer to [Appendix 1](automated-market-making-of-alex.md#appendix-1-generalised-mean-when-d-2) for a detailed discussion.
 
 In the benchmark research piece by [Yield Space](https://yield.is/YieldSpace.pdf), the invariant function above is formalised from the perspective of zero coupon bond. $$p$$ is replaced by $$1-t$$ where $$t$$ is time to maturity and $$L$$ is a function of $$t$$, so that
 
@@ -59,8 +59,6 @@ $$
 -\frac{dx_2}{dx_1}=\left(\frac{x_2}{x_1} \right)^t
 $$
 
-
-
 In the rest of the paper, to be consistent with [Yield Space](https://yield.is/YieldSpace.pdf), we employ notations below
 
 * $$x$$ : balance of the underlying Token
@@ -71,7 +69,7 @@ $$
 r=log \left( \frac{y}{x} \right)
 $$
 
-* $$p$$ : price of Token in terms of ayToken. The commonly quoted ayToken price is the inverse, i.e. $$\frac{1}{p}$$ 
+* $$p$$ : price of Token in terms of ayToken. The commonly quoted ayToken price is the inverse, i.e. $$\frac{1}{p}$$
 
 $$
 p=\left(\frac{y}{x} \right)^t=e^{rt}
@@ -101,13 +99,10 @@ $$
 \Delta y=y-\left[x^{1-t}+y^{1-t}-(x+\Delta x)^{1-t}\right]^{\frac{1}{1-t}}
 $$
 
-When transaction cost exists, the actual deposit to the pool is less than $$\Delta x$$. Assuming $$\lambda\Delta x$$ is the actual amount and $$(1-\lambda)\Delta x$$ is the fee, above can now be expressed as 
+When transaction cost exists, the actual deposit to the pool is less than $$\Delta x$$. Assuming $$\lambda\Delta x$$ is the actual amount and $$(1-\lambda)\Delta x$$ is the fee, above can now be expressed as
 
 $$
-\begin{split}
-&(x+\lambda\Delta x)^{1-t}+(y-\Delta y)^{1-t}=x^{1-t}+y^{1-t}\\
-&\Delta y=y-\left[x^{1-t}+y^{1-t}-(x+\lambda\Delta x)^{1-t}\right]^{\frac{1}{1-t}} 
-\end{split}
+\begin{split} &(x+\lambda\Delta x)^{1-t}+(y-\Delta y)^{1-t}=x^{1-t}+y^{1-t}\\ &\Delta y=y-\left[x^{1-t}+y^{1-t}-(x+\lambda\Delta x)^{1-t}\right]^{\frac{1}{1-t}} \end{split}
 $$
 
 To keep $$L$$ constant, the updated balance is: $$x\rightarrow x+\lambda\Delta x$$ and $$y\rightarrow y-\Delta y$$.
@@ -128,20 +123,13 @@ $$
 p'=\left(\frac{y-\Delta y}{x+\lambda\Delta x}\right)^{t}
 $$
 
-Then, the added amount of $$\Delta x$$ can be calculated from the formula below 
+Then, the added amount of $$\Delta x$$ can be calculated from the formula below
 
 $$
-\begin{split}
-&(x+\lambda\Delta x)^{1-t}+(y-\Delta y)^{1-t}=x^{1-t}+y^{1-t}\\
-&1+\left(\frac{y}{x}\right)^{1-t}=\left(1+\lambda\frac{\Delta x}{x}\right)^{1-t}+(\frac{y-\Delta y}{x})^{1-t}\\
-&1+p^{\frac{1-t}{t}}=\left(1+\lambda\frac{\Delta x}{x}\right)^{1-t}+p'^{\frac{1-t}{t}}\left(1+\lambda\frac{\Delta x}{x}\right)^{1-t}\\
-&\Delta x=\frac{x}{\lambda}\left[\left(\frac{1+p^{\frac{1-t}{t}}}{1+p'^{\frac{1-t}{t}}}\right)^{\frac{1}{1-t}}-1\right]\\
-\end{split}
+\begin{split} &(x+\lambda\Delta x)^{1-t}+(y-\Delta y)^{1-t}=x^{1-t}+y^{1-t}\\ &1+\left(\frac{y}{x}\right)^{1-t}=\left(1+\lambda\frac{\Delta x}{x}\right)^{1-t}+(\frac{y-\Delta y}{x})^{1-t}\\ &1+p^{\frac{1-t}{t}}=\left(1+\lambda\frac{\Delta x}{x}\right)^{1-t}+p'^{\frac{1-t}{t}}\left(1+\lambda\frac{\Delta x}{x}\right)^{1-t}\\ &\Delta x=\frac{x}{\lambda}\left[\left(\frac{1+p^{\frac{1-t}{t}}}{1+p'^{\frac{1-t}{t}}}\right)^{\frac{1}{1-t}}-1\right]\\ \end{split}
 $$
 
-
-
-Denote $$r$$ and $$r'$$ the current and trader's target interest rate respectively. Because $$p=e^{rt}$$ and $$p'=e^{r't}$$, the above equation can also be rewritten as 
+Denote $$r$$ and $$r'$$ the current and trader's target interest rate respectively. Because $$p=e^{rt}$$ and $$p'=e^{r't}$$, the above equation can also be rewritten as
 
 $$
 \Delta x=\frac{x}{\lambda}\left[\left(\frac{1+e^{r(1-t)}}{1+e^{r'(1-t)}}\right)^{\frac{1}{1-t}}-1\right]
@@ -163,19 +151,19 @@ $$
 e^{r_b}=\frac{\Delta y}{\Delta x}
 $$
 
-$$\Delta r_b=r_m-r_b$$ is then the fee charged to the purchaser in the yield space, 
+$$\Delta r_b=r_m-r_b$$ is then the fee charged to the purchaser in the yield space,
 
 $$
 e^{\Delta r_b}=\frac{1}{\lambda}
 $$
 
-Hence, $$\lambda$$ can be expressed as a function of $$\Delta r_b$$ 
+Hence, $$\lambda$$ can be expressed as a function of $$\Delta r_b$$
 
 $$
 \lambda=e^{-\Delta r_b}
 $$
 
-Actual fee is  $$1- \lambda=1-e^{-\Delta r_b} \approx \Delta r_b$$ using Taylor expansion to the first order. Thus $$\lambda  \approx 1-\Delta r_b$$ .
+Actual fee is $$1- \lambda=1-e^{-\Delta r_b} \approx \Delta r_b$$ using Taylor expansion to the first order. Thus $$\lambda \approx 1-\Delta r_b$$ .
 
 It can be shown that the above equality also holds when redeeming ayToken for Token, except $$\Delta r_b$$ replaced by $$\Delta r_o=r_o-r_m$$, where $$e^{r_m}=\frac{\lambda\Delta y}{\Delta x}$$ and $$e^{r_o}=\frac{\Delta y}{\Delta x}$$. Here, $$r_o$$ is the offer rate when selling ayToken and $$\Delta r_o$$ is the corresponding fee charged to the seller in the yield space.
 
@@ -195,7 +183,7 @@ $$
 x^{1-t}+(y+y_{v})^{1-t}=L
 $$
 
-Figure 1 illustrates the example above of $$t$$= 0.5 and $$L$$= 20 by displaying two sets of curves: Invariant Function Curve \(“IFC"\) satisfying $$x^{1-t}+y^{1-t}=L$$ and Capital Efficiency Curve \(“CEC"\) satisfying $$x^{1-t}+(y+y_v)^{1-t}=L$$. Intuitively CEC is attained by lowering IFC by $$y_v$$= 100.
+Figure 1 illustrates the example above of $$t$$= 0.5 and $$L$$= 20 by displaying two sets of curves: Invariant Function Curve (“IFC") satisfying $$x^{1-t}+y^{1-t}=L$$ and Capital Efficiency Curve (“CEC") satisfying $$x^{1-t}+(y+y_v)^{1-t}=L$$. Intuitively CEC is attained by lowering IFC by $$y_v$$= 100.
 
 ![Figure 1](../.gitbook/assets/cecjing.png)
 
@@ -214,19 +202,13 @@ Before liquidity expansion or reduction by minting or burning coins, assume that
 Minting and burning should not affect price and interest rate. This means that newly added or withdrawn coins would be in proportion to x and y. Denote new amount of Token and ayToken as $$x'=kx$$ and $$y'=ky$$ respectively. $$y'=y'_a+y'_v$$ where $$y'_a$$ is actual whereas $$y'_v$$ virtual. They satisfy the following
 
 $$
-\begin{split}
-&y'_a+y'_v=ky\\
-&2y'^{1-t}_v=k^{1-t}L
-\end{split}
+\begin{split} &y'_a+y'_v=ky\\ &2y'^{1-t}_v=k^{1-t}L \end{split}
 $$
 
 Solution to the above equations is
 
 $$
-\begin{split}
-&y'_{a}=ky-y'_{v}\\y'_{v}
-&=\left(\frac{1}{2}L\right)^{\frac{1}{1-t}}k
-\end{split}
+\begin{split} &y'_{a}=ky-y'_{v}\\y'_{v} &=\left(\frac{1}{2}L\right)^{\frac{1}{1-t}}k \end{split}
 $$
 
 This means $$y'_v=ky_v$$ and $$y'_a=ky_a$$.
@@ -235,32 +217,26 @@ This means $$y'_v=ky_v$$ and $$y'_a=ky_a$$.
 
 Assume $$t$$= 0.5. Rachel initialises a liquidity pool of 0% interest rate with 100 Token on CEC. Although there is no actual ayToken, 0% rate implies 100 virtual tokens and $$L$$= 20 on IFC.
 
-Suppose Rachel then sells 50 ayToken to the pool on the same day. On IFC, this means ayToken amount of 150 \(50 actual and 100 virtual\) and the amount of 60.10 Token remaining on IFC.
+Suppose Rachel then sells 50 ayToken to the pool on the same day. On IFC, this means ayToken amount of 150 (50 actual and 100 virtual) and the amount of 60.10 Token remaining on IFC.
 
-Now suppose Billy wants to mint 10% of the liquidity pool. This means that Billy needs to deposit 6.01 \(10% of 60.10\) Token. Virtual balance is updated to $$\left(\frac{1}{2}\times20\right)^{\frac{1}{0.5}}\times1.1=110$$. Billy needs to deposit 5 ayToken \($$1.1\times150-110-50$$\), so that the summation of actual and virtual ayToken is 165. Interest rate remains the same before and after Billy's participation. Note that both actual and virtual ayToken balance increase by 10%, which is the same proportion as the growth of liquidity pool.
+Now suppose Billy wants to mint 10% of the liquidity pool. This means that Billy needs to deposit 6.01 (10% of 60.10) Token. Virtual balance is updated to $$\left(\frac{1}{2}\times20\right)^{\frac{1}{0.5}}\times1.1=110$$. Billy needs to deposit 5 ayToken ($$1.1\times150-110-50$$), so that the summation of actual and virtual ayToken is 165. Interest rate remains the same before and after Billy's participation. Note that both actual and virtual ayToken balance increase by 10%, which is the same proportion as the growth of liquidity pool.
 
 ### Range-bound Pool
 
-The above section can be extended to any constraint pool with upper interest rate $$r_{u}$$ and lower interest rate $$r_{l}$$. If interest rate falls out of \[$$r_{l} $$,$$r_{u}$$\], swapping would be suspended as one of the tokens would have been depleted.
+The above section can be extended to any constraint pool with upper interest rate $$r_{u}$$ and lower interest rate $$r_{l}$$. If interest rate falls out of \[$$r_{l}$$,$$r_{u}$$], swapping would be suspended as one of the tokens would have been depleted.
 
 Denote $$x_{a}$$, $$x_{v}$$, $$y_{a}$$ and $$y_{v}$$ balance of actual Token, virtual Token, actual ayToken and virtual ayToken respectively. They satisfy invariant function on IFC, i.e. $$(x{a}+x{v})^{1-t}+(y{a}+y{v})^{1-t}=L$$.
 
 The amount of Token an ayToken can be expressed as a function of L and current interest rate $$r_{c}=\frac{y_{a}+y_{v}}{x_{a}+x_{v}}$$.
 
 $$
-\begin{split}
-&x_{a}+x_{v}&=\left[\frac{L}{1+e^{(1-t)r_{c}}}\right]^{\frac{1}{1-t}}\\
-&y_{a}+y_{v}&=\left[\frac{L}{1+e^{-(1-t)r_{c}}}\right]^{\frac{1}{1-t}}
-\end{split}
+\begin{split} &x_{a}+x_{v}&=\left[\frac{L}{1+e^{(1-t)r_{c}}}\right]^{\frac{1}{1-t}}\\ &y_{a}+y_{v}&=\left[\frac{L}{1+e^{-(1-t)r_{c}}}\right]^{\frac{1}{1-t}} \end{split}
 $$
 
 Intuitively, when $$r_{c}=r_{l}$$, ayToken is depleted; Similarly, when $$r_{c}=r_{u}$$, Token is used up. Therefore,
 
 $$
-\begin{split}
-&x_{v}=\left[\frac{L}{1+e^{(1-t)r_{u}}}\right]^{\frac{1}{1-t}}\\
-&y_{v}=\left[\frac{L}{1+e^{-(1-t)r_{l}}}\right]^{\frac{1}{1-t}}
-\end{split}
+\begin{split} &x_{v}=\left[\frac{L}{1+e^{(1-t)r_{u}}}\right]^{\frac{1}{1-t}}\\ &y_{v}=\left[\frac{L}{1+e^{-(1-t)r_{l}}}\right]^{\frac{1}{1-t}} \end{split}
 $$
 
 See [Appendix 3](automated-market-making-of-alex.md#appendix-3-derivation-of-actual-and-virtual-token-reserve) for a detailed derivation of virtual, as well as actual token reserve.
@@ -271,7 +247,7 @@ Similar to the case of 0% floor, minting or burning coins would result in invari
 
 We aim to show here how virtual token is able to assist liquidity providers to efficiently manage capital.
 
-![Figure 2](../.gitbook/assets/cectable2.png)
+![Figure 2](<../.gitbook/assets/cectable2 (1).png>)
 
 In Figure 2, assume lower bound is 0%, whereas upper bound is 50%. We also set $$t$$= 0.5 and $$L$$= 20. If interest rate is 0%, $$L$$= 20 means holding equal amount of Token and ayToken of 100 each $$\left(100^{0.5}+100^{0.5}=20\right)$$. The figure compares actual holding of Token and ayToken with and without cap and floor.
 
@@ -290,11 +266,7 @@ When $$0<p<1$$, $$g\left(x_{1}\right)$$ is monotonically decreasing and convex.
 This is equivalent to prove $$\frac{dg(x_{1})}{dx_{1}}<0$$ and $$\frac{d^{2}g(x_{1})}{dx_{1}^{2}}\geq0$$.
 
 $$
-\begin{split}
-&\frac{dg(x_{1})}{dx_{1}}=\frac{1}{p}(L-x_{1}^{p})^{\frac{1}{p}-1}\left(-px_{1}^{p-1}\right)=-\left(\frac{L-x_{1}^{p}}{x_{1}^{p}}\right)^{\frac{1-p}{p}}<0\\
-&\frac{d^{2}g(x_{1})}{dx_{1}^{2}}=-\frac{1-p}{p}\left(\frac{L-x_{1}^{p}}{x_{1}^{p}}\right)^{\frac{1-2p}{p}}\left[\frac{-px_{1}^{p-1}x_{1}^{p}-(L-x_{1}^{p})px^{p-1}}{x_{1}^{2}p}\right]\\
-&=L(1-p)\left(\frac{x_{2}}{x_{1}}\right)^{1-2p}x_{1}^{-p-1}\geq0
-\end{split}
+\begin{split} &\frac{dg(x_{1})}{dx_{1}}=\frac{1}{p}(L-x_{1}^{p})^{\frac{1}{p}-1}\left(-px_{1}^{p-1}\right)=-\left(\frac{L-x_{1}^{p}}{x_{1}^{p}}\right)^{\frac{1-p}{p}}<0\\ &\frac{d^{2}g(x_{1})}{dx_{1}^{2}}=-\frac{1-p}{p}\left(\frac{L-x_{1}^{p}}{x_{1}^{p}}\right)^{\frac{1-2p}{p}}\left[\frac{-px_{1}^{p-1}x_{1}^{p}-(L-x_{1}^{p})px^{p-1}}{x_{1}^{2}p}\right]\\ &=L(1-p)\left(\frac{x_{2}}{x_{1}}\right)^{1-2p}x_{1}^{-p-1}\geq0 \end{split}
 $$
 
 The last inequality holds because each component is positive.
@@ -333,7 +305,7 @@ Proof of the corollary is trivial, as it is a direct application of the theorem.
 
 ## Appendix 2: Liquidity Mapping to Uniswap v3
 
-As Uniswap v3 is able to simulate liquidity curve of any AMM, we are interested in exploring the connection between ALEX's AMM and that of _Uniswap_'s. Interesting questions include: what is the shape of the liquidity distribution? Which point\(s\) has the highest liquidity? We acknowledge that the section is more of a theoretical study for now.
+As Uniswap v3 is able to simulate liquidity curve of any AMM, we are interested in exploring the connection between ALEX's AMM and that of _Uniswap_'s. Interesting questions include: what is the shape of the liquidity distribution? Which point(s) has the highest liquidity? We acknowledge that the section is more of a theoretical study for now.
 
 _Uniswap V3_ AMM can be expressed as a function of invariant constant $$L$$ with respect to price $$p$$, $$L_{\text{Uniswap}}=\frac{dy}{d\sqrt{p}}$$. In terms of ALEX, as price p=e^{rt}, where $$r$$ is the implied interest rate, we have
 
@@ -350,44 +322,30 @@ $$
 Therefore
 
 $$
-\begin{split}
-&\frac{dy}{dr}=L^{\frac{1}{1-t}}\frac{e^{-(1-t)r}}{(1+e^{-(1-t)r})^{\frac{2-t}{1-t}}}\\
-&L_{\text{Uniswap}}=\frac{2}{t}L^{\frac{1}{1-t}}\left(e^{\frac{r(1-t)}{2}}+e^{\frac{-r(1-t)}{2}}\right)^{\frac{-2+t}{1-t}}\\
-&=\frac{2}{t}L^{\frac{1}{1-t}}\big\{2\cosh\left[\frac{r(1-t)}{2}\right]\big\}^{\frac{-2+t}{1-t}}
-\end{split}
+\begin{split} &\frac{dy}{dr}=L^{\frac{1}{1-t}}\frac{e^{-(1-t)r}}{(1+e^{-(1-t)r})^{\frac{2-t}{1-t}}}\\ &L_{\text{Uniswap}}=\frac{2}{t}L^{\frac{1}{1-t}}\left(e^{\frac{r(1-t)}{2}}+e^{\frac{-r(1-t)}{2}}\right)^{\frac{-2+t}{1-t}}\\ &=\frac{2}{t}L^{\frac{1}{1-t}}\big\{2\cosh\left[\frac{r(1-t)}{2}\right]\big\}^{\frac{-2+t}{1-t}} \end{split}
 $$
 
-![Figure 3](../.gitbook/assets/liquidity%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
+![Figure 3](<../.gitbook/assets/liquidity (2) (2) (2) (2) (2) (2) (2) (1) (1).png>)
 
 Figure 3 plots $$L_{\text{Uniswap}}$$ against interest rate $$r$$ regarding various levels of $$t$$. When $$0<t<1$$, $$L_{\text{Uniswap}}$$ is symmetric around 0% at which the maximum reaches . This is because
 
-1. $$\cosh\left[(\frac{r(1-t)}{2})\right]$$ is symmetric around $$r$$= 0% with minimum at 0% and the minimum value 1; 
-2. $$x^z$$ is a decreasing function of $$x$$ when $$x$$ is positive and power $$z$$ is negative. In our case, we have $$z=-2+t1-t<-1$$. Therefore, it is the maximum rather than minimum that $$L_{\text{Uniswap}}$$ achieves at 0. 
+1. $$\cosh\left[(\frac{r(1-t)}{2})\right]$$ is symmetric around $$r$$= 0% with minimum at 0% and the minimum value 1;
+2. $$x^z$$ is a decreasing function of $$x$$ when $$x$$ is positive and power $$z$$ is negative. In our case, we have $$z=-2+t1-t<-1$$. Therefore, it is the maximum rather than minimum that $$L_{\text{Uniswap}}$$ achieves at 0.
 
 Furthermore, the higher the $$t$$, the flatter the liquidity distribution is. When $$t$$ approaches 1, i.e. AMM converges to the constant product formula, the liquidity distribution is close to a flat line. When $$t$$ approaches 0, the distribution concentrates around 0%. This makes sense, as forward price starts to converge to spot price upon expiration.
 
 ## Appendix 3: Derivation of Actual and Virtual Token Reserve
 
-On CEC, there are two boundary points \($$x_{b}$$,0\) and \(0,$$y_{b}$$\) corresponding to the lower and upper bound of interest rate $$r_{l}$$ and $$r_{u}$$ respectively. We assume $$L$$ is pre-determined, as liquidity provider knows the pool size. We aim to find $$x_{b}$$, $$y_{b}$$, $$x_{v}$$ and $$y_{v}$$ which satisfy the following equations
+On CEC, there are two boundary points ($$x_{b}$$,0) and (0,$$y_{b}$$) corresponding to the lower and upper bound of interest rate $$r_{l}$$ and $$r_{u}$$ respectively. We assume $$L$$ is pre-determined, as liquidity provider knows the pool size. We aim to find $$x_{b}$$, $$y_{b}$$, $$x_{v}$$ and $$y_{v}$$ which satisfy the following equations
 
 $$
-\begin{split}
-&(x_{b}+x_{v})^{1-t}+y_{v}^{1-t}=L\\
-&x_{v}^{1-t}+(y_{b}+y_{v})^{1-t}=L\\
-&\frac{y_{v}}{x_{b}+x_{v}}=e^{r_{l}}\\
-&\frac{y_{b}+y_{v}}{x_{v}}=e^{r_{u}}
-\end{split}
+\begin{split} &(x_{b}+x_{v})^{1-t}+y_{v}^{1-t}=L\\ &x_{v}^{1-t}+(y_{b}+y_{v})^{1-t}=L\\ &\frac{y_{v}}{x_{b}+x_{v}}=e^{r_{l}}\\ &\frac{y_{b}+y_{v}}{x_{v}}=e^{r_{u}} \end{split}
 $$
 
 As there are four unknown variables with four equations, solutions can be expressed as below
 
 $$
-\begin{split}
-&x_{v}=\left[\frac{L}{1+e^{(1-t)r_{u}}}\right]^{\frac{1}{1-t}}\\
-&y_{v}=\left[\frac{L}{1+e^{-(1-t)r_{l}}}\right]^{\frac{1}{1-t}}\\
-&x_{b}=y_{v}e^{-r_{l}}-x_{v}=\left[\frac{L}{1+e^{r_{l}(1-t)}}\right]^{\frac{1}{1-t}}-\left[\frac{L}{1+e^{r_{u}(1-t)}}\right]^{\frac{1}{1-t}}\\
-&y_{b}=x_{v}e^{r_{u}}-y_{v}=\left[\frac{L}{1+e^{-r_{u}(1-t)}}\right]^{\frac{1}{1-t}}-\left[\frac{L}{1+e^{-r_{l}(1-t)}}\right]^{\frac{1}{1-t}}
-\end{split}
+\begin{split} &x_{v}=\left[\frac{L}{1+e^{(1-t)r_{u}}}\right]^{\frac{1}{1-t}}\\ &y_{v}=\left[\frac{L}{1+e^{-(1-t)r_{l}}}\right]^{\frac{1}{1-t}}\\ &x_{b}=y_{v}e^{-r_{l}}-x_{v}=\left[\frac{L}{1+e^{r_{l}(1-t)}}\right]^{\frac{1}{1-t}}-\left[\frac{L}{1+e^{r_{u}(1-t)}}\right]^{\frac{1}{1-t}}\\ &y_{b}=x_{v}e^{r_{u}}-y_{v}=\left[\frac{L}{1+e^{-r_{u}(1-t)}}\right]^{\frac{1}{1-t}}-\left[\frac{L}{1+e^{-r_{l}(1-t)}}\right]^{\frac{1}{1-t}} \end{split}
 $$
 
 When $$r_{l}=0$$, the pool is floored at 0%. This means that $$x_{v}=0$$, $$y_{v}=\left(\frac{1}{2}L\right)^{\frac{1}{1-t}}$$, $$x_{b}=y_{v}$$.
@@ -395,20 +353,13 @@ When $$r_{l}=0$$, the pool is floored at 0%. This means that $$x_{v}=0$$, $$y_{v
 When the current interest rate $$r_{c}$$ is known and $$r_{c}\in[r_{l},r_{u}]$$, we can calculate $$x_{a}$$ and $$y_{a}$$ satisfying the following equations. When $$r_{c} \notin[r_{l},r_{u}]$$, only one token exists and swapping activities are suspended.
 
 $$
-\begin{split}
-&(x_{v}+x_{a})^{1-t}+(y_{v}+y_{a})^{1-t}=L\\
-&\frac{y_{v}+y_{a}}{x_{v}+x_{a}}=e^{r_{c}}
-\end{split}
+\begin{split} &(x_{v}+x_{a})^{1-t}+(y_{v}+y_{a})^{1-t}=L\\ &\frac{y_{v}+y_{a}}{x_{v}+x_{a}}=e^{r_{c}} \end{split}
 $$
 
 Solution to above is
 
 $$
-\begin{split}
-&x_{a}=\left[\frac{L}{1+e^{r_{c}(1-t)}}\right]^{\frac{1}{1-t}}-x_{v}=\left[\frac{L}{1+e^{r_{c}(1-t)}}\right]^{\frac{1}{1-t}}-\left[\frac{L}{1+e^{r_{u}(1-t)}}\right]^{\frac{1}{1-t}}\\
-&y_{a}=\left[\frac{L}{1+e^{-r_{c}(1-t)}}\right]^{\frac{1}{1-t}}-y_{v}=\left[\frac{L}{1+e^{-r_{c}(1-t)}}\right]^{\frac{1}{1-t}}-\left[\frac{L}{1+e^{-r_{l}(1-t)}}\right]^{\frac{1}{1-t}}
-\end{split}
+\begin{split} &x_{a}=\left[\frac{L}{1+e^{r_{c}(1-t)}}\right]^{\frac{1}{1-t}}-x_{v}=\left[\frac{L}{1+e^{r_{c}(1-t)}}\right]^{\frac{1}{1-t}}-\left[\frac{L}{1+e^{r_{u}(1-t)}}\right]^{\frac{1}{1-t}}\\ &y_{a}=\left[\frac{L}{1+e^{-r_{c}(1-t)}}\right]^{\frac{1}{1-t}}-y_{v}=\left[\frac{L}{1+e^{-r_{c}(1-t)}}\right]^{\frac{1}{1-t}}-\left[\frac{L}{1+e^{-r_{l}(1-t)}}\right]^{\frac{1}{1-t}} \end{split}
 $$
 
 At the boundary points, when $$r_{c}=r_{l}$$, $$x_{a}=x_{b}$$ and $$y_{a}=0$$; when $$r_{c}=r_{u}$$, $$x_{a}=0$$ and $$y_{a}=y_{b}$$.
-

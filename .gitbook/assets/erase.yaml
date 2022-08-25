@@ -1,0 +1,505 @@
+---
+openapi: 3.0.0
+paths:
+  "/v1/allswaps":
+    get:
+      operationId: PoolController_getAllSwaps
+      summary: Returns all existing swaps with status
+      parameters: []
+      responses:
+        '200':
+          description: Succesfully returning all existing swaps
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - pool
+  "/v1/pool_stats/{pool_token}":
+    get:
+      operationId: PoolController_getPriceHistory
+      summary: Returns pool stats
+      parameters:
+      - name: pool_token
+        required: true
+        in: path
+        description: pool token of swap pool eg. fwp-alex-wslm
+        schema:
+          oneOf:
+          - type: string
+          - type: integer
+      - name: offset
+        required: false
+        in: query
+        description: Specifies the offset of data to be returned, default value is
+          0
+        schema: {}
+      - name: limit
+        required: true
+        in: query
+        description: Specifies number of data to be returned, default value is 10
+        schema: {}
+      responses:
+        '200':
+          description: Succesfully returning pool stats
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - pool
+  "/v1/pool_volume/{pool_token}":
+    get:
+      operationId: PoolController_getPoolVolumeHistory
+      summary: Returns all 24 hour pool volumes in time series
+      parameters:
+      - name: pool_token
+        required: true
+        in: path
+        description: pool token of swap pool eg. fwp-alex-wslm
+        schema:
+          oneOf:
+          - type: string
+          - type: integer
+      - name: offset
+        required: false
+        in: query
+        description: Specifies the offset of data to be returned, default value is
+          0
+        schema: {}
+      - name: limit
+        required: true
+        in: query
+        description: Specifies number of data to be returned, default value is 10
+        schema: {}
+      responses:
+        '200':
+          description: Succesfully returning volumes
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - pool
+  "/v1/volume_24h/{token}":
+    get:
+      operationId: PoolController_getVolume24HRHistory
+      summary: Returns daily volumes of token in time series
+      parameters:
+      - name: token
+        required: true
+        in: path
+        description: name of token eg. age000-governance-token
+        schema:
+          oneOf:
+          - type: string
+          - type: integer
+      - name: offset
+        required: false
+        in: query
+        description: Specifies the offset of data to be returned, default value is
+          0
+        schema: {}
+      - name: limit
+        required: true
+        in: query
+        description: Specifies number of data to be returned, default value is 10
+        schema: {}
+      responses:
+        '200':
+          description: Succesfully returning volumes
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - pool
+  "/v1/volume_7d/{token}":
+    get:
+      operationId: PoolController_getVolume7DHistory
+      summary: Returns weekly volumes of token in time series
+      parameters:
+      - name: token
+        required: true
+        in: path
+        description: name of token eg. age000-governance-token
+        schema:
+          oneOf:
+          - type: string
+          - type: integer
+      - name: offset
+        required: false
+        in: query
+        description: Specifies the offset of data to be returned, default value is
+          0
+        schema: {}
+      - name: limit
+        required: true
+        in: query
+        description: Specifies number of data to be returned, default value is 10
+        schema: {}
+      responses:
+        '200':
+          description: Succesfully returning volumes
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - pool
+  "/v1/pool_liquidity/{pool_token}":
+    get:
+      operationId: PoolController_getPoolLiquidityHistory
+      summary: Returns liquidity in time series
+      parameters:
+      - name: pool_token
+        required: true
+        in: path
+        description: pool token of swap pool eg. fwp-alex-wslm
+        schema:
+          oneOf:
+          - type: string
+          - type: integer
+      - name: offset
+        required: false
+        in: query
+        description: Specifies the offset of data to be returned, default value is
+          0
+        schema: {}
+      - name: limit
+        required: true
+        in: query
+        description: Specifies number of data to be returned, default value is 10
+        schema: {}
+      responses:
+        '200':
+          description: Succesfully returning liquidity
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - pool
+  "/v1/liquidity/{token}":
+    get:
+      operationId: PoolController_getLiquidityHistory
+      summary: Returns liquidity of token in time series
+      parameters:
+      - name: token
+        required: true
+        in: path
+        description: name of token eg. age000-governance-token
+        schema:
+          oneOf:
+          - type: string
+          - type: integer
+      - name: offset
+        required: false
+        in: query
+        description: Specifies the offset of data to be returned, default value is
+          0
+        schema: {}
+      - name: limit
+        required: false
+        in: query
+        description: Specifies number of data to be returned, default value is 10
+        schema: {}
+      responses:
+        '200':
+          description: Succesfully returning liquidity
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - pool
+  "/v1/fee/{pool_token}":
+    get:
+      operationId: PoolController_getFeeHistory
+      summary: Returns pool fee in time series
+      parameters:
+      - name: pool_token
+        required: true
+        in: path
+        description: pool token of swap pool eg. fwp-alex-wslm
+        schema:
+          oneOf:
+          - type: string
+          - type: integer
+      - name: offset
+        required: false
+        in: query
+        description: Specifies the offset of data to be returned, default value is
+          0
+        schema: {}
+      - name: limit
+        required: true
+        in: query
+        description: Specifies number of data to be returned, default value is 10
+        schema: {}
+      responses:
+        '200':
+          description: Succesfully returning fee
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - pool
+  "/v1/stats/tvl":
+    get:
+      operationId: StatsController_getTVL
+      summary: Returns total TVL(total value locked) value of ALEX platform
+      parameters: []
+      responses:
+        '200':
+          description: Succesfully returning TVL
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - stats
+  "/v1/stats/tvl/{token}":
+    get:
+      operationId: StatsController_getTokenTVL
+      summary: Returns token TVL(total value locked) in time series
+      parameters:
+      - name: token
+        required: true
+        in: path
+        schema:
+          type: string
+      - name: offset
+        required: false
+        in: query
+        description: Specifies the offset of data to be returned, default value is
+          0
+        schema: {}
+      - name: limit
+        required: false
+        in: query
+        description: Specifies number of data to be returned, default value is 10
+        schema: {}
+      responses:
+        '200':
+          description: Succesfully returning liquidity
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - stats
+  "/v1/stats/total_supply/{token}":
+    get:
+      operationId: StatsController_getTotalSupply
+      summary: Returns total supply of queried token eg. age000-governance-token
+      parameters:
+      - name: token
+        required: true
+        in: path
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Succesfully returning total supply
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - stats
+  "/v1/price/{token}":
+    get:
+      operationId: PriceController_getPrice
+      summary: Returns price of token
+      parameters:
+      - name: token
+        required: true
+        in: path
+        description: name of token eg. age000-governance-token
+        schema:
+          oneOf:
+          - type: string
+          - type: integer
+      responses:
+        '200':
+          description: Succesfully returning price
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - price
+  "/v1/pool_token_price/{pool_token}":
+    get:
+      operationId: PriceController_getPoolTokenPrice
+      summary: Returns pool token price value of ALEX platform
+      parameters:
+      - name: pool_token
+        required: true
+        in: path
+        description: pool token of swap pool eg. fwp-alex-wslm
+        schema:
+          oneOf:
+          - type: string
+          - type: integer
+      responses:
+        '200':
+          description: Succesfully returning Pool token price
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - price
+  "/v1/pool_token_stats":
+    get:
+      operationId: PriceController_getAllPoolTokenPrice
+      summary: Returns pool token price value of ALEX platform
+      parameters: []
+      responses:
+        '200':
+          description: Succesfully returning all existing pool token stats
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - price
+  "/v1/price_history/{token}":
+    get:
+      operationId: PriceController_getPriceHistory
+      summary: Returns price history of token
+      parameters:
+      - name: token
+        required: true
+        in: path
+        description: name of token eg. age000-governance-token
+        schema:
+          oneOf:
+          - type: string
+          - type: integer
+      - name: offset
+        required: false
+        in: query
+        description: Specifies the offset of data to be returned, default value is
+          0
+        schema: {}
+      - name: limit
+        required: false
+        in: query
+        description: Specifies number of data to be returned, default value is 10
+        schema: {}
+      responses:
+        '200':
+          description: Succesfully returning price history
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - price
+  "/v1/pairs":
+    get:
+      operationId: DexController_getAllPairs
+      summary: Returns all existing pairs
+      parameters: []
+      responses:
+        '200':
+          description: Succesfully returning all existing pairs
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - dex
+  "/v1/tickers":
+    get:
+      operationId: DexController_getAllTickers
+      summary: Returns all markets statistics for the last 24 hours
+      parameters: []
+      responses:
+        '200':
+          description: Succesfully returning all markets statistics for the last 24
+            hours
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - dex
+  "/v1/historical_swaps/{ticker}":
+    get:
+      operationId: DexController_getHistoricalTrades
+      summary: Returns all existing historical trades
+      parameters:
+      - name: ticker
+        required: true
+        in: path
+        description: A ticker with delimiter between different cryptoassets eg. ALEX_WSLM
+        schema:
+          oneOf:
+          - type: string
+          - type: integer
+      - name: limit
+        required: true
+        in: query
+        description: Specifies number of recent block heights to be returned, default
+          value is 1000
+        schema: {}
+      responses:
+        '200':
+          description: Succesfully returning all historical trades of certain ticker
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - dex
+  "/v1/orderbook/{ticker_id}":
+    get:
+      operationId: DexController_getOrderBookDepth
+      summary: Returns orderbook information
+      parameters:
+      - name: ticker_id
+        required: true
+        in: path
+        description: A ticker with delimiter between different cryptoassets eg. ALEX_WSLM
+        schema:
+          oneOf:
+          - type: string
+          - type: integer
+      - name: depth
+        required: true
+        in: query
+        description: Specifies value of depth on either side of bid/ask
+        schema: {}
+      responses:
+        '200':
+          description: Return orderbook information of queried ticker
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      tags:
+      - dex
+info:
+  title: Alex REST API
+  description: Alex Open API service
+  version: '1.0'
+  contact:
+    name: ALEX DEV Team
+    url: https://app.alexgo.io
+    email: sidney@alexgo.io
+tags:
+- name: ALEX REST API
+  description: ALEX Open API for public usage
+servers: []
+components:
+  securitySchemes:
+    bearer:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+  schemas: {}

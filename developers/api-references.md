@@ -2,71 +2,13 @@
 
 The following endpoints are available at [https://api.alexlab.co/](https://api.alexlab.co/).
 
-Documentation is also available in json format at [https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json).
-
-### General
+Documentation is also available in json format at [https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
 
 
-
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="undefined" method="undefined" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
-{% endswagger %}
-
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/pool_volume/{pool_token}" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
-{% endswagger %}
-
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/volume_24h/{token}" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
-{% endswagger %}
-
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/volume_7d/{token}" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
-{% endswagger %}
-
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/pool_liquidity/{pool_token}" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
-{% endswagger %}
-
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/liquidity/{token}" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
-{% endswagger %}
-
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/fee/{pool_token}" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
-{% endswagger %}
-
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/stats/tvl" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
-{% endswagger %}
-
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/stats/tvl/{token}" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
-{% endswagger %}
-
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/stats/total_supply/{token}" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
-{% endswagger %}
-
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/price/{token}" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
-{% endswagger %}
-
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/pool_token_price/{pool_token}" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
-{% endswagger %}
-
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/pool_token_stats" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
-{% endswagger %}
-
-{% swagger src="https://api.alexlab.co/swagger-api.json" path="/v1/price_history/{token}" method="get" %}
-[https://api.alexlab.co/swagger-api.json](https://api.alexlab.co/swagger-api.json)
-{% endswagger %}
 
 ### DEX
 
-{% swagger method="get" path="" baseUrl="https://api.alexlab.co/v1/pairs" summary="" %}
+{% swagger method="get" path="" baseUrl="https://api.alexlab.co/v1/pairs" summary="/v1/pairs" %}
 {% swagger-description %}
 Returns all existing pairs
 {% endswagger-description %}
@@ -96,7 +38,7 @@ Returns all existing pairs
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="get" path="" baseUrl="https://api.alexlab.co/v1/tickers" summary="" %}
+{% swagger method="get" path="" baseUrl="https://api.alexlab.co/v1/tickers" summary="/v1/tickers" %}
 {% swagger-description %}
 Returns all markets statistics for the last 24 hours
 {% endswagger-description %}
@@ -126,7 +68,7 @@ Returns all markets statistics for the last 24 hours
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="get" path="" baseUrl="https://api.alexlab.co/v1/historical_swaps" summary="" %}
+{% swagger method="get" path="" baseUrl="https://api.alexlab.co/v1/historical_swaps" summary="/v1/historical_swaps/{ticker}" %}
 {% swagger-description %}
 Returns all existing historical trades
 {% endswagger-description %}
@@ -164,7 +106,7 @@ Specifies number of recent block heights to be returned, default value is 1000
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="get" path="" baseUrl="https://api.alexlab.co/v1/orderbook" summary="" %}
+{% swagger method="get" path="" baseUrl="https://api.alexlab.co/v1/orderbook" summary="/v1/orderbook/{ticker_id}" %}
 {% swagger-description %}
 Returns orderbook information
 {% endswagger-description %}

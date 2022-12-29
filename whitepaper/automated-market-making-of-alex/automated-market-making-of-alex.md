@@ -1,4 +1,4 @@
-# Automated Market Making of Yield Token Pool
+# Copy of Automated Market Making of Yield Token Pool
 
 ## Abstract
 
@@ -185,7 +185,7 @@ $$
 
 Figure 1 illustrates the example above of $$t$$= 0.5 and $$L$$= 20 by displaying two sets of curves: Invariant Function Curve (“IFC") satisfying $$x^{1-t}+y^{1-t}=L$$ and Capital Efficiency Curve (“CEC") satisfying $$x^{1-t}+(y+y_v)^{1-t}=L$$. Intuitively CEC is attained by lowering IFC by $$y_v$$= 100.
 
-![Figure 1](../.gitbook/assets/cecjing.png)
+![Figure 1](../../.gitbook/assets/cecjing.png)
 
 #### Initialisation
 
@@ -247,7 +247,7 @@ Similar to the case of 0% floor, minting or burning coins would result in invari
 
 We aim to show here how virtual token is able to assist liquidity providers to efficiently manage capital.
 
-![Figure 2](<../.gitbook/assets/cectable2 (1).png>)
+![Figure 2](<../../.gitbook/assets/cectable2 (1).png>)
 
 In Figure 2, assume lower bound is 0%, whereas upper bound is 50%. We also set $$t$$= 0.5 and $$L$$= 20. If interest rate is 0%, $$L$$= 20 means holding equal amount of Token and ayToken of 100 each $$\left(100^{0.5}+100^{0.5}=20\right)$$. The figure compares actual holding of Token and ayToken with and without cap and floor.
 
@@ -325,7 +325,7 @@ $$
 \begin{split} &\frac{dy}{dr}=L^{\frac{1}{1-t}}\frac{e^{-(1-t)r}}{(1+e^{-(1-t)r})^{\frac{2-t}{1-t}}}\\ &L_{\text{Uniswap}}=\frac{2}{t}L^{\frac{1}{1-t}}\left(e^{\frac{r(1-t)}{2}}+e^{\frac{-r(1-t)}{2}}\right)^{\frac{-2+t}{1-t}}\\ &=\frac{2}{t}L^{\frac{1}{1-t}}\big\{2\cosh\left[\frac{r(1-t)}{2}\right]\big\}^{\frac{-2+t}{1-t}} \end{split}
 $$
 
-![Figure 3](<../.gitbook/assets/liquidity (2) (2) (2) (2) (2) (2) (2) (1).png>)
+![Figure 3](<../../.gitbook/assets/liquidity (2) (2) (2) (2) (2) (2) (2) (1).png>)
 
 Figure 3 plots $$L_{\text{Uniswap}}$$ against interest rate $$r$$ regarding various levels of $$t$$. When $$0<t<1$$, $$L_{\text{Uniswap}}$$ is symmetric around 0% at which the maximum reaches . This is because
 

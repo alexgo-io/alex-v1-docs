@@ -34,9 +34,9 @@ For example, if a pool is configured to trade between 0% and 10% APY, the capita
 
 Pools handle the logic of dynamic trading strategies, whose token rebalancing are then handled by Vault. Rebalancing logic is driven by Equation. Pool issues Pool Token to liquidity providers. The number of Pool Tokens are determined based on a liquidity provider's relative contribution to the Pool. Pool Tokens thus represent proportional ownership of that Pool, or assets in that Pool.
 
-### Fixed Weight Pool
+### Trading Pool
 
-Fixed Weight Pool ("FWP") is a fork of [Balancer Weighted Pool](https://docs.balancer.fi/core-concepts/protocol/pools#weighted-pools).
+Trading Pool implements Generalised Mean Equation and, with a suitable parameterisation, supports both risky pairs (i.e. $$x y=L$$), stable pairs (i.e. $$x +y=L$$) and any linear combination in-between (i.e. Curve).
 
 ### Collateral Rebalancing Pool
 

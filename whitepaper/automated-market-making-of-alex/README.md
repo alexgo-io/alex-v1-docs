@@ -28,23 +28,19 @@ Meanwhile, $$f$$ can usually be interpreted as a form of mean, for example, [mSt
 After extensive research, we consider it possible for ALEX AMM to be connected to generalised mean defined as
 
 $$
-\left( \frac{1}{d} \sum _{i=1}^{d} x_i^p \right)^{\frac{1}{p}}
+\left( \frac{1}{d} \sum _{i=1}^{d} x_i^{p} \right)^{\frac{1}{p}}
 $$
 
 where $$0 \leq p \leq 1$$. The expression might remind readers of $$p$$-norm when $$x_i \geq 0$$. It is however not true when $$p<1$$ as triangle inequality doesn't hold.
 
-When $$d=2$$ and $$p\neq 0$$ is fixed, the core component of generalised mean is assumed constant as below.
+When $$d=2$$ and $$p=1-t$$ $$(0\leq t<1)$$ is fixed, the core component of generalised mean is assumed constant as below.
 
 $$
-\begin{split}x_1^p+x_2^p&=L\\
--\frac{dx_2}{dx_1}&=\left(\frac{x_2}{x_1} \right)^{1-p}\end{split}
+\begin{split}x_1^{1-t}+x_2^{1-t}&=L\\
+-\frac{dx_2}{dx_1}&=\left(\frac{x_2}{x_1} \right)^{t}\end{split}
 $$
 
-
-
-
-
-This equation is regarded reasonable as AMM, because (i) function $$g$$ where $$x_2=g(x_1)$$ is monotonically decreasing and convex; and (ii) The boundary value of $$p=1$$ and $$p=0$$ corresponds to constant sum and constant product formula respectively. When $$p$$ increases from 0 to 1, price $$-\frac{dg(x_1)}{x_1}$$ gradually converges to 1, i.e. the curve converges from constant product to constant sum (see [Appendix 1](./#appendix-1-generalised-mean-when-d-2) for the relevant proofs).
+This equation is regarded reasonable as AMM, because (i) function $$g$$ where $$x_2=g(x_1)$$ is monotonically decreasing and convex; and (ii) The boundary value of $$t=0$$ and $$t=1$$ corresponds to constant sum and constant product formula respectively. When $$t$$ decreases from 1 to 0, price $$-\frac{dg(x_1)}{x_1}$$ gradually converges to 1, i.e. the curve converges from constant product to constant sum (see [Appendix 1](./#appendix-1-generalised-mean-when-d-2) for the relevant proofs).
 
 Though purely theoretical at this stage, [Appendix 2](./#appendix-2-liquidity-mapping-to-uniswap-v3) maps $$L$$ to the liquidity distribution of [Uniswap V3](https://uniswap.org/whitepaper-v3.pdf). This is motivated by an independent research from [Paradigm](https://www.paradigm.xyz/2021/06/uniswap-v3-the-universal-amm/).
 
@@ -57,19 +53,19 @@ Market transaction, which involves exchange of one crypto asset and another, sat
 In order to purchase $$\Delta y$$ amount of token Y from the pool, the buyer needs to deposit $$\Delta x$$ amount of token X. $$\Delta x$$ and $$\Delta y$$ satisfy the following
 
 $$
-(x+\Delta x)^{p}+(y-\Delta y)^{p}=x^{p}+y^{p}
+(x+\Delta x)^{1-t}+(y-\Delta y)^{1-t}=x^{1-t}+y^{1-t}
 $$
 
 After each transaction, balance is updated as below: $$x\rightarrow x+\Delta x$$ and $$y\rightarrow y-\Delta y$$. Rearranging the formula results in
 
 $$
-\Delta y=y-\left[x^{p}+y^{p}-(x+\Delta x)^{p}\right]^{\frac{1}{p}}
+\Delta y=y-\left[x^{1-t}+y^{1-t}-(x+\Delta x)^{1-t}\right]^{\frac{1}{1-t}}
 $$
 
 When transaction cost exists, the actual deposit to the pool is less than $$\Delta x$$. Assuming $$\lambda\Delta x$$ is the actual amount and $$(1-\lambda)\Delta x$$ is the fee, above can now be expressed as
 
 $$
-\begin{split} &(x+\lambda\Delta x)^{p}+(y-\Delta y)^{p}=x^{p}+y^{p}\\ &\Delta y=y-\left[x^{p}+y^{p}-(x+\lambda\Delta x)^{p}\right]^{\frac{1}{p}} \end{split}
+\begin{split} &(x+\lambda\Delta x)^{1-t}+(y-\Delta y)^{1-t}=x^{1-t}+y^{1-t}\\ &\Delta y=y-\left[x^{1-t}+y^{1-t}-(x+\lambda\Delta x)^{1-t}\right]^{\frac{1}{1-t}} \end{split}
 $$
 
 To keep $$L$$ constant, the updated balance is: $$x\rightarrow x+\lambda\Delta x$$ and $$y\rightarrow y-\Delta y$$.
@@ -79,7 +75,7 @@ To keep $$L$$ constant, the updated balance is: $$x\rightarrow x+\lambda\Delta x
 This is the opposite case to above. We are deriving $$\Delta x$$ from $$\Delta y$$.
 
 $$
-\Delta x=\frac{1}{\lambda}{\left[x^{p}+y^{p}-(y-\Delta y)^{p}\right]^{\frac{1}{p}}-x}
+\Delta x=\frac{1}{\lambda}{\left[x^{1-t}+y^{1-t}-(y-\Delta y)^{1-t}\right]^{\frac{1}{1-t}}-x}
 $$
 
 ### In-Given-Price
@@ -87,13 +83,13 @@ $$
 Sometimes, trader would like to adjust the price, perhaps due to deviation of AMM price to the market value. Define $$p'$$ the AMM price after rebalancing the token X and token Y in the pool
 
 $$
-p'=\left(\frac{y-\Delta y}{x+\lambda\Delta x}\right)^{1-p}
+p'=\left(\frac{y-\Delta y}{x+\lambda\Delta x}\right)^{t}
 $$
 
 Then, the added amount of $$\Delta x$$ can be calculated from the formula below
 
 $$
-\begin{split} &(x+\lambda\Delta x)^{p}+(y-\Delta y)^{p}=x^{p}+y^{p}\\ &1+\left(\frac{y}{x}\right)^{p}=\left(1+\lambda\frac{\Delta x}{x}\right)^{p}+(\frac{y-\Delta y}{x})^{p}\\ &1+p^{\frac{p}{t}}=\left(1+\lambda\frac{\Delta x}{x}\right)^{p}+p'^{\frac{p}{t}}\left(1+\lambda\frac{\Delta x}{x}\right)^{p}\\ &\Delta x=\frac{x}{\lambda}\left[\left(\frac{1+p^{\frac{p}{t}}}{1+p'^{\frac{p}{t}}}\right)^{\frac{1}{p}}-1\right]\\ \end{split}
+\begin{split} &(x+\lambda\Delta x)^{1-t}+(y-\Delta y)^{1-t}=x^{1-t}+y^{1-t}\\ &1+\left(\frac{y}{x}\right)^{1-t}=\left(1+\lambda\frac{\Delta x}{x}\right)^{1-t}+(\frac{y-\Delta y}{x})^{1-t}\\ &1+p^{\frac{1-t}{t}}=\left(1+\lambda\frac{\Delta x}{x}\right)^{1-t}+p'^{\frac{1-t}{t}}\left(1+\lambda\frac{\Delta x}{x}\right)^{1-t}\\ &\Delta x=\frac{x}{\lambda}\left[\left(\frac{1+p^{\frac{1-t}{t}}}{1+p'^{\frac{1-t}{t}}}\right)^{\frac{1}{1-t}}-1\right]\\ \end{split}
 $$
 
 ## Appendix 1: Generalised Mean when d=2
@@ -150,7 +146,13 @@ Proof of the corollary is trivial, as it is a direct application of the theorem.
 
 As Uniswap v3 is able to simulate liquidity curve of any AMM, we are interested in exploring the connection between ALEX's AMM and that of _Uniswap_'s. Interesting questions include: what is the shape of the liquidity distribution? Which point(s) has the highest liquidity? We acknowledge that the section is more of a theoretical study for now.
 
-_Uniswap V3_ AMM can be expressed as a function of invariant constant $$L$$ with respect to price $$p$$, $$L_{\text{Uniswap}}=\frac{dy}{d\sqrt{p}}$$. In the previous sections, we express $$y$$ as&#x20;
+_Uniswap V3_ AMM can be expressed as a function of invariant constant $$L$$ with respect to price $$p$$, $$L_{\text{Uniswap}}=\frac{dy}{d\sqrt{p}}$$. For us, the difference in the invariant function means we can write price as  $$p=e^{rt}$$ or $$r=\frac{1}{t}\ln{p}$$ and we have
+
+$$
+L_{\text{Uniswap}}=\frac{dy}{d\sqrt{p}}=\frac{2}{t}e^{-\frac{1}{2}rt}\frac{dy}{dr}
+$$
+
+Based on the previous sections, we can then express $$y$$ as&#x20;
 
 $$
 y=\left[\frac{L}{1+e^{-(1-t)r}}\right]^{\frac{1}{1-t}}

@@ -2,7 +2,7 @@
 
 ## Abstract
 
-ALEX aims to provide a fixed rate borrowing and lending service with pre-determined maturity in the world of decentralised finance (DeFi). We include forward contracts in our trading pool, with Automated Market Making (AMM) engine in association with generalised mean. While we formalise the trading practise swapping forward contracts with underlying asset, we incorporate the latest innovation in the industry - concentrated liquidity. Consequently, liquidity provider of ALEX can save decent amount of capital by making markets on a selected range of interest rate.
+We introduce a new invariant function associated with generalised mean that underpins the ALEX AMM. ALEX builds DeFi primitives targeting developers looking to build ecosystem on Bitcoin, enabled by [Stacks](https://www.stacks.co/). With a suitable parameterisation, the invariant function support both risky pairs (i.e. $$x y=L$$), stable pairs (i.e. $$x +y=L$$) and any linear combination in-between (i.e. Curve). We also show that our invariant function maps $$L$$ to the liquidity distribution of [Uniswap V3](https://uniswap.org/whitepaper-v3.pdf).
 
 ## Introduction
 
@@ -21,7 +21,7 @@ AMM protocol, which provides liquidity algorithmically, is the core engine of De
 * monotonically decreasing, i.e. $$\frac{dg(x_1)}{dx_1}<0$$. This is because price is often defined as $$-\frac{dg(x_1)}{dx_1}$$. A decreasing function ensures price to be positive.
 * convex, i.e. $$\frac{d^2g(x_1)}{dx_1^2} \geq 0$$. This is equivalent to say that $$-\frac{dg(x_1)}{dx_1}$$ is a non-increasing function of $$x_1$$. It is within the expectation of economic theory of demand and supply, as more reserve of $$x_1$$ means declining price.
 
-Meanwhile, $$f$$ can usually be interpreted as a form of mean, for example, [mStable](https://docs.mstable.org) relates to arithmetic mean, where $$x_1+x_2=L$$ (constant sum formula); one of the most popular platforms [Uniswap](https://uniswap.org/whitepaper-v3.pdf) relates to geometric mean, where $$x_1 x_2=L$$ (constant product formula); [Balancer](https://balancer.fi/whitepaper.pdf), which our [collateral rebalancing pool](../automated-market-making-of-collateral-rebalancing-pool.md) employs, applies weighted geometric mean. Its AMM is $$x_1^{w_1} x_2^{w_2}=L$$ where $$w_1$$ and $$w_2$$ are fixed weights. ALEX AMM extends these to create a generalised mean.
+Meanwhile, $$f$$ can usually be interpreted as a form of mean, for example, [mStable](https://docs.mstable.org) relates to arithmetic mean, where $$x_1+x_2=L$$ (constant sum formula); one of the most popular platforms [Uniswap](https://uniswap.org/whitepaper-v3.pdf) relates to geometric mean, where $$x_1 x_2=L$$ (constant product formula); [Balancer](https://balancer.fi/whitepaper.pdf), which our [collateral rebalancing pool](automated-market-making-of-collateral-rebalancing-pool.md) employs, applies weighted geometric mean. Its AMM is $$x_1^{w_1} x_2^{w_2}=L$$ where $$w_1$$ and $$w_2$$ are fixed weights. ALEX AMM extends these to create a generalised mean.
 
 ### ALEX AMM
 
@@ -40,9 +40,9 @@ $$
 -\frac{dx_2}{dx_1}&=\left(\frac{x_2}{x_1} \right)^{t}\end{split}
 $$
 
-This equation is regarded reasonable as AMM, because (i) function $$g$$ where $$x_2=g(x_1)$$ is monotonically decreasing and convex; and (ii) The boundary value of $$t=0$$ and $$t=1$$ corresponds to constant sum and constant product formula respectively. When $$t$$ decreases from 1 to 0, price $$-\frac{dg(x_1)}{x_1}$$ gradually converges to 1, i.e. the curve converges from constant product to constant sum (see [Appendix 1](./#appendix-1-generalised-mean-when-d-2) for the relevant proofs).
+This equation is regarded reasonable as AMM, because (i) function $$g$$ where $$x_2=g(x_1)$$ is monotonically decreasing and convex; and (ii) The boundary value of $$t=0$$ and $$t=1$$ corresponds to constant sum and constant product formula respectively. When $$t$$ decreases from 1 to 0, price $$-\frac{dg(x_1)}{x_1}$$ gradually converges to 1, i.e. the curve converges from constant product to constant sum (see [Appendix 1](automated-market-making-of-alex.md#appendix-1-generalised-mean-when-d-2) for the relevant proofs).
 
-Though purely theoretical at this stage, [Appendix 2](./#appendix-2-liquidity-mapping-to-uniswap-v3) maps $$L$$ to the liquidity distribution of [Uniswap V3](https://uniswap.org/whitepaper-v3.pdf). This is motivated by an independent research from [Paradigm](https://www.paradigm.xyz/2021/06/uniswap-v3-the-universal-amm/).
+Though purely theoretical at this stage, [Appendix 2](automated-market-making-of-alex.md#appendix-2-liquidity-mapping-to-uniswap-v3) maps $$L$$ to the liquidity distribution of [Uniswap V3](https://uniswap.org/whitepaper-v3.pdf). This is motivated by an independent research from [Paradigm](https://www.paradigm.xyz/2021/06/uniswap-v3-the-universal-amm/).
 
 ## Trading Formulae
 
@@ -146,7 +146,7 @@ Proof of the corollary is trivial, as it is a direct application of the theorem.
 
 As Uniswap v3 is able to simulate liquidity curve of any AMM, we are interested in exploring the connection between ALEX's AMM and that of _Uniswap_'s. Interesting questions include: what is the shape of the liquidity distribution? Which point(s) has the highest liquidity? We acknowledge that the section is more of a theoretical study for now.
 
-_Uniswap V3_ AMM can be expressed as a function of invariant constant $$L$$ with respect to price $$p$$, $$L_{\text{Uniswap}}=\frac{dy}{d\sqrt{p}}$$. For us, the difference in the invariant function means we can write price as  $$p=e^{rt}$$ or $$r=\frac{1}{t}\ln{p}$$ and we have
+_Uniswap V3_ AMM can be expressed as a function of invariant constant $$L$$ with respect to price $$p$$, $$L_{\text{Uniswap}}=\frac{dy}{d\sqrt{p}}$$. For us, the difference in the invariant function means we can write price as  $$p=e^{rt}$$ (or, equivalently, $$r=\frac{1}{t}\ln{p}$$ ) and we have
 
 $$
 L_{\text{Uniswap}}=\frac{dy}{d\sqrt{p}}=\frac{2}{t}e^{-\frac{1}{2}rt}\frac{dy}{dr}
@@ -164,41 +164,11 @@ $$
 \begin{split} &\frac{dy}{dr}=L^{\frac{1}{1-t}}\frac{e^{-(1-t)r}}{(1+e^{-(1-t)r})^{\frac{2-t}{1-t}}}\\ &L_{\text{Uniswap}}=\frac{2}{t}L^{\frac{1}{1-t}}\left(e^{\frac{r(1-t)}{2}}+e^{\frac{-r(1-t)}{2}}\right)^{\frac{-2+t}{1-t}}\\ &=\frac{2}{t}L^{\frac{1}{1-t}}\big\{2\cosh\left[\frac{r(1-t)}{2}\right]\big\}^{\frac{-2+t}{1-t}} \end{split}
 $$
 
-![Figure 3](<../../.gitbook/assets/liquidity (2) (2) (2) (2) (2) (2) (2) (1).png>)
+![Figure 1](<../.gitbook/assets/liquidity (2) (2) (2) (2) (2) (2) (2) (1).png>)
 
-Figure 3 plots $$L_{\text{Uniswap}}$$ against interest rate $$r$$ regarding various levels of $$t$$. When $$0<t<1$$, $$L_{\text{Uniswap}}$$ is symmetric around 0% at which the maximum reaches . This is because
+Figure 1 plots $$L_{\text{Uniswap}}$$ against $$r$$ (which is proportional to $$p$$) regarding various levels of $$t$$. When $$0<t<1$$, $$L_{\text{Uniswap}}$$ is symmetric around 0% at which the maximum reaches . This is because
 
 1. $$\cosh\left[(\frac{r(1-t)}{2})\right]$$ is symmetric around $$r$$= 0% with minimum at 0% and the minimum value 1;
 2. $$x^z$$ is a decreasing function of $$x$$ when $$x$$ is positive and power $$z$$ is negative. In our case, we have $$z=-2+t1-t<-1$$. Therefore, it is the maximum rather than minimum that $$L_{\text{Uniswap}}$$ achieves at 0.
 
-Furthermore, the higher the $$t$$, the flatter the liquidity distribution is. When $$t$$ approaches 1, i.e. AMM converges to the constant product formula, the liquidity distribution is close to a flat line. When $$t$$ approaches 0, the distribution concentrates around 0%. This makes sense, as forward price starts to converge to spot price upon expiration.
-
-## Appendix 3: Derivation of Actual and Virtual Token Reserve
-
-On CEC, there are two boundary points ($$x_{b}$$,0) and (0,$$y_{b}$$) corresponding to the lower and upper bound of interest rate $$r_{l}$$ and $$r_{u}$$ respectively. We assume $$L$$ is pre-determined, as liquidity provider knows the pool size. We aim to find $$x_{b}$$, $$y_{b}$$, $$x_{v}$$ and $$y_{v}$$ which satisfy the following equations
-
-$$
-\begin{split} &(x_{b}+x_{v})^{1-t}+y_{v}^{1-t}=L\\ &x_{v}^{1-t}+(y_{b}+y_{v})^{1-t}=L\\ &\frac{y_{v}}{x_{b}+x_{v}}=e^{r_{l}}\\ &\frac{y_{b}+y_{v}}{x_{v}}=e^{r_{u}} \end{split}
-$$
-
-As there are four unknown variables with four equations, solutions can be expressed as below
-
-$$
-\begin{split} &x_{v}=\left[\frac{L}{1+e^{(1-t)r_{u}}}\right]^{\frac{1}{1-t}}\\ &y_{v}=\left[\frac{L}{1+e^{-(1-t)r_{l}}}\right]^{\frac{1}{1-t}}\\ &x_{b}=y_{v}e^{-r_{l}}-x_{v}=\left[\frac{L}{1+e^{r_{l}(1-t)}}\right]^{\frac{1}{1-t}}-\left[\frac{L}{1+e^{r_{u}(1-t)}}\right]^{\frac{1}{1-t}}\\ &y_{b}=x_{v}e^{r_{u}}-y_{v}=\left[\frac{L}{1+e^{-r_{u}(1-t)}}\right]^{\frac{1}{1-t}}-\left[\frac{L}{1+e^{-r_{l}(1-t)}}\right]^{\frac{1}{1-t}} \end{split}
-$$
-
-When $$r_{l}=0$$, the pool is floored at 0%. This means that $$x_{v}=0$$, $$y_{v}=\left(\frac{1}{2}L\right)^{\frac{1}{1-t}}$$, $$x_{b}=y_{v}$$.
-
-When the current interest rate $$r_{c}$$ is known and $$r_{c}\in[r_{l},r_{u}]$$, we can calculate $$x_{a}$$ and $$y_{a}$$ satisfying the following equations. When $$r_{c} \notin[r_{l},r_{u}]$$, only one token exists and swapping activities are suspended.
-
-$$
-\begin{split} &(x_{v}+x_{a})^{1-t}+(y_{v}+y_{a})^{1-t}=L\\ &\frac{y_{v}+y_{a}}{x_{v}+x_{a}}=e^{r_{c}} \end{split}
-$$
-
-Solution to above is
-
-$$
-\begin{split} &x_{a}=\left[\frac{L}{1+e^{r_{c}(1-t)}}\right]^{\frac{1}{1-t}}-x_{v}=\left[\frac{L}{1+e^{r_{c}(1-t)}}\right]^{\frac{1}{1-t}}-\left[\frac{L}{1+e^{r_{u}(1-t)}}\right]^{\frac{1}{1-t}}\\ &y_{a}=\left[\frac{L}{1+e^{-r_{c}(1-t)}}\right]^{\frac{1}{1-t}}-y_{v}=\left[\frac{L}{1+e^{-r_{c}(1-t)}}\right]^{\frac{1}{1-t}}-\left[\frac{L}{1+e^{-r_{l}(1-t)}}\right]^{\frac{1}{1-t}} \end{split}
-$$
-
-At the boundary points, when $$r_{c}=r_{l}$$, $$x_{a}=x_{b}$$ and $$y_{a}=0$$; when $$r_{c}=r_{u}$$, $$x_{a}=0$$ and $$y_{a}=y_{b}$$.
+Furthermore, the higher the $$t$$, the flatter the liquidity distribution is. When $$t$$ approaches 1, i.e. AMM converges to the constant product formula, the liquidity distribution is close to a flat line. When $$t$$ approaches 0, the distribution concentrates around 0%.

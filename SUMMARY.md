@@ -19,5 +19,5 @@
 
 ## Developers
 
-* [Smart Contracts](developers/smart-contracts.md)
+* [Smart Contracts](developers/smart-contracts/README.md)
 * [API References](developers/api-references.md)

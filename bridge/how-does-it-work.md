@@ -1,6 +1,6 @@
 # How does it work?
 
-As mentioned [before](platform-architecture-that-supports-ecosystem-development.md), ALEX Bridge partners with Wrapped to bring a bridge experience that is both secure and responsible.
+As mentioned [before](what-is-bridge.md), ALEX Bridge partners with Wrapped to bring a bridge experience that is both secure and responsible.
 
 ## Custory of assets and monitoring of reserves
 

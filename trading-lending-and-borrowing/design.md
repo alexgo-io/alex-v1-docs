@@ -26,7 +26,7 @@ As the price of each token changes, arbitrageurs rebalance the pool by making tr
 
 ### Yield Token Equation
 
-Yield Token Equation drives [Yield Token Pool](automated-market-making-designed-for-lending-protocols.md). It follows [Yield Space](https://yield.is/YieldSpace.pdf) and is designed specifically to facilitate efficient trading between ayToken and Token. Our main contribution is to extend the model to allow for capital efficiency from liquidity provision perspective (inspired by [Uniswap V3](https://uniswap.org/whitepaper-v3.pdf)).
+Yield Token Equation drives [Yield Token Pool](yield-token-pool.md). It follows [Yield Space](https://yield.is/YieldSpace.pdf) and is designed specifically to facilitate efficient trading between ayToken and Token. Our main contribution is to extend the model to allow for capital efficiency from liquidity provision perspective (inspired by [Uniswap V3](https://uniswap.org/whitepaper-v3.pdf)).
 
 For example, if a pool is configured to trade between 0% and 10% APY, the capital efficiency can improve to 40x compared to when the yield can trade between $$-\infty$$ and $$+\infty$$.
 

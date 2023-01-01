@@ -1,6 +1,6 @@
 # Trading Pool
 
-Please refer to our [white paper](../whitepaper/automated-market-making-of-alex/) for a more rigorous treatment on the subject.
+Please refer to our [white paper](../whitepaper/trading-pool.md) for a more rigorous treatment on the subject.
 
 At ALEX, we build DeFi primitives targeting developers looking to build ecosystem on Bitcoin, enabled by [Stacks](https://www.stacks.co/). As such, we focus on trading, lending and borrowing of crypto assets with Bitcoin as the settlement layer and Stacks as the smart contract layer. At the core of this focus is the automated market making ("AMM") protocol, which allows users to exchange one crypto asset with another trustlessly.
 

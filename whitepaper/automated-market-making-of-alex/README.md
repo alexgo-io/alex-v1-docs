@@ -21,7 +21,7 @@ AMM protocol, which provides liquidity algorithmically, is the core engine of De
 * monotonically decreasing, i.e. $$\frac{dg(x_1)}{dx_1}<0$$. This is because price is often defined as $$-\frac{dg(x_1)}{dx_1}$$. A decreasing function ensures price to be positive.
 * convex, i.e. $$\frac{d^2g(x_1)}{dx_1^2} \geq 0$$. This is equivalent to say that $$-\frac{dg(x_1)}{dx_1}$$ is a non-increasing function of $$x_1$$. It is within the expectation of economic theory of demand and supply, as more reserve of $$x_1$$ means declining price.
 
-Meanwhile, $$f$$ can usually be interpreted as a form of mean, for example, [mStable](https://docs.mstable.org) relates to arithmetic mean, where $$x_1+x_2=L$$ (constant sum formula); one of the most popular platforms [Uniswap](https://uniswap.org/whitepaper-v3.pdf) relates to geometric mean, where $$x_1 x_2=L$$ (constant product formula); [Balancer](https://balancer.fi/whitepaper.pdf), which our [collateral rebalancing pool](collateral-rebalancing-pool.md) employs, applies weighted geometric mean. Its AMM is $$x_1^{w_1} x_2^{w_2}=L$$ where $$w_1$$ and $$w_2$$ are fixed weights. ALEX AMM extends these to create a generalised mean.
+Meanwhile, $$f$$ can usually be interpreted as a form of mean, for example, [mStable](https://docs.mstable.org) relates to arithmetic mean, where $$x_1+x_2=L$$ (constant sum formula); one of the most popular platforms [Uniswap](https://uniswap.org/whitepaper-v3.pdf) relates to geometric mean, where $$x_1 x_2=L$$ (constant product formula); [Balancer](https://balancer.fi/whitepaper.pdf), which our [collateral rebalancing pool](../automated-market-making-of-collateral-rebalancing-pool.md) employs, applies weighted geometric mean. Its AMM is $$x_1^{w_1} x_2^{w_2}=L$$ where $$w_1$$ and $$w_2$$ are fixed weights. ALEX AMM extends these to create a generalised mean.
 
 ### ALEX AMM
 
@@ -40,9 +40,9 @@ $$
 -\frac{dx_2}{dx_1}&=\left(\frac{x_2}{x_1} \right)^{t}\end{split}
 $$
 
-This equation is regarded reasonable as AMM, because (i) function $$g$$ where $$x_2=g(x_1)$$ is monotonically decreasing and convex; and (ii) The boundary value of $$t=0$$ and $$t=1$$ corresponds to constant sum and constant product formula respectively. When $$t$$ decreases from 1 to 0, price $$-\frac{dg(x_1)}{x_1}$$ gradually converges to 1, i.e. the curve converges from constant product to constant sum (see [Appendix 1](trading-pool.md#appendix-1-generalised-mean-when-d-2) for the relevant proofs).
+This equation is regarded reasonable as AMM, because (i) function $$g$$ where $$x_2=g(x_1)$$ is monotonically decreasing and convex; and (ii) The boundary value of $$t=0$$ and $$t=1$$ corresponds to constant sum and constant product formula respectively. When $$t$$ decreases from 1 to 0, price $$-\frac{dg(x_1)}{x_1}$$ gradually converges to 1, i.e. the curve converges from constant product to constant sum (see [Appendix 1](./#appendix-1-generalised-mean-when-d-2) for the relevant proofs).
 
-Though purely theoretical at this stage, [Appendix 2](trading-pool.md#appendix-2-liquidity-mapping-to-uniswap-v3) maps $$L$$ to the liquidity distribution of [Uniswap V3](https://uniswap.org/whitepaper-v3.pdf). This is motivated by an independent research from [Paradigm](https://www.paradigm.xyz/2021/06/uniswap-v3-the-universal-amm/).
+Though purely theoretical at this stage, [Appendix 2](./#appendix-2-liquidity-mapping-to-uniswap-v3) maps $$L$$ to the liquidity distribution of [Uniswap V3](https://uniswap.org/whitepaper-v3.pdf). This is motivated by an independent research from [Paradigm](https://www.paradigm.xyz/2021/06/uniswap-v3-the-universal-amm/).
 
 ## Trading Formulae
 
@@ -164,7 +164,7 @@ $$
 \begin{split} &\frac{dy}{dr}=L^{\frac{1}{1-t}}\frac{e^{-(1-t)r}}{(1+e^{-(1-t)r})^{\frac{2-t}{1-t}}}\\ &L_{\text{Uniswap}}=\frac{2}{t}L^{\frac{1}{1-t}}\left(e^{\frac{r(1-t)}{2}}+e^{\frac{-r(1-t)}{2}}\right)^{\frac{-2+t}{1-t}}\\ &=\frac{2}{t}L^{\frac{1}{1-t}}\big\{2\cosh\left[\frac{r(1-t)}{2}\right]\big\}^{\frac{-2+t}{1-t}} \end{split}
 $$
 
-![Figure 1](<../.gitbook/assets/liquidity (2) (2) (2) (2) (2) (2) (2) (1).png>)
+![Figure 1](<../../.gitbook/assets/liquidity (2) (2) (2) (2) (2) (2) (2) (1).png>)
 
 Figure 1 plots $$L_{\text{Uniswap}}$$ against $$r$$ (which is proportional to $$p$$) regarding various levels of $$t$$. When $$0<t<1$$, $$L_{\text{Uniswap}}$$ is symmetric around 0% at which the maximum reaches . This is because
 

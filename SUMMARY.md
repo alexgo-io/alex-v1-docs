@@ -4,23 +4,23 @@
 
 ## 💱 Trading, Lending and Borrowing
 
-* [Our Design](trading-lending-and-borrowing/design.md)
+* [Our Design](trading-lending-and-borrowing/platform-architecture-that-supports-ecosystem-development.md)
 * [Trading Pool](trading-lending-and-borrowing/trading-pool.md)
 * [Collateral Rebalancing Pool](trading-lending-and-borrowing/collateral-rebalancing-pool.md)
-* [Yield Token Pool](trading-lending-and-borrowing/yield-token-pool.md)
+* [Yield Token Pool](trading-lending-and-borrowing/automated-market-making-designed-for-lending-protocols.md)
 * [Vault](trading-lending-and-borrowing/vault.md)
 
 ## 🌉 Bridge
 
-* [What is Bridge?](bridge/what-is-bridge.md)
-* [How does it work?](bridge/how-does-it-work.md)
+* [What is Bridge?](bridge/platform-architecture-that-supports-ecosystem-development.md)
+* [Understanding the Bridge](bridge/understanding-the-bridge.md)
 * [Using the Bridge](bridge/using-the-bridge.md)
 
 ## Whitepaper
 
-* [Automated Market Making of Trading Pool](whitepaper/trading-pool.md)
-* [Automated Market Making of Yield Token Pool](whitepaper/yield-token-pool.md)
-* [Automated Market Making of Collateral Rebalancing Pool](whitepaper/collateral-rebalancing-pool.md)
+* [Automated Market Making of Trading Pool](whitepaper/automated-market-making-of-alex/README.md)
+* [Automated Market Making of Yield Token Pool](whitepaper/automated-market-making-of-alex/automated-market-making-of-alex.md)
+* [Automated Market Making of Collateral Rebalancing Pool](whitepaper/automated-market-making-of-collateral-rebalancing-pool.md)
 * [Dive Into Collateral Rebalancing Pool!](whitepaper/dive-into-collateral-rebalancing-pool.md)
 
 ## Developers

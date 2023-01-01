@@ -2,25 +2,25 @@
 
 ## Abstract
 
-Collateral pools of many DeFi platforms typically comprise a single asset reflecting a borrower’s crypto ownership and risk appetite. While single asset pools benefit from asset appreciation, a pool's value can diminish swiftly in volatile market conditions. The increasing chance of default and potential shortening of the loan term affect both borrowers and lenders who enter fixed-term and fixed-rate contract hoping to remove uncertainties. 
+Collateral pools of many DeFi platforms typically comprise a single asset reflecting a borrower’s crypto ownership and risk appetite. While single asset pools benefit from asset appreciation, a pool's value can diminish swiftly in volatile market conditions. The increasing chance of default and potential shortening of the loan term affect both borrowers and lenders who enter fixed-term and fixed-rate contract hoping to remove uncertainties.
 
-Unlike many DeFi platforms, ALEX uses diversified rather than single collateral pools. Diversified pools consist of a risky asset and risk-free asset. As a result, diversified pools reduce default risk while maintaining potential upside gains. Diversified pools are similar to  portfolios with equity and government bonds, where the former represents the risky asset while the latter represents the risk-free asset. Importantly, diversified collateral pools are systematically managed. An algorithmic engine dynamically adjusts the split of the risky and risk-free asset in the diversified pool, based on Black-Scholes' model.
+Unlike many DeFi platforms, ALEX uses diversified rather than single collateral pools. Diversified pools consist of a risky asset and risk-free asset. As a result, diversified pools reduce default risk while maintaining potential upside gains. Diversified pools are similar to portfolios with equity and government bonds, where the former represents the risky asset while the latter represents the risk-free asset. Importantly, diversified collateral pools are systematically managed. An algorithmic engine dynamically adjusts the split of the risky and risk-free asset in the diversified pool, based on Black-Scholes' model.
 
 ALEX's algorithmic engine and diversified pools minimize the risk of a borrower defaulting. The result is a smoother lending and borrowing experience. Parties have more peace of mind, are interrupted less frequently, and achieve robust returns even in volatile market conditions. This represents a radical improvement over existing alternatives.
 
 ## Introduction
 
-Protocols for loanable funds \(PLF\) enable borrowing and lending activities. Examples PLFs are Compound and Aave on Ethereum. The lender provides a token in need and earns interest in return. The borrower deposits collateral and gets access to a preferred asset. The borrower must pay back the borrowed asset in due time. Protocols enabling this borrowing and lending functionality are incredibly useful. Simply, they enable the present consumption on future earnings. This idea is powerful, and has been at the core of DeFi's rise, including the rise of protocols such as Uniswap.
+Protocols for loanable funds (PLF) enable borrowing and lending activities. Examples PLFs are Compound and Aave on Ethereum. The lender provides a token in need and earns interest in return. The borrower deposits collateral and gets access to a preferred asset. The borrower must pay back the borrowed asset in due time. Protocols enabling this borrowing and lending functionality are incredibly useful. Simply, they enable the present consumption on future earnings. This idea is powerful, and has been at the core of DeFi's rise, including the rise of protocols such as Uniswap.
 
-However, one of the risks posed to market participants in existing PLFs is default risk. While each loan must be secured with collateral, the price of crypto collateral can fluctuate wildly and quickly. As a result, many PLFs ask borrows to significantly overcollateralise their positions. Overcollateralisation refers to value of collateralised assets being higher than the value of the loaned assets. The proportion of the collateral value to loaned value is often called "collateralisation ratio" \(CR\), the inverse of "loan to value" \(LTV\). For simplicity sake, we use the term LTV throughout the paper. The higher the LTV is, the more likely the default occurs. A LTV larger than 1 means the value of collateral cannot cover the value of the loaned asset.
+However, one of the risks posed to market participants in existing PLFs is default risk. While each loan must be secured with collateral, the price of crypto collateral can fluctuate wildly and quickly. As a result, many PLFs ask borrows to significantly overcollateralise their positions. Overcollateralisation refers to value of collateralised assets being higher than the value of the loaned assets. The proportion of the collateral value to loaned value is often called "collateralisation ratio" (CR), the inverse of "loan to value" (LTV). For simplicity sake, we use the term LTV throughout the paper. The higher the LTV is, the more likely the default occurs. A LTV larger than 1 means the value of collateral cannot cover the value of the loaned asset.
 
-In variable rate platforms, such as Aave, collateral in the form of more liquid assets tends to have a higher LTV. In fixed-rate fixed-term protocols, such as YieldSpace, using ETH as collateral to borrow Dai requires a LTV of 67%. In the event that the portfolio is underfunded, three scenarios could emerge in the existing protocols: \(i\) a borrower could top up the collateral asset to stay afloat; \(ii\) a borrower could return some of the borrowing asset to decrease the LTV; and \(iii\) the loan could be unwound by a third party such as liquidator if the borrower defaults. A third party unwinds a borrower's position by paying back the loan, and in return earns certain fees. In cases when a collateral asset is illiquid, fees can be as high as 15% on Aave, representing a significant penalty to defaulting borrowers. This also poses disruption to borrowing/lending activity, as a pre-agreed loan is terminated early.
+In variable rate platforms, such as Aave, collateral in the form of more liquid assets tends to have a higher LTV. In fixed-rate fixed-term protocols, such as YieldSpace, using ETH as collateral to borrow Dai requires a LTV of 67%. In the event that the portfolio is underfunded, three scenarios could emerge in the existing protocols: (i) a borrower could top up the collateral asset to stay afloat; (ii) a borrower could return some of the borrowing asset to decrease the LTV; and (iii) the loan could be unwound by a third party such as liquidator if the borrower defaults. A third party unwinds a borrower's position by paying back the loan, and in return earns certain fees. In cases when a collateral asset is illiquid, fees can be as high as 15% on Aave, representing a significant penalty to defaulting borrowers. This also poses disruption to borrowing/lending activity, as a pre-agreed loan is terminated early.
 
 ALEX abolishes liquidation. ALEX keeps the loan active until maturity, regardless of market condition, solving problems plaguing many existing PLFs. The basis for ALEX's superior solution is based on an innovative combination of asset management and collateral pools. This is how it works.
 
 First, unlike many others, ALEX does not use a static collateral pool with a single asset. Instead, ALEX maintains robust performance in the collateral pool by splitting the deposited asset between a risky and a riskless asset. The collateral pool systematically rebalances the allocation of these two assets based on market conditions. Typically, the better the performance of one asset relative to the other asset, the higher its relative allocation. In mathematical terms, weight is calculated and modified from option delta derived from Black-Scholes model.
 
-So the collateral pool consists of two assets. This opens up new opportunities. For example, ALEX can enable borrowers to gain additional income by engaging in automated market marking \(AMM\). Automated market making helps guarantee a constant proportion of assets in the collateral pool. The AMM takes the form a geometric mean, made popular by [Balancer](https://balancer.fi/whitepaper.pdf). The notion that users _get paid_ is different from much of conventional finance, where portfolio holders are typically required to pay fees to rebalance the portfolio.
+So the collateral pool consists of two assets. This opens up new opportunities. For example, ALEX can enable borrowers to gain additional income by engaging in automated market marking (AMM). Automated market making helps guarantee a constant proportion of assets in the collateral pool. The AMM takes the form a geometric mean, made popular by [Balancer](https://balancer.fi/whitepaper.pdf). The notion that users _get paid_ is different from much of conventional finance, where portfolio holders are typically required to pay fees to rebalance the portfolio.
 
 Importantly, in market downturns, a risky asset may constantly depreciate. In these cases, ALEX's relative allocation of a riskless asset will gradually increase by design. In the event of a loan close to being under-collateralized or defaulting, ALEX converts the remaining portion of the risky asset so that only the riskless asset remains. This ensures no interruption to borrowing/lending activities. Similarly, the agreed rate and maturity remains unaffected. This is different from liquidation. In other platforms, liquidations usually unwind the loan partially, or even fully, resulting in the early termination of a loan. ALEX's design allows for borrowing and lending activity to unfold without the interruptions that plague many of ALEX's alternatives.
 
@@ -30,13 +30,13 @@ Most loanable funds assume a single asset in the collateral pool. While this typ
 
 In conventional finance, whether or not to hold a risky asset depends on investors' risk appetite and their perception of the market environment. A "risk on" market environment entices investors to purchase risky assets and to seek larger returns. In our view, collateral pools made up of single assets are more suitable during "risk on" environments. In these environments, "risk-seeking" borrowers worry less about defaulting and believe risky assets will rally further. This contrasts with "risk-off" environments, when market uncertainty increases. Investors become more risk-averse and tend to hold riskless assets which exhibit small volatility and smaller return.
 
-Many investors would like to profit in both "risk on" and "risk off" periods by holding a diversified portfolio comprised of both risky and riskless assets. A typical example is a portfolio consisting of an S&P 500 index and of US Treasury bonds. Diversification is essential to portfolio management. Diversification ensures portfolios are not overly exposed to one specific asset. Diversifications reduces unsystematic risk. Thus, diversification is a core reason why ALEX creates collateral pools with more than one asset: diversified collateral pools reduce pool volatility while enhancing returns. 
+Many investors would like to profit in both "risk on" and "risk off" periods by holding a diversified portfolio comprised of both risky and riskless assets. A typical example is a portfolio consisting of an S\&P 500 index and of US Treasury bonds. Diversification is essential to portfolio management. Diversification ensures portfolios are not overly exposed to one specific asset. Diversifications reduces unsystematic risk. Thus, diversification is a core reason why ALEX creates collateral pools with more than one asset: diversified collateral pools reduce pool volatility while enhancing returns.
 
 ## AMM: Geometric Mean Market Maker
 
 AMMs are the key drivers behind many DeFi trading platforms. We discuss its general features in our [first white paper](https://docs.alexgo.io/whitepaper/automated-market-making-of-alex). Our AMM design adopts a "generalised mean market maker". This design is powerful because it incorporates time to maturity features while aligning various AMM derivations with traditional financial pricing theory.
 
-In the collateral pool, as weights of the underlying assets change regularly, we employ an AMM which has embedded weights in its expression: the geometric mean market maker \(GMMM\). Each weight of the GMMM corresponds to the proportion of a relevant asset's value to the whole portfolio's value. This is a desirable property for any portfolio manager who sets target weights for a portfolio's assets.
+In the collateral pool, as weights of the underlying assets change regularly, we employ an AMM which has embedded weights in its expression: the geometric mean market maker (GMMM). Each weight of the GMMM corresponds to the proportion of a relevant asset's value to the whole portfolio's value. This is a desirable property for any portfolio manager who sets target weights for a portfolio's assets.
 
 GMMMs were first introduced by Balancer. A GMMM represents an extension to the AMM of the popular AMM platform Uniswap. Uniswap's AMM is a special case of Balancer's GMMM by imposing weights of 50% each on two assets in a given pool.
 
@@ -57,10 +57,7 @@ $$
 Denote the pool value as $$v(t)=x(t)p_{x}(t)+y(t)p_{y}(t)$$. Combining with a no-arbitrage condition, we can show that:
 
 $$
-\begin{split}
-w_{x}(t)&=\frac{x(t)p_{x}(t)}{v(t)}\\
-w_{y}(t)&=\frac{y(t)p_{y}(t)}{v(t)}\\
-\end{split}
+\begin{split} w_{x}(t)&=\frac{x(t)p_{x}(t)}{v(t)}\\ w_{y}(t)&=\frac{y(t)p_{y}(t)}{v(t)}\\ \end{split}
 $$
 
 This means that a pool's weight represents the underlying asset value in proportion to the pool's value.
@@ -90,15 +87,13 @@ $$
 L(t_{i})=x(t_{\tilde{i}})^{w_{x}(t_{i})}\times y(t_{\tilde{i}})^{w_{y}(t_{i})}
 $$
 
-3. Compute token balance to align the price with the market. This involves arbitrageurs:
+1. Compute token balance to align the price with the market. This involves arbitrageurs:
 
 $$
-\begin{split}
-x(t_{i})&=L(t_{i})\left(\frac{w_{x}(t_{i})}{w_{y}(t_{i})}\frac{p_{y}(t_{i})}{p_{x}(t_{i})}\right)^{w_{y}(t_{i})}\\y(t_{i})&=L(t_{i})\left(\frac{w_{y}(t_{i})}{w_{x}(t_{i})}\frac{p_{x}(t_{i})}{p_{y}(t_{i})}\right)^{w_{x}(t_{i})}
-\end{split}
+\begin{split} x(t_{i})&=L(t_{i})\left(\frac{w_{x}(t_{i})}{w_{y}(t_{i})}\frac{p_{y}(t_{i})}{p_{x}(t_{i})}\right)^{w_{y}(t_{i})}\\y(t_{i})&=L(t_{i})\left(\frac{w_{y}(t_{i})}{w_{x}(t_{i})}\frac{p_{x}(t_{i})}{p_{y}(t_{i})}\right)^{w_{x}(t_{i})} \end{split}
 $$
 
-4. Calculate portfolio value:
+1. Calculate portfolio value:
 
 $$
 v(t_{i})=x(t_{i})p_{x}(t_{i})+y(t_{i})p_{y}(t_{i})
@@ -112,7 +107,7 @@ When a loan expires at $$t_{k}=T$$, the remaining balance of $$x(t_{k})$$ and $$
 
 ALEX's rebalancing collateral pool is dynamics. It integrates the concept of asset management with collateral management. By holding and dynamically managing both a risky asset and a riskless asset, several benefits result. When the risky asset depreciates, the collateral pool increasingly holds more of the riskless rather than the risky asset, dynamically reducing the threat of undercollatisation. On the contrary, a higher weight is dynamically assigned to a risky asset when the its price surges, ensuring that the collateral pool captures most of the upside gains. This dynamic is similar to a call option, whose upside is protected whereas its downside is limited. With ALEX, no actual option is involved however, and thus the borrower is not required to pay any expensive option premiums. Options premiums are significant with many cryptoassets because many cryptoassets are very volatile.
 
-In the current version, a collateral pool's allocation mechanism has close ties with option delta. Option delta measures the sensitivity of the option's valuation to the underlying asset price movement. The delta of a call option ranges between 0 and 1 depending on an asset's spot price and the option's strike price, as shown in Figure 1. The higher the spot price, the larger the delta. Therefore, the more weight would be assigned to risky asset. When the strike price is set to be the same as asset spot price \(at-the-money option\), the delta is around 0.5. In ALEX's design, this means holding an equal amount of the risky and of the riskless assets.
+In the current version, a collateral pool's allocation mechanism has close ties with option delta. Option delta measures the sensitivity of the option's valuation to the underlying asset price movement. The delta of a call option ranges between 0 and 1 depending on an asset's spot price and the option's strike price, as shown in Figure 1. The higher the spot price, the larger the delta. Therefore, the more weight would be assigned to risky asset. When the strike price is set to be the same as asset spot price (at-the-money option), the delta is around 0.5. In ALEX's design, this means holding an equal amount of the risky and of the riskless assets.
 
 ![](../.gitbook/assets/calldelta-2.png)
 
@@ -124,7 +119,7 @@ $$
 
 where $$p(t)=\frac{p_{x}(t)}{p_{y}(t)}$$ is the price of asset $$x$$ in terms of asset $$y$$; $$K$$ is the strike price; $$r$$ is the expected return; $$\sigma$$ is implied volatility; $$T$$ is the tenor and $$N(.)$$ is the cumulative distribution of the standard normal distribution.
 
-Ideally, the relative weights of the risky and riskless assets should be updated continuously to reflect spot price movements and delta changes. In practice, we are updating the weights periodically \(e.g. daily\). However as cryptoassets typically exhibit higher volatility than other asset classes, delta changes can be significantly different between time periods. Significant movements tend to imply considerable price deviations from the market after rebalancing. This leads to significant profits for arbitrageurs, but arbitrageurs' gains are often a collateral pool losses. This is similar to impermanent loss. However, while impermanent loss is caused by token balances moving along an AMM curve, here it is caused by weight changes and the effort to preserve price.
+Ideally, the relative weights of the risky and riskless assets should be updated continuously to reflect spot price movements and delta changes. In practice, we are updating the weights periodically (e.g. daily). However as cryptoassets typically exhibit higher volatility than other asset classes, delta changes can be significantly different between time periods. Significant movements tend to imply considerable price deviations from the market after rebalancing. This leads to significant profits for arbitrageurs, but arbitrageurs' gains are often a collateral pool losses. This is similar to impermanent loss. However, while impermanent loss is caused by token balances moving along an AMM curve, here it is caused by weight changes and the effort to preserve price.
 
 ![](../.gitbook/assets/calldeltaspot-2.png)
 
@@ -160,16 +155,16 @@ Most of the contents below are discussed in the main sections. Nonetheless, we l
 
 #### Contract Initialisation
 
-* **Loan-to-Value \(LTV\)**: The ratio of the loan amount to the value of the collateral \("collateralised asset\(s\)"\). For example, if LTV is set to be 80%, a loan amount equivalent to 80 BTC requires 100 BTC as collateral. There is generally no objectively correct LTV ratio; the LTV ratio depends on the quality of the collateralised asset, as well as the market condition when the loan is taken out. **Collateralisation Ratio \(CR\)** is the inverse of LTV.
+* **Loan-to-Value (LTV)**: The ratio of the loan amount to the value of the collateral ("collateralised asset(s)"). For example, if LTV is set to be 80%, a loan amount equivalent to 80 BTC requires 100 BTC as collateral. There is generally no objectively correct LTV ratio; the LTV ratio depends on the quality of the collateralised asset, as well as the market condition when the loan is taken out. **Collateralisation Ratio (CR)** is the inverse of LTV.
 * **Tenor**: The length of time remaining before the loan expires.
-* **Strike Price**: In the Black-Scholes model, strike price refers to the price at which the contract holder can purchase the underlying security when exercising a call option, or sell the underlying security when exercising a put option. In ALEX, the strike price determines the initial split of the risky and the riskless asset. For example, for an at-the-money option, in which strike price is set to be equal to the spot price, there would be an equal split of between two assets in the pool \(i.e. ~50%\).
+* **Strike Price**: In the Black-Scholes model, strike price refers to the price at which the contract holder can purchase the underlying security when exercising a call option, or sell the underlying security when exercising a put option. In ALEX, the strike price determines the initial split of the risky and the riskless asset. For example, for an at-the-money option, in which strike price is set to be equal to the spot price, there would be an equal split of between two assets in the pool (i.e. \~50%).
 * **Implied Volatility**: In the Black-Scholes model, implied volatility is the volatility estimate of an underlying security. A crude approximation of implied volatility is historical volatility. In practise, implied volatility is usually backed out from the observed option price.
 * **Risk-free Interest Rate**: In the Black-Scholes model using risk-neutral valuation, the risk-free interest rate equals the expected return. The risk-free interest rate is usually assumed to be 0%, as future direction of the underlying security is unknown.
 
 #### Pool Rebalancing
 
 * **Rebalancing Frequency**: Theoretically, continuous rebalancing is preferred for price continuity. In practise, ALEX updates the weights periodically to avoid over-calibration.
-* **Smoothing Factor of Exponential Moving Average \(EMA\)**: EMA is an averaging method that places more weight on more recent observations. Assume y\(t\) is the observation value of y at time t, and that {y}\(t\) is the corresponding moving average, where $$\alpha$$ is the smoothing factor. Then:
+* **Smoothing Factor of Exponential Moving Average (EMA)**: EMA is an averaging method that places more weight on more recent observations. Assume y(t) is the observation value of y at time t, and that {y}(t) is the corresponding moving average, where $$\alpha$$ is the smoothing factor. Then:
 
 $$
 \hat{y}(t)=\alpha y(t)+(1-\alpha)\hat{y}(t-1)
@@ -179,4 +174,3 @@ $$
 
 * **Conversion Threshold**: This is the LTV level when the risky asset in the collateral pool is completely converted to the riskless asset to prevent the loan from under-collateralization.
 * **Reserve Premium**: The reserve premium is collected on behalf of a reserve fund. The reserve fund serves as the protocol's last resort. In the extreme event that market turmoil dries up liquidity and ALEX cannot convert all risky assets quickly enough to cover the loan amount, the protocol would cover the difference. The reserve premium is thus another mechanism to guarantee continuity of borrowing and lending activity on ALEX.
-

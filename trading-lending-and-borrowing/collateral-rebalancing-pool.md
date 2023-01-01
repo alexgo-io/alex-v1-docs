@@ -1,6 +1,6 @@
 # Collateral Rebalancing Pool
 
-Please refer to our [white paper](../whitepaper/collateral-rebalancing-pool.md) for a more rigorous treatment on the subject.
+Please refer to our [white paper](../whitepaper/automated-market-making-of-collateral-rebalancing-pool.md) for a more rigorous treatment on the subject.
 
 Collateral Rebalancing Pool ("CRP") uses [Weighted Equation](https://docs.alexgo.io/protocol/platform-architecture-that-supports-ecosystem-development) and dynamically rebalances between Token and Collateral.
 

@@ -1,4 +1,4 @@
-# Overview
+# Our Design
 
 ALEX allows for implementation of arbitrary trading strategies and borrows its design from [Balancer V2](https://docs.balancer.fi).
 
@@ -45,12 +45,6 @@ Collateral Rebalancing Pool ("CRP") uses Weighted Equation and dynamically rebal
 ### Yield Token Pool
 
 Yield Token Pool ("YTP") uses Yield Token Equation and is designed specifically to facilitate efficient trading between ayToken and Token.
-
-### Liquidity Bootstrapping Pool
-
-Liquidity Bootstrapping Pool ("LBP") uses Weighted Equation and is designed to facilitate a capital efficient launch of a token (the "Base Token") relative to another token (the "Target Token").
-
-LBP is used to initialise all Yield Token Pools (with ayToken being the Base Token and Token being the Target Token).
 
 ## Vault
 

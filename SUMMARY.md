@@ -2,13 +2,19 @@
 
 * [What is ALEX?](README.md)
 
-## Protocol
+## 💱 Trading, Lending and Borrowing
 
-* [Overview](protocol/platform-architecture-that-supports-ecosystem-development.md)
-* [Trading Pool](protocol/trading-pool.md)
-* [Collateral Rebalancing Pool](protocol/collateral-rebalancing-pool.md)
-* [Yield Token Pool](protocol/automated-market-making-designed-for-lending-protocols.md)
-* [Vault](protocol/vault.md)
+* [Our Design](trading-lending-and-borrowing/platform-architecture-that-supports-ecosystem-development.md)
+* [Trading Pool](trading-lending-and-borrowing/trading-pool.md)
+* [Collateral Rebalancing Pool](trading-lending-and-borrowing/collateral-rebalancing-pool.md)
+* [Yield Token Pool](trading-lending-and-borrowing/automated-market-making-designed-for-lending-protocols.md)
+* [Vault](trading-lending-and-borrowing/vault.md)
+
+## 🌉 Bridge
+
+* [What is Bridge?](bridge/platform-architecture-that-supports-ecosystem-development.md)
+* [How does it work?](bridge/how-does-it-work.md)
+* [Using the Bridge](bridge/using-the-bridge.md)
 
 ## Whitepaper
 

@@ -18,7 +18,7 @@ For example, 1 should be passed as 10,000,000 (= 1e8), i.e. 1.00000000.
 
 A pair can be registered (i.e. a pool can be created) by calling `create-pool` with the parameters including the traits of the two tokens (token-x and token-y), the factor $$t$$, the governance address and the initial liquidity.
 
-Only the contract owner (i.e. ALEX DAO) can register a pair, i.e. through the governance. Any users interested in listing a pair must submit a proposal through the governance, upon the approval of which the ALEX Foundation undertakes the implementation of the proposal.
+Trading Pool is permission-less in that anyone can register a pair with initial liquidity, so long as the two tokens are pre-approved (this is to prevent introducing malicious tokens to the platform).
 
 ## Liquidity provision
 

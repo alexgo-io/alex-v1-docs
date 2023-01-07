@@ -1,6 +1,6 @@
-# What is Bridge?
+# What is the Bridge?
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Developed in partnership with [Wrapped](https://app.gitbook.com/s/wFwxyo05u2LDudAxiuAv/), ALEX Bridge connects Stacks and Ethereum, allowing users to move crypto assets between the two blockchains.
 

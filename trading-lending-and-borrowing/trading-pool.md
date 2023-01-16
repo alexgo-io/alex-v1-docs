@@ -8,7 +8,7 @@ Trading Pool implements Generalised Mean Equation and, with a suitable parameter
 
 Trading Pool is parameterised with a single parameter $$t$$. $$t$$ can be between 0 and 1, with $$t=1$$ being equivalent of constant product formula (i.e. Uniswap V2) and  $$t=0$$ being equivalent of constant sum formula (i.e. mStable). $$0<t <1$$ then gives a Curve-like formula.
 
-## Caution on fixed notation
+## <mark style="color:red;">Caution on fixed notation</mark>
 
 Please note we use 8-digit fixed notation to represent decimals. If you interact directly with any of our contracts, you must provide all numbers in the correct format.
 
@@ -16,9 +16,19 @@ For example, 1 should be passed as 10,000,000 (= 1e8), i.e. 1.00000000.
 
 ## Pool creation
 
-A pair can be registered (i.e. a pool can be created) by calling `create-pool` with the parameters including the traits of the two tokens (token-x and token-y), the factor $$t$$, the governance address and the initial liquidity.
+A pair can be registered (i.e. a pool can be created) by calling `create-pool` with the parameters including the traits of the two tokens (`token-x` and `token-y`), the factor $$t$$, the governance address  (`pool-owner`) and the initial liquidity.
 
 Trading Pool is permission-less in that anyone can register a pair with initial liquidity, so long as the two tokens are pre-approved (this is to prevent introducing malicious tokens to the platform).
+
+### Pool governance
+
+Certain privileged functions are available to `pool-owner` to govern the pool. The `pool-owner` address is set at the time of a pool creation. ALEX DAO, as part of its governance, has the power to update and replace the `pool-owner` address. Therefore, you can view this as ALEX DAO delegating the governance of each pool to its respective `pool-owner`.
+
+* `set-fee-rate-x` and `set-fee-rate-y`: set the swap fee (% of swap amount) of `token-x` and `token-y`, respectively. Both `fee-rate-x` and `fee-rate-y` are zero by default;
+* `set-start-block` and `set-end-block`: set the block heights before and after, respectively, which the pool is not available. Both `start-block` and `end-block` is set to `u340282366920938463463374607431768211455` by default;
+* `set-threshold-x` and `set-threshold-y`:  set the amount of `token-x` and `token-y`, respectively, below which a minimum % slippage is applied. Both `threshold-x` and `threshold-y` are zero by default;
+* `set-oracle-enabled`: add or remove the pool from the on-chain price oracle. Oracle is disabled by default;
+* `set-oracle-average`: set the exponential moving average factor for the `oracle-resilient`. Please note this call will reset the existing `oracle-resilient` value. The `oracle-average` is zero by default. We recommend 0.99e8.
 
 ## Liquidity provision
 

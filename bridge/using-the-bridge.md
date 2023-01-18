@@ -1,12 +1,12 @@
 # Using the Bridge
 
-ALEX Bridge is available at [https://bridge.alexlab.co](https://bridge.alexlab.co).
+ALEX Bridge is available at [https://app.alexlab.co/bridge](https://app.alexlab.co/bridge).
 
 ## Fee
 
 There are two layers of fees to use the Bridge.
 
-10bps is deducted from the source asset, which goes towards covering the operational cost of the Bridge (including gas fee on both Ethereum and Stacks for the destination asset transfer). Any balances go to ALEX DAO Treasury.
+10bps is deducted from the source asset, floored at $1 for xUSD => USDC, which goes towards covering the operational cost of the Bridge (including gas fee on both Ethereum and Stacks for the destination asset transfer). Any balances go to ALEX DAO Treasury.
 
 Wrapped charges a variable fee based on the amount of the transfer. You can find their fee schedule [here](https://app.gitbook.com/s/wFwxyo05u2LDudAxiuAv/).
 

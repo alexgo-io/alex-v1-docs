@@ -15,6 +15,7 @@
 * [What is the Bridge?](bridge/platform-architecture-that-supports-ecosystem-development.md)
 * [Understanding the Bridge](bridge/understanding-the-bridge.md)
 * [Using the Bridge](bridge/using-the-bridge.md)
+* [End Points](bridge/end-points.md)
 
 ## 🚅 Orderbook
 

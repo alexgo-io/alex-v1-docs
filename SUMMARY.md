@@ -1,8 +1,8 @@
 # Table of contents
 
-* [What is ALEX?](README.md)
+* [😀 What is ALEX?](README.md)
 
-## 💱 Trading, Lending and Borrowing
+## 📈 Trading, Lending and Borrowing
 
 * [Our Design](trading-lending-and-borrowing/platform-architecture-that-supports-ecosystem-development.md)
 * [Trading Pool](trading-lending-and-borrowing/trading-pool.md)
@@ -23,14 +23,14 @@
 * [Understanding the Orderbook](orderbook/understanding-the-orderbook.md)
 * [Using the Orderbook](orderbook/using-the-orderbook.md)
 
-## Whitepaper
+## 📚 Whitepaper
 
 * [Automated Market Making of Trading Pool](whitepaper/automated-market-making-of-alex/README.md)
 * [Automated Market Making of Yield Token Pool](whitepaper/automated-market-making-of-alex/automated-market-making-of-alex.md)
 * [Automated Market Making of Collateral Rebalancing Pool](whitepaper/automated-market-making-of-collateral-rebalancing-pool.md)
 * [Dive Into Collateral Rebalancing Pool!](whitepaper/dive-into-collateral-rebalancing-pool.md)
 
-## Developers
+## 🎮 Developers
 
 * [Testnet](developers/testnet.md)
 * [Smart Contracts](developers/smart-contracts/README.md)

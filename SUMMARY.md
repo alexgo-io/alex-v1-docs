@@ -32,5 +32,6 @@
 
 ## Developers
 
+* [Testnet](developers/testnet.md)
 * [Smart Contracts](developers/smart-contracts/README.md)
 * [API References](developers/api-references.md)

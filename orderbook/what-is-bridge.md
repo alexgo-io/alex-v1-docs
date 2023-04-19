@@ -1,6 +1,6 @@
 # What is the Orderbook?
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Orderbook is ALEX's scaling solution layer that brings **instant trade confirmation** to the security of Bitcoin.
 

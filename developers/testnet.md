@@ -1,6 +1,6 @@
 # Testnet
 
-We use our own testnet whose API node is hosted at [https://stacks-node-api.testnet.alexlab.co/](https://stacks-node-api.testnet.alexlab.co/), with a few useful modifications (such as [puppet mode controller](https://app.gitbook.com/s/sPu0USrFZJvbjvTbkBTh/)) to the stock testnet deployment.
+We use our own testnet whose API node is hosted at [https://stacks-node-api.testnet.alexlab.co/](https://stacks-node-api.testnet.alexlab.co/), with a few useful modifications (such as [puppet mode controller](http://localhost:5000/s/sPu0USrFZJvbjvTbkBTh/)) to the stock testnet deployment.
 
 You can explore the state of the testnet at [https://explorer.testnet.alexlab.co/?chain=mainnet](https://explorer.testnet.alexlab.co/?chain=mainnet).
 

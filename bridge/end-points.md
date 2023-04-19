@@ -2,12 +2,17 @@
 
 ## Stacks
 
-[SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.bridge-endpoint](https://explorer.stacks.co/txid/0x493adda60f2bdae38b2b13cb79b5e5d78e7944dbed5404903915e5dddb0bfbbf?chain=mainnet)
+[SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.token-susdt](https://explorer.hiro.so/txid/0x793b2b74764bd1776a5ffdeaad10ede8d93a5a62b6bef4f745921e2e55506211?chain=mainnet)
 
 ## Ethereum
 
-[0x24031c2aE3995a22cf319280731Bb082c210EBFB](https://etherscan.io/address/0x24031c2ae3995a22cf319280731bb082c210ebfb)
+[https://etherscan.io/address/0xfd9f795b4c15183bdba83da08da02d5f9536748f](https://etherscan.io/address/0xfd9f795b4c15183bdba83da08da02d5f9536748f)
 
 ## Security Audits
 
-You can find the security audit of the Bridge endpoints [here](https://cdn.alexlab.co/pdf/ALEX\_Audit\_bridge\_coinfabrik\_202212.pdf).
+ALEX Bridge is audited by CoinFabrik, covering both the contracts and the backends.
+
+* Bridge Endpoints: [https://cdn.alexlab.co/pdf/ALEX\_Audit\_bridge\_coinfabrik\_202212.pdf](https://cdn.alexlab.co/pdf/ALEX\_Audit\_bridge\_coinfabrik\_202212.pdf)
+* Bridge backends and endpoints: [https://cdn.alexlab.co/pdf/ALEX\_Audit\_Bridge\_2023-04.pdf](https://cdn.alexlab.co/pdf/ALEX\_Audit\_Bridge\_2023-04.pdf)
+
+The smart contracts are also subject to our [bug bounty](https://immunefi.com/bounty/alex/) programme on Immunefi.

@@ -2,7 +2,15 @@
 
 ## Custody of assets and monitoring of reserves
 
-ALEX Bridge is custodial in that the tokens being bridged are held in contracts on Ethereum. Users can monitor the reserves real-time at [https://etherscan.io/address/0xfd9f795b4c15183bdba83da08da02d5f9536748f](https://etherscan.io/address/0xfd9f795b4c15183bdba83da08da02d5f9536748f).
+ALEX Bridge is custodial in that the tokens being bridged are held in contracts on Ethereum. Users can monitor the reserves real-time at&#x20;
+
+### Ethereun mainnet
+
+{% embed url="https://etherscan.io/address/0xfd9f795b4c15183bdba83da08da02d5f9536748f" %}
+
+### Binance Smart Chain
+
+{% embed url="https://bscscan.com/address/0xb3955302e58fffdf2da247e999cd9755f652b13b" %}
 
 ## Design overview
 

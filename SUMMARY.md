@@ -23,6 +23,11 @@
 * [Understanding the Orderbook](orderbook/understanding-the-orderbook.md)
 * [Using the Orderbook](orderbook/using-the-orderbook.md)
 
+## 🚀 Launchpad
+
+* [What is the Launchpad](launchpad/what-is-the-launchpad.md)
+* [Using the Launchpad](launchpad/using-the-launchpad.md)
+
 ## 📚 Whitepaper
 
 * [Automated Market Making of Trading Pool](whitepaper/automated-market-making-of-alex/README.md)

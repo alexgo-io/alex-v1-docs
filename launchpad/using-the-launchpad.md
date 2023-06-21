@@ -52,7 +52,7 @@ Assuming (1) registration period has started, (2) registration period has not en
 
 The lottery will be drawn one block after the registration ended. The claim/lottery period ends at `claim-end` block-height.&#x20;
 
-`contract-owner` or `launch-owner` will draw the lottery off-chain using the prescribed rule and call `claim` repeatedly with the following parameters
+`contract-owner` or `launch-owner` will draw the lottery off-chain using the [prescribed rule](what-is-the-launchpad.md#e255) and call `claim` repeatedly with the following parameters
 
 * `launch-id` : id of the launch
 * `input` : list of participants who won the lottery (up to 200)

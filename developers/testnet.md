@@ -12,5 +12,17 @@ For any questions / follow-ups, please use our Discord channel ([https://discord
 
 ## Smart Contracts
 
-<table><thead><tr><th width="167">Contract</th><th>Address</th></tr></thead><tbody><tr><td>Vault</td><td>ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.alex-vault</td></tr><tr><td>Reserve Pool</td><td>ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.alex-reserve-pool</td></tr><tr><td>Fixed Weight Pool</td><td>ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.fixed-weight-pool-v1-02</td></tr><tr><td>Simple Weight Pool</td><td>ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.simple-weight-pool-alex</td></tr><tr><td>Swap Helper</td><td>ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.swap-helper-v1-03</td></tr><tr><td>ALEX Token</td><td>ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.age000-governance-token</td></tr><tr><td>autoALEX Token</td><td>ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.auto-alex</td></tr><tr><td>STX (wrapped)</td><td>ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.token-wstx</td></tr><tr><td>xBTC</td><td>ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.token-wbtc</td></tr><tr><td>xUSD</td><td>ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.token-wxusd</td></tr><tr><td>USDA</td><td>ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.token-wusda</td></tr></tbody></table>
+| Contract           | Address                                                           |
+| ------------------ | ----------------------------------------------------------------- |
+| Vault              | ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.alex-vault              |
+| Reserve Pool       | ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.alex-reserve-pool       |
+| Fixed Weight Pool  | ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.fixed-weight-pool-v1-02 |
+| Simple Weight Pool | ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.simple-weight-pool-alex |
+| Swap Helper        | ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.swap-helper-v1-03       |
+| ALEX Token         | ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.age000-governance-token |
+| autoALEX Token     | ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.auto-alex               |
+| STX (wrapped)      | ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.token-wstx              |
+| xBTC               | ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.token-wbtc              |
+| xUSD               | ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.token-wxusd             |
+| USDA               | ST29E61D211DD0HB0S0JSKZ05X0DSAJS5G5QSTXDX.token-wusda             |
 

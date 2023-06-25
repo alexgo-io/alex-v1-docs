@@ -1,6 +1,6 @@
 # Using the Launchpad
 
-## Contract address
+## Deployment
 
 [https://explorer.hiro.so/txid/SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.alex-launchpad-v1-1?chain=mainnet](https://explorer.hiro.so/txid/SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.alex-launchpad-v1-1?chain=mainnet)
 

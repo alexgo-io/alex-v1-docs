@@ -40,5 +40,5 @@
 * [Testnet](developers/testnet.md)
 * [Smart Contracts](developers/smart-contracts/README.md)
   * [Token List](developers/smart-contracts/token-list.md)
-* [AMM Pool Mapping](developers/amm-pool-mapping.md)
+  * [AMM Pool Mapping](developers/smart-contracts/amm-pool-mapping.md)
 * [API References](developers/api-references.md)

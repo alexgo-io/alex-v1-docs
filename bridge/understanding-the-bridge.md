@@ -2,7 +2,7 @@
 
 ## Custody of assets and monitoring of reserves
 
-ALEX Bridge is custodial in that the tokens being bridged are held in contracts on Ethereum. Users can monitor the reserves real-time at&#x20;
+ALEX Bridge is custodial in that the tokens being bridged are held in contracts on Ethereum and Finance Smart Chain. Users can monitor the reserves real-time at&#x20;
 
 ### Ethereun mainnet
 
@@ -11,6 +11,14 @@ ALEX Bridge is custodial in that the tokens being bridged are held in contracts 
 ### Binance Smart Chain
 
 {% embed url="https://bscscan.com/address/0xb3955302e58fffdf2da247e999cd9755f652b13b" %}
+
+### Latest circulating supply of sUSDT
+
+You can check the latest circulating supply of sUSDT by calling `get-total-supply` function of the [contract](https://explorer.hiro.so/txid/0xa4157b445d284951436706e2e9f1b5819e48526c8ef363f93df38c461d8a3192?chain=mainnet) (please note the number is in 8-digit fixed notation, i.e. the last 8 digits represent the decimals).&#x20;
+
+Alternatively the same is also available at
+
+{% embed url="https://api.alexlab.co/v1/stats/total_supply/token-susdt" %}
 
 ## Design overview
 

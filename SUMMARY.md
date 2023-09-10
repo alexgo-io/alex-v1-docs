@@ -31,6 +31,7 @@
 ## 💰 BRC20 On-chain Indexer
 
 * [What is the BRC20 On-chain Indexer](brc20-on-chain-indexer/what-is-the-brc20-on-chain-indexer.md)
+* [Understanding BRC20 On-chain Indexer](brc20-on-chain-indexer/understanding-brc20-on-chain-indexer.md)
 
 ## 📚 Whitepaper
 

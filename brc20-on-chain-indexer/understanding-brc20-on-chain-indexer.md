@@ -22,7 +22,13 @@ Disagreements stemming from those that are outside the current BRC20 rules (e.g.
 
 ## Open to all to participate
 
-The Indexer is actively developed by ALEX and is released under MIT license.
+The Indexer is actively developed by ALEX and is released under MIT license. We encourage all those interested to check out the below and help contribute!
 
-We encourage all those interested to check out the [GitHub repo](https://github.com/alexgo-io/brc20-indexer-v1) and help contribute!
+#### GitHub&#x20;
+
+[https://github.com/alexgo-io/brc20-indexer-v1](https://github.com/alexgo-io/brc20-indexer-v1)
+
+#### Latest deployment
+
+[https://explorer.hiro.so/txid/SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.indexer-dev-preview-4?chain=mainnet](https://explorer.hiro.so/txid/SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.indexer-dev-preview-4?chain=mainnet)
 

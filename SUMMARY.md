@@ -28,10 +28,10 @@
 * [What is the Launchpad](launchpad/what-is-the-launchpad.md)
 * [Using the Launchpad](launchpad/using-the-launchpad.md)
 
-## 💰 BRC20 On-chain Indexer
+## 💰 Bitcoin Oracle
 
-* [What is the BRC20 On-chain Indexer](brc20-on-chain-indexer/what-is-the-brc20-on-chain-indexer.md)
-* [Understanding BRC20 On-chain Indexer](brc20-on-chain-indexer/understanding-brc20-on-chain-indexer.md)
+* [What is the Bitcoin Oracle](bitcoin-oracle/what-is-the-bitcoin-oracle.md)
+* [Understanding the Bitcoin Oracle](bitcoin-oracle/understanding-the-bitcoin-oracle.md)
 
 ## 📚 Whitepaper
 

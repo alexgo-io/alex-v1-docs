@@ -1,5 +1,5 @@
 # REST API
 
-The following endpoints are available at [https://api.alexlab.co/](https://api.alexlab.co/).
+Front-end developers may use our REST API ([https://api.alexgo.io](https://api.alexgo.io)) to access the latest market data on ALEX.
 
-Documentation is available at [https://api.alexlab.co/swagger-ui](https://api.alexlab.co/swagger-ui).
+Documentation is available at [https://api.alexgo.io/swagger-ui](https://api.alexgo.io/swagger-ui).

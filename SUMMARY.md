@@ -10,6 +10,15 @@
 * [Yield Token Pool](trading-lending-and-borrowing/automated-market-making-designed-for-lending-protocols.md)
 * [Vault](trading-lending-and-borrowing/vault.md)
 
+## 💰 Bitcoin Oracle
+
+* [What is the Bitcoin Oracle](bitcoin-oracle/what-is-the-bitcoin-oracle.md)
+* [Understanding the Bitcoin Oracle](bitcoin-oracle/understanding-the-bitcoin-oracle.md)
+
+## 🩸 Bitcoin Bridge
+
+* [What is the Bitcoin Bridge](bitcoin-bridge/what-is-the-bitcoin-bridge.md)
+
 ## 🌉 Bridge
 
 * [What is the Bridge?](bridge/platform-architecture-that-supports-ecosystem-development.md)
@@ -27,11 +36,6 @@
 
 * [What is the Launchpad](launchpad/what-is-the-launchpad.md)
 * [Using the Launchpad](launchpad/using-the-launchpad.md)
-
-## 💰 Bitcoin Oracle
-
-* [What is the Bitcoin Oracle](bitcoin-oracle/what-is-the-bitcoin-oracle.md)
-* [Understanding the Bitcoin Oracle](bitcoin-oracle/understanding-the-bitcoin-oracle.md)
 
 ## 📚 Whitepaper
 

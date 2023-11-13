@@ -10,7 +10,7 @@
 * [Yield Token Pool](trading-lending-and-borrowing/automated-market-making-designed-for-lending-protocols.md)
 * [Vault](trading-lending-and-borrowing/vault.md)
 
-## 💰 Bitcoin Oracle
+## 🧙♀ Bitcoin Oracle
 
 * [What is the Bitcoin Oracle](bitcoin-oracle/what-is-the-bitcoin-oracle.md)
 * [Understanding the Bitcoin Oracle](bitcoin-oracle/understanding-the-bitcoin-oracle.md)
@@ -19,12 +19,12 @@
 
 * [What is the Bitcoin Bridge](bitcoin-bridge/what-is-the-bitcoin-bridge.md)
 
-## 🌉 Bridge
+## 🌉 Cross-chain Bridge
 
-* [What is the Bridge?](bridge/platform-architecture-that-supports-ecosystem-development.md)
-* [Understanding the Bridge](bridge/understanding-the-bridge.md)
-* [Using the Bridge](bridge/using-the-bridge.md)
-* [End Points](bridge/end-points.md)
+* [What is the Bridge?](cross-chain-bridge/what-is-bridge.md)
+* [Understanding the Bridge](cross-chain-bridge/understanding-the-bridge.md)
+* [Using the Bridge](cross-chain-bridge/using-the-bridge.md)
+* [End Points](cross-chain-bridge/end-points.md)
 
 ## 🚅 Orderbook
 

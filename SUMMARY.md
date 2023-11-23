@@ -18,6 +18,7 @@
 ## 🩸 Bitcoin Bridge
 
 * [What is the Bitcoin Bridge](bitcoin-bridge/what-is-the-bitcoin-bridge.md)
+* [Understanding the Bitcoin Bridge](bitcoin-bridge/understanding-the-bitcoin-bridge.md)
 
 ## 🌉 Cross-chain Bridge
 

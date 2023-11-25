@@ -6,11 +6,11 @@ Bitcoin Bridge is custodial in that BTC and BRC20 tokens being bridged are held 
 
 ### BTC Multisig
 
-{% embed url="https://mempool.space/address/bc1pylrcm2ym9spaszyrwzhhzc2qf8c3xq65jgmd8udqtd5q73a2fulsztxqyy" %}
+[https://mempool.space/address/bc1pylrcm2ym9spaszyrwzhhzc2qf8c3xq65jgmd8udqtd5q73a2fulsztxqyy](https://mempool.space/address/bc1pylrcm2ym9spaszyrwzhhzc2qf8c3xq65jgmd8udqtd5q73a2fulsztxqyy)
 
 ### BRC20 Multisig
 
-{% embed url="https://mempool.space/address/bc1p06r44ervnukj3kxnqt863sz9hly5m7f80k7l94aplnd6z2tnrzvstdkzsq" %}
+[https://mempool.space/address/bc1p06r44ervnukj3kxnqt863sz9hly5m7f80k7l94aplnd6z2tnrzvstdkzsq](https://mempool.space/address/bc1p06r44ervnukj3kxnqt863sz9hly5m7f80k7l94aplnd6z2tnrzvstdkzsq)
 
 ### Latest circulating supply of aBTC
 
@@ -22,17 +22,23 @@ Alternatively the same is also available at, for example, for aBTC
 
 ## Design overview
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 Bitcoin Bridge also is bi-directional or “two-way” bridge, meaning you can freely transfer assets between Bitcoin and Stacks and vice versa.
 
-On Bitcoin, users interact with Multisigs (operated by ALEX LAB Foundation) to lock assets to be bridged ("source asset"), and on Stacks to receive the L2 asset ("destination asset").
+On Bitcoin, users interact with [Multisigs](understanding-the-bitcoin-bridge.md#multisigs) (operated by ALEX LAB Foundation) to lock assets to be bridged ("source asset"), and on Stacks to receive the L2 asset ("destination asset").
 
 On Stacks, users interact with Endpoints to burn the L2 asset ("source asset") and on Bitcoin to receive the L1 assets ("destination asset").
 
-Asset transfers from users to [Multisigs](understanding-the-bitcoin-bridge.md#custody-of-assets-and-monitoring-of-reserves) and [Endpoints](understanding-the-bitcoin-bridge.md#endpoints) are monitored by a group of "[relayers](understanding-the-bitcoin-bridge.md#relayers)", who calls into Multisigs and Endpoints to trigger the transfer of the received destination assets to the relevant address.
+Asset transfers from users to [Multisigs](understanding-the-bitcoin-bridge.md#multisigs) and [Endpoints](understanding-the-bitcoin-bridge.md#endpoints) are monitored by a group of "[relayers](understanding-the-bitcoin-bridge.md#relayers)", who calls into Multisigs and Endpoints to trigger the transfer of the received destination assets to the relevant address.
 
 Additionally, users on Bitcoin may provide additional data (`OP_RETURN`) to trigger certain smart contract interaction on their behalf automatically by Bitcoin Bridge.
+
+### Multisigs
+
+Multisigs are Bitcoin wallets that are operated by multiple signers. In contrast to a typicall wallet requiring just one party to sign a transaction, a multisig requires multiple parties or signers to sign a transaction.
+
+ALEX partnered with [Asigna](https://asigna.gitbook.io/asigna/introduction/about-asigna) who is "_a native multisig solution tailored for Bitcoin and Stacks made specifically to offer an extra layer of security to trusted wallets on both ecosystems._"
 
 ### Endpoints
 
@@ -46,5 +52,7 @@ CoinFabrik audited the Endpoints.
 
 ### Relayers
 
-Relayers are responsible for triggering the destination asset transfer process.
+Relayers are responsible for triggering the destination asset transfer process.&#x20;
+
+Relayers, however, cannot move the assets at will and their role is limited only to delivering messages from/to multisigs and Bridge endpoint
 

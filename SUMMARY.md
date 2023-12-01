@@ -19,6 +19,7 @@
 
 * [What is the Bitcoin Bridge](bitcoin-bridge/what-is-the-bitcoin-bridge.md)
 * [Understanding the Bitcoin Bridge](bitcoin-bridge/understanding-the-bitcoin-bridge.md)
+* [🟧 aBTC, a.k.a ALEX BTC](bitcoin-bridge/abtc-a.k.a-alex-btc.md)
 
 ## 🌉 Cross-chain Bridge
 

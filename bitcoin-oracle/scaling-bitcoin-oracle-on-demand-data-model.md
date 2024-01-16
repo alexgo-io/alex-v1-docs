@@ -52,6 +52,42 @@ The endpoint supports query conditions for addresses in two formats: Bech32 and 
 [https://api.bitcoin-oracle.network/swagger-ui-yaml](https://api.bitcoin-oracle.network/swagger-ui-yaml)
 {% endswagger %}
 
+#### How to verify the consensus data
+
+With the consensus data, you can&#x20;
+
+1. determine if a minimum threshold you require was reached among data providers
+2. (for Stacks smart contracts) determine whether or not the relevant Bitcoin transaction was indeed mined
+
+#### Verification of off-chain computation
+
+`order_hash` is the sha256 hash of the following tuple:
+
+```
+{ 
+    bitcoin-tx: (buff 8192), 
+    output: uint, 
+    offset: uint, 
+    tick: (string-utf8 4), 
+    amt: uint, 
+    from: (buff 128), 
+    to: (buff 128), 
+    from-bal: uint, 
+    to-bal: uint, 
+    decimals: uint
+}
+```
+
+This `order_hash` is signed by each data provider, whose signatures and public keys are available under `signatures` and `pubkeys`, respectively, together with `signer_types` indicating which implementation or type each signer uses (for example, for BRC20, there are three `types` - `bis`, `hiro` and `uinsat`).
+
+End consumer of this consensus data can then use these data to verify that each signer validated this particular BRC20 transfer.
+
+#### Verification of Bitcoin transaction
+
+The consensus data provides additional information to allow smart contracts on Stacks to verify that the relevant Bitcoin transaction is indeed mined, which enhances the security and lessens its dependence on the off-chain data provider.
+
+For more information, please refer to [https://explorer.hiro.so/txid/SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.clarity-bitcoin-v1-06?chain=mainnet](https://explorer.hiro.so/txid/SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.clarity-bitcoin-v1-06?chain=mainnet).
+
 #### Examples
 
 {% tabs %}

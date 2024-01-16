@@ -14,7 +14,7 @@
 
 * [What is the Bitcoin Oracle](bitcoin-oracle/what-is-the-bitcoin-oracle.md)
 * [Understanding the Bitcoin Oracle](bitcoin-oracle/understanding-the-bitcoin-oracle.md)
-* ["On Demand" Data Model](bitcoin-oracle/on-demand-data-model.md)
+* [Scaling Bitcoin Oracle - "on demand" data model](bitcoin-oracle/scaling-bitcoin-oracle-on-demand-data-model.md)
 
 ## 🩸 Bitcoin Bridge
 

@@ -44,7 +44,7 @@ If you need only the summary data, without its associated consensus data, you ca
 {% tab title="User balance" %}
 {% code overflow="wrap" %}
 ```sh
-curl --location 'https://api.alexgo.io/v1/bitcoin-oracle/user-balance?tick=ORMM&user=0x5120011ed51dd66b335ad80015b2ccf28cb438877914982dda33c0f449f2e2d79c6f' \
+curl --location 'https://api.alexgo.io/v1/bitcoin-oracle/user-balance?tick=ORMM&user=bc1p06r44ervnukj3kxnqt863sz9hly5m7f80k7l94aplnd6z2tnrzvstdkzsq' \
 --header 'Accept: application/json'
 ```
 {% endcode %}
@@ -54,8 +54,8 @@ curl --location 'https://api.alexgo.io/v1/bitcoin-oracle/user-balance?tick=ORMM&
 {% code overflow="wrap" %}
 ```json
 {
-  "balance": "1000000000000000",
-  "up-to-block": "811363"
+    "balance": "962959356579080000000000",
+    "up-to-block": "825995"
 }
 ```
 {% endcode %}
@@ -74,10 +74,10 @@ curl --location 'https://api.alexgo.io/v1/bitcoin-oracle/bitcoin-tx-indexed?bitc
 {% code overflow="wrap" %}
 ```json
 {
-  "from": "0x5120f682cc4f0a0740c48a7051fd847b497abfe16d2fdf5d16b63f6f57cb5d72e080",
-  "to": "0x51202f144d3ef7421dd9afa65b4846921514bb4d2a640a1f14f1b502d66861520926",
-  "amt": "10000000000000000000000000000",
-  "tick": "sats"
+    "from": "bc1p42g525vmjry4k66pq39a03375esmmdkqhk76ty9yed6elxtcj9ds9pm7dt",
+    "to": "bc1p06r44ervnukj3kxnqt863sz9hly5m7f80k7l94aplnd6z2tnrzvstdkzsq",
+    "tick": "ORMM",
+    "amt": "3700000000000000000000000"
 }
 ```
 {% endcode %}

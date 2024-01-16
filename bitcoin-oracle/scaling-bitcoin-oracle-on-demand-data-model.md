@@ -38,6 +38,52 @@ If you need only the summary data, without its associated consensus data, you ca
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
+#### Examples
+
+{% tabs %}
+{% tab title="User balance" %}
+{% code overflow="wrap" %}
+```sh
+curl --location 'https://api.alexgo.io/v1/bitcoin-oracle/user-balance?tick=ORMM&user=0x5120011ed51dd66b335ad80015b2ccf28cb438877914982dda33c0f449f2e2d79c6f' \
+--header 'Accept: application/json'
+```
+{% endcode %}
+
+**Response**
+
+{% code overflow="wrap" %}
+```json
+{
+  "balance": "1000000000000000",
+  "up-to-block": "811363"
+}
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Bitcoin tx indexed" %}
+{% code overflow="wrap" %}
+```sh
+curl --location 'https://api.alexgo.io/v1/bitcoin-oracle/bitcoin-tx-indexed?bitcoin-tx-id=9778d139d55f3dca60e4d45942cf6c0ab97e23fd24771696b9ecdfba52303b01&offset=0&output=0' \
+--header 'Accept: application/json'
+```
+{% endcode %}
+
+**Response**
+
+{% code overflow="wrap" %}
+```json
+{
+  "from": "0x5120f682cc4f0a0740c48a7051fd847b497abfe16d2fdf5d16b63f6f57cb5d72e080",
+  "to": "0x51202f144d3ef7421dd9afa65b4846921514bb4d2a640a1f14f1b502d66861520926",
+  "amt": "10000000000000000000000000000",
+  "tick": "sats"
+}
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
 ### Full consensus data
 
 If you need the full consensus data, you can use the following endpoint at [https://api.bitcoin-oracle.network](https://api.bitcoin-oracle.network/).
@@ -76,7 +122,7 @@ With the consensus data, you can&#x20;
 }
 ```
 
-This `order_hash` is signed by each data provider, whose signatures and public keys are available under `signatures` and `pubkeys`, respectively, together with `signer_types` indicating which implementation or type each signer uses (for example, for BRC20, there are three `types` - `bis`, `hiro` and `uinsat`).
+This `order_hash` is signed by each data provider, whose signatures and public keys are available under `signatures` and `signer_pubkeys`, respectively, together with `signer_types` indicating which implementation or type each signer uses (for example, for BRC20, there are three `types` - `bis`, `hiro` and `uinsat`).
 
 End consumer of this consensus data can then use these data to verify that each signer validated this particular BRC20 transfer.
 
@@ -90,6 +136,7 @@ For more information, please refer to [https://explorer.hiro.so/txid/SP3K8BC0PPE
 
 {% tabs %}
 {% tab title="Historical transfer by Bitcoin {tx_id}" %}
+{% code overflow="wrap" %}
 ```sh
 curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
 --header 'x-service-type: INDEXER' \
@@ -101,9 +148,11 @@ curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
     "offset": 0
 }'
 ```
+{% endcode %}
 
 **Response**
 
+{% code overflow="wrap" %}
 ```json
 {
     "data": [
@@ -149,6 +198,11 @@ curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
                 "SP35D14R1JB3KHE4D55MMN646GFZJ198B7FMBG5PD",
                 "SP3ZCGVGSQWT6TJAXZRXHCYA6SWGNSNGKHSYA1F2Q"
             ],
+            "signer_pubkeys": [
+                "02883d08893252a59cf25aafffe1417bf74a7526621665a4bc0060e4aa95405891",
+                "0255966348dacd748595af0439e0a1cc947b2e3dc090acd8f90c32c30c3099b0a0",
+                "03c1a83abd5a199cb502818a110e2d55f67aae0e894f776c189b9f73556f8402a9"
+            ],            
             "signer_types": [
                 "bis",
                 "hiro",
@@ -165,9 +219,11 @@ curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
     ]
 }
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Historical transfer of {tick} from {from} to {to}" %}
+{% code overflow="wrap" %}
 ```sh
 curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
 --header 'x-service-type: INDEXER' \
@@ -185,9 +241,11 @@ curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
     "limit": 10
 }'
 ```
+{% endcode %}
 
 **Response**
 
+{% code overflow="wrap" %}
 ```json
 {
     "data": [
@@ -233,6 +291,11 @@ curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
                 "SP35D14R1JB3KHE4D55MMN646GFZJ198B7FMBG5PD",
                 "SP3ZCGVGSQWT6TJAXZRXHCYA6SWGNSNGKHSYA1F2Q"
             ],
+            "signer_pubkeys": [
+                "02883d08893252a59cf25aafffe1417bf74a7526621665a4bc0060e4aa95405891",
+                "0255966348dacd748595af0439e0a1cc947b2e3dc090acd8f90c32c30c3099b0a0",
+                "03c1a83abd5a199cb502818a110e2d55f67aae0e894f776c189b9f73556f8402a9"
+            ],            
             "signer_types": [
                 "bis",
                 "hiro",
@@ -249,9 +312,11 @@ curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
     ]
 }
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Batch historical transfer (multiple {tick}, {from} and/or {to})" %}
+{% code overflow="wrap" %}
 ```sh
 curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
 --header 'x-service-type: INDEXER' \
@@ -271,9 +336,11 @@ curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
     "limit": 100
 }'
 ```
+{% endcode %}
 
 **Response**
 
+{% code overflow="wrap" %}
 ```json
 {
     "data": [
@@ -319,6 +386,11 @@ curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
                 "SP35D14R1JB3KHE4D55MMN646GFZJ198B7FMBG5PD",
                 "SP3ZCGVGSQWT6TJAXZRXHCYA6SWGNSNGKHSYA1F2Q"
             ],
+            "signer_pubkeys": [
+                "02883d08893252a59cf25aafffe1417bf74a7526621665a4bc0060e4aa95405891",
+                "0255966348dacd748595af0439e0a1cc947b2e3dc090acd8f90c32c30c3099b0a0",
+                "03c1a83abd5a199cb502818a110e2d55f67aae0e894f776c189b9f73556f8402a9"
+            ],            
             "signer_types": [
                 "bis",
                 "hiro",
@@ -387,9 +459,11 @@ curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
     ]
 }
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Latest balance of {tick} by {from_or_to}" %}
+{% code overflow="wrap" %}
 ```sh
 curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
 --header 'x-service-type: INDEXER' \
@@ -404,9 +478,11 @@ curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
     "limit": 1
 }'
 ```
+{% endcode %}
 
 **Response**
 
+{% code overflow="wrap" %}
 ```json
 {
     "data": [
@@ -451,6 +527,10 @@ curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
                 "SP1B0DHZV858RCBC8WG1YN5W9R491MJK88QPPC217",
                 "SP3ZCGVGSQWT6TJAXZRXHCYA6SWGNSNGKHSYA1F2Q"
             ],
+            "signer_pubkeys": [
+                "02883d08893252a59cf25aafffe1417bf74a7526621665a4bc0060e4aa95405891",
+                "03c1a83abd5a199cb502818a110e2d55f67aae0e894f776c189b9f73556f8402a9"
+            ],            
             "signer_types": [
                 "bis",
                 "unisat"
@@ -465,6 +545,7 @@ curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
     ]
 }
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 

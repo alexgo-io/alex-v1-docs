@@ -122,7 +122,15 @@ With the consensus data, you can&#x20;
 }
 ```
 
-This `order_hash` is signed by each data provider, whose signatures and public keys are available under `signatures` and `signer_pubkeys`, respectively, together with `signer_types` indicating which implementation or type each signer uses (for example, for BRC20, there are three `types` - `bis`, `hiro` and `uinsat`).
+Each data provider then creates and signs a sha256 hash of a concatenation of&#x20;
+
+1. Structured data prefix: `0x534950303138`
+2. Message domain: `0x6d11cd301d11961e7cfeabd61e3f4da17f42f3d627362c8878aa9cbb5c532be2`
+3. `order_hash`
+
+The addition of the structured data prefix and the message domain mitigates the message replay risk.
+
+The signatures and public keys of the data providers, who validated the event, are available under `signatures` and `signer_pubkeys`, respectively, together with `signer_types` indicating which implementation or type each signer uses (for example, for BRC20, there are three types - `bis`, `hiro` and `uinsat`).
 
 End consumer of this consensus data can then use these data to verify that each signer validated this particular BRC20 transfer.
 

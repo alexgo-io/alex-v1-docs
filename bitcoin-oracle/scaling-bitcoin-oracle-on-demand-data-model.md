@@ -1,7 +1,5 @@
 # Scaling Bitcoin Oracle - "on demand" data model
 
-
-
 ## Consensus layer for all and any off-chain computation engines
 
 Bitcoin Oracle acts as a consensus layer for all and any off-chain computation engines that relies on the Bitcoin data.
@@ -92,22 +90,21 @@ For more information, please refer to [https://explorer.hiro.so/txid/SP3K8BC0PPE
 
 {% tabs %}
 {% tab title="Historical transfer by Bitcoin {tx_id}" %}
-
-
-**Body**
-
-```
-{
+```sh
+curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
+--header 'x-service-type: INDEXER' \
+--header 'x-version: 0.0.1' \
+--data-raw '{
     "type": "tx_id",
     "tx_id":"9778d139d55f3dca60e4d45942cf6c0ab97e23fd24771696b9ecdfba52303b01",
     "output": 0,
     "offset": 0
-}
+}'
 ```
 
 **Response**
 
-```
+```json
 {
     "data": [
         {
@@ -171,12 +168,11 @@ For more information, please refer to [https://explorer.hiro.so/txid/SP3K8BC0PPE
 {% endtab %}
 
 {% tab title="Historical transfer of {tick} from {from} to {to}" %}
-
-
-**Body**
-
-```
-{
+```sh
+curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
+--header 'x-service-type: INDEXER' \
+--header 'x-version: 0.0.1' \
+--data-raw '{
     "from": [
         "bc1p42g525vmjry4k66pq39a03375esmmdkqhk76ty9yed6elxtcj9ds9pm7dt"
     ],
@@ -187,12 +183,12 @@ For more information, please refer to [https://explorer.hiro.so/txid/SP3K8BC0PPE
         "ORMM"
     ],
     "limit": 10
-}
+}'
 ```
 
 **Response**
 
-```
+```json
 {
     "data": [
         {
@@ -256,12 +252,11 @@ For more information, please refer to [https://explorer.hiro.so/txid/SP3K8BC0PPE
 {% endtab %}
 
 {% tab title="Batch historical transfer (multiple {tick}, {from} and/or {to})" %}
-
-
-**Body**
-
-```
-{
+```sh
+curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
+--header 'x-service-type: INDEXER' \
+--header 'x-version: 0.0.1' \
+--data-raw '{
     "from": [
         "bc1p42g525vmjry4k66pq39a03375esmmdkqhk76ty9yed6elxtcj9ds9pm7dt",
         "bc1pgpxqrl8gcykc970kkczswaau4ur4rcjat9y0pvmagkfhhjddzscq6mdpf4"
@@ -274,12 +269,12 @@ For more information, please refer to [https://explorer.hiro.so/txid/SP3K8BC0PPE
         "OXBT"
     ],
     "limit": 100
-}
+}'
 ```
 
 **Response**
 
-```
+```json
 {
     "data": [
         {
@@ -395,12 +390,11 @@ For more information, please refer to [https://explorer.hiro.so/txid/SP3K8BC0PPE
 {% endtab %}
 
 {% tab title="Latest balance of {tick} by {from_or_to}" %}
-
-
-**Body**
-
-```
-{
+```sh
+curl --location --request POST 'https://api.bitcoin-oracle.network/v1/brc20' \
+--header 'x-service-type: INDEXER' \
+--header 'x-version: 0.0.1' \
+--data-raw '{
     "from_or_to": [
         "bc1p06r44ervnukj3kxnqt863sz9hly5m7f80k7l94aplnd6z2tnrzvstdkzsq"
     ],
@@ -408,12 +402,12 @@ For more information, please refer to [https://explorer.hiro.so/txid/SP3K8BC0PPE
         "ORMM"
     ],
     "limit": 1
-}
+}'
 ```
 
 **Response**
 
-```
+```json
 {
     "data": [
         {

@@ -24,10 +24,6 @@ Disagreements stemming from those that are outside the current rules require upd
 
 The Indexer is actively developed by ALEX and is released under MIT license. We encourage all those interested to check out the below and help contribute!
 
-#### GitHub&#x20;
+#### GitHub
 
 [https://github.com/alexgo-io/bitcoin-oracle](https://github.com/alexgo-io/bitcoin-oracle)
-
-#### Latest deployment
-
-[https://explorer.hiro.so/txid/0xdd57e54ca43ba1f02bf5b132dffacdd312a197d57a02eecde5b9d0af4598fd5d?chain=mainnet](https://explorer.hiro.so/txid/0xdd57e54ca43ba1f02bf5b132dffacdd312a197d57a02eecde5b9d0af4598fd5d?chain=mainnet)

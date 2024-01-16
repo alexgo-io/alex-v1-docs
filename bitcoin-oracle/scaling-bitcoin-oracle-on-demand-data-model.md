@@ -61,7 +61,7 @@ With the consensus data, you can&#x20;
 
 `order_hash` is the sha256 hash of the following tuple:
 
-```
+```json
 { 
     bitcoin-tx: (buff 8192), 
     output: uint, 

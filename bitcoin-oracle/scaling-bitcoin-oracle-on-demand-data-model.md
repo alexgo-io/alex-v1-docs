@@ -14,7 +14,7 @@ When Xlink identifies a particular BRC20 transfer to process, it pulls the relev
 
 This combination of the off-chain computation and the on-chain verification protects Xlink users from a potential security issues associated with BRC20, including that of [double spend](https://en.wikipedia.org/wiki/Double-spending).
 
-## Enc consumer of consensus data dictates how it is verified
+## End consumer of consensus data dictates how it is verified
 
 An important point to note is that, while Bitcoin Oracle produces the consensus data based on the computation from the off-chain indexers, the verification of such consensus data can be implemented by the end consumer as they see fit.
 

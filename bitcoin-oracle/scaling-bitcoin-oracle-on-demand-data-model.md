@@ -30,11 +30,11 @@ A BRC20 trading dapp on an EVM-compatible Bitcoin L2 may implement their own sma
 
 If you need only the summary data, without its associated consensus data, you can use the following endpoints at [https://api.alexgo.io](https://api.alexgo.io/).
 
-{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/bitcoin-oracle/user-balance" method="get" expanded="true" %}
-[https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
+{% swagger src="https://api.alexlab.co/swagger-ui-yaml" path="/v1/brc20/user-balance" method="get" %}
+[https://api.alexlab.co/swagger-ui-yaml](https://api.alexlab.co/swagger-ui-yaml)
 {% endswagger %}
 
-{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/bitcoin-oracle/bitcoin-tx-indexed" method="get" %}
+{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/brc20/bitcoin-tx-indexed" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
@@ -44,7 +44,7 @@ If you need only the summary data, without its associated consensus data, you ca
 {% tab title="User balance" %}
 {% code overflow="wrap" %}
 ```sh
-curl --location 'https://api.alexgo.io/v1/bitcoin-oracle/user-balance?tick=ORMM&user=bc1p06r44ervnukj3kxnqt863sz9hly5m7f80k7l94aplnd6z2tnrzvstdkzsq' \
+curl --location 'https://api.alexgo.io/v1/brc20/user-balance?tick=ORMM&user=bc1p06r44ervnukj3kxnqt863sz9hly5m7f80k7l94aplnd6z2tnrzvstdkzsq' \
 --header 'Accept: application/json'
 ```
 {% endcode %}
@@ -64,7 +64,7 @@ curl --location 'https://api.alexgo.io/v1/bitcoin-oracle/user-balance?tick=ORMM&
 {% tab title="Bitcoin tx indexed" %}
 {% code overflow="wrap" %}
 ```sh
-curl --location 'https://api.alexgo.io/v1/bitcoin-oracle/bitcoin-tx-indexed?bitcoin-tx-id=9778d139d55f3dca60e4d45942cf6c0ab97e23fd24771696b9ecdfba52303b01&offset=0&output=0' \
+curl --location 'https://api.alexgo.io/v1/brc20/bitcoin-tx-indexed?bitcoin-tx-id=9778d139d55f3dca60e4d45942cf6c0ab97e23fd24771696b9ecdfba52303b01&offset=0&output=0' \
 --header 'Accept: application/json'
 ```
 {% endcode %}

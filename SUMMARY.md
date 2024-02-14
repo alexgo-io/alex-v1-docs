@@ -12,9 +12,10 @@
 
 ## 🧙♀ Bitcoin Oracle
 
-* [What is the Bitcoin Oracle](bitcoin-oracle/what-is-the-bitcoin-oracle.md)
-* [Understanding the Bitcoin Oracle](bitcoin-oracle/understanding-the-bitcoin-oracle.md)
-* [Scaling Bitcoin Oracle - "on demand" data model](bitcoin-oracle/scaling-bitcoin-oracle-on-demand-data-model.md)
+* [What is the Bitcoin Oracle](bitcoin-oracle/what-is-the-bitcoin-oracle/README.md)
+  * [Why Bitcoin Oracle - BRC20](bitcoin-oracle/what-is-the-bitcoin-oracle/what-is-the-bitcoin-oracle.md)
+* ["On Demand" Consensus Data](bitcoin-oracle/on-demand-consensus-data.md)
+* [Threshold-based Consensus](bitcoin-oracle/threshold-based-consensus.md)
 
 ## 🩸 Bitcoin Bridge
 

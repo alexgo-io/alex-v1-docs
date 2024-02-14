@@ -10,7 +10,7 @@ Bitcoin Bridge is a key component of ALEX that abstracts the difference between 
 
 Bitcoin Bridge is bi-directional or “two-way” bridge, meaning you can freely transfer assets between Bitcoin and its L2s and vice versa.
 
-On Bitcoin, users interact with [Multisigs](what-is-the-bitcoin-bridge.md#multisigs) (operated by ALEX LAB Foundation, with a plan to decentralisation) to lock assets to be bridged ("source asset"), and on L2s to receive the L2 asset ("destination asset").
+On Bitcoin, users interact with [Multisigs](what-is-the-bitcoin-bridge.md#multisigs) (currently operated by ALEX LAB Foundation, but to be upgraded to TSS-based ones soon) to lock assets to be bridged ("source asset"), and on L2s to receive the L2 asset ("destination asset").
 
 Additionally, users on Bitcoin may provide additional data (`OP_RETURN`) to trigger certain smart contract interaction on their behalf automatically by Bitcoin Bridge.
 
@@ -19,6 +19,8 @@ On L2s or non-Bitcoin chains, users interact with "[Endpoints](what-is-the-bitco
 Asset transfers from users to Endpoints are monitored by a group of "[validators](what-is-the-bitcoin-bridge.md#validators)", who produce cryptographic proofs that say "X amount of source asset are sent by address A on the source blockchain for address B on the destination blockchain to receive Y amount of destination asset."
 
 There is a minimum threshold of such proofs that must be provided and verified before the assets received into Endpoint can be sent to the relevant address.
+
+Bitcoin Bridge is being integrated with [Bitcoin Oracle](broken-reference) which provides the [necessary consensus infrastructure](../bitcoin-oracle/threshold-based-consensus.md).
 
 Upon meeting such minimum threshold, a "[relayer](what-is-the-bitcoin-bridge.md#relayers)" calls into Endpoint with the proofs to trigger the transfer of the received destination assets to the relevant address.
 

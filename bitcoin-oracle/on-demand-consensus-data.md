@@ -1,22 +1,8 @@
-# Scaling Bitcoin Oracle - "on demand" data model
-
-## Consensus layer for all and any off-chain computation engines
-
-Bitcoin Oracle acts as a consensus layer for all and any off-chain computation engines that relies on the Bitcoin data.
-
-The consensus is reached when a minimum threshold (i.e. "_m-of-n_") of the relevant community agree to a particular event.
-
-End consumers can then verify the consensus before making a decision or taking an action with respect to that particular event, thus enhancing the security assumptions.
-
-For example, Bitcoin Oracle is used by Xlink for their [BRC20 Bridge](https://app.xlink.network/bridge/brc20-bridge/peg-in), which uses a [smart contract on Stacks](https://explorer.hiro.so/txid/SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.btc-bridge-endpoint-v1-10?chain=mainnet) to verify the consensus and save the validated data on-chain.
-
-When Xlink identifies a particular BRC20 transfer to process, it pulls the relevant consensus data from Bitcoin Oracle, verify them using its smart contract before saving them on-chain.
-
-This combination of the off-chain computation and the on-chain verification protects Xlink users from a potential security issues associated with BRC20, including that of [double spend](https://en.wikipedia.org/wiki/Double-spending).
+# "On Demand" Consensus Data
 
 ## End consumer of consensus data dictates how it is verified
 
-An important point to note is that, while Bitcoin Oracle produces the consensus data based on the computation from the off-chain indexers, the verification of such consensus data can be implemented by the end consumer as they see fit.
+Bitcoin Oracle produces the consensus data based on the computation from the off-chain engines, but the verification of such consensus data can be implemented by the end consumer as they see fit.
 
 For example, wallet integrating Bitcoin Oracle may implement a client-side verification of the consensus data, instead of relying on an on-chain verification.
 
@@ -134,7 +120,7 @@ The signatures and public keys of the data providers, who validated the event, a
 
 End consumer of this consensus data can then use these data to verify that each signer validated this particular BRC20 transfer.
 
-#### Verification of Bitcoin transaction
+#### Verification of Bitcoin transaction (Stacks only)
 
 The consensus data provides additional information to allow smart contracts on Stacks to verify that the relevant Bitcoin transaction is indeed mined, which enhances the security and lessens its dependence on the off-chain data provider.
 

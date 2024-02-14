@@ -24,11 +24,22 @@ The configuration parameters include, among others,:
 * Validator threshold, and
 * Fee schedule
 
-## Integration with [Bitcoin Oracle](broken-reference) (> 1 week)
+## Integration with Bitcoin Oracle (> 1 week)
 
-Bitcoin Bridge scales by partnering with Bitcoin Oracle which runs the validation network.&#x20;
+Bitcoin Bridge scales by partnering with [Bitcoin Oracle](broken-reference) which runs the validation network.&#x20;
 
 Bitcoin Oracle observes every endpoint on the Bitcoin Bridge and produces a set of cryptographic proofs for the relevant destination chain to process.
+
+Bitcoin Oracle produces the [consensus data](../../bitcoin-oracle/on-demand-consensus-data.md) based on the computation from the off-chain engines and provides a [consensus model framework](../../bitcoin-oracle/threshold-based-consensus.md) that allows the end consumer to customise their consensus model by optimising across the trust and the security budget.
+
+Bitcoin Bridge uses a mixture of required and optional validators (with 51% threshold) to secure its bridge, which brings the following benefits:
+
+* It lowers the barrier to entry to join the validator network, encouraging more members of its community to participate in securing the bridge.
+* Security budget is replaced with a set of trusted validators, which essentially acts as the secondary check against the consensus derived from the network.
+* Larger part of the incentives can be allocated to encouraging the community to join and actively participate in securing the bridge.
+* Smaller part of the incentives needs to be alloacted to the "insurance" fund.
+* 51% threshold and the lower barrier to entry to join the network means it is expensive for the required validators to take over the validator network.
+* Likewise, malicious actors cannot take over the validator network even if they own all optional validators (which is very unlikely) unless they also take over every required validator.
 
 ## Wrapped asset deployment (optional)
 

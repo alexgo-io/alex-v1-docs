@@ -16,6 +16,7 @@
   * [Why Bitcoin Oracle - BRC20](bitcoin-oracle/what-is-the-bitcoin-oracle/what-is-the-bitcoin-oracle.md)
 * ["On Demand" Consensus Data](bitcoin-oracle/on-demand-consensus-data.md)
 * [Threshold-based Consensus](bitcoin-oracle/threshold-based-consensus.md)
+* [Security Audits](bitcoin-oracle/security-audits.md)
 
 ## 🩸 Bitcoin Bridge
 

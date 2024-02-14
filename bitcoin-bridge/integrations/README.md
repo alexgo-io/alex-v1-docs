@@ -4,9 +4,32 @@ Integration requires a deployment of an endpoint smart contract on the target ch
 
 For EVM-based chains, such endpoints are currently deployed on [Ethereum](https://etherscan.io/address/0xfd9f795b4c15183bdba83da08da02d5f9536748f) and [BNB Chain](https://bscscan.com/address/0xb3955302e58fffdf2da247e999cd9755f652b13b).
 
-Below is a typical integration process, which can take between 1 and 3 weeks.
+Below is a typical integration process, which may take between 1 and 3 weeks.
 
-1. Endpoint deployment
-2. Configuration of endpoint
-3. Integration with [Bitcoin Oracle](broken-reference) (which runs validator network)
-4. (optional) Wrapped asset deployment
+## Endpoint deployment (1 week)
+
+Endpoints are the smart contracts that handle the asset transfers. They are owned by multisig contracts (for example, [Gnosis Safe](https://safe.global/) on Ethereum and [Executor DAO](https://explorer.stacks.co/txid/0xf4bd95ea0486e6a50ae632c613f1d72b2a5bbbc4211b494cd0f1d3443658544d?chain=mainnet) on Stacks) operated by ALEX LAB Foundation (with a plan to decentralisation).
+
+Users use Endpoints to trigger transfer of source assets. The destination assets are then sent by a relayer by producing cryptographic proofs.
+
+## Configuration of endpoint (< 1 week)
+
+Once the endpoint is deployed, it can be configured to meet the needs of the source chain.
+
+The configuration parameters include, among others,:
+
+* Approved list of tokens to be supported on the Bridge,
+* Approved list of validators whose cryptographic proofs of token transfer event are accepted,
+* Approved list of relayers who can submit the cryptographic proofs from the validators,
+* Validator threshold, and
+* Fee schedule
+
+## Integration with [Bitcoin Oracle](broken-reference) (> 1 week)
+
+Bitcoin Bridge scales by partnering with Bitcoin Oracle which runs the validation network.&#x20;
+
+Bitcoin Oracle observes every endpoint on the Bitcoin Bridge and produces a set of cryptographic proofs for the relevant destination chain to process.
+
+## Wrapped asset deployment (optional)
+
+Where required, an wrapped asset may be deployed on the destination chains to allow the bridging of the asset from its source chain to the destimation chains.

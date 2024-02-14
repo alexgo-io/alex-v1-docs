@@ -19,15 +19,13 @@
 ## 🩸 Bitcoin Bridge
 
 * [What is the Bitcoin Bridge](bitcoin-bridge/what-is-the-bitcoin-bridge.md)
-* [Understanding the Bitcoin Bridge](bitcoin-bridge/understanding-the-bitcoin-bridge.md)
+* [Reserves](bitcoin-bridge/reserves.md)
+* [Integrations](bitcoin-bridge/integrations/README.md)
+  * [Bitcoin](bitcoin-bridge/integrations/understanding-the-bitcoin-bridge.md)
+  * [Bitcoin L2s](bitcoin-bridge/integrations/bitcoin-l2s.md)
+  * [Non-Bitcoin chains](bitcoin-bridge/integrations/non-bitcoin-chains.md)
 * [🟧 aBTC, a.k.a ALEX BTC](bitcoin-bridge/abtc-a.k.a-alex-btc.md)
-
-## 🌉 Cross-chain Bridge
-
-* [What is the Bridge?](cross-chain-bridge/what-is-bridge.md)
-* [Understanding the Bridge](cross-chain-bridge/understanding-the-bridge.md)
-* [Using the Bridge](cross-chain-bridge/using-the-bridge.md)
-* [End Points](cross-chain-bridge/end-points.md)
+* [Security Audits](bitcoin-bridge/security-audits.md)
 
 ## 🚅 Orderbook
 

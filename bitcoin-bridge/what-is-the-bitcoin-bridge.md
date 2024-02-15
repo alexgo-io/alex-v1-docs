@@ -4,7 +4,7 @@ description: Bitcoin Bridge is not a typical cross-chain bridge
 
 # What is the Bitcoin Bridge
 
-## Kay to providing the "native-like" Bitcoin DeFi experience
+## Key to providing the "native-like" Bitcoin DeFi experience
 
 Bitcoin Bridge is a key component of ALEX that abstracts the difference between L1 and L2 from the user experience, i.e. providing the "native-like” Bitcoin DeFi experience on L1, whereby users can use native BTC or L1 assets issued on Bitcoin to interact with L2 smart contracts.
 

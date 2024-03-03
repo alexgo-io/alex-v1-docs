@@ -10,12 +10,13 @@
 * [Yield Token Pool](trading-lending-and-borrowing/automated-market-making-designed-for-lending-protocols.md)
 * [Vault](trading-lending-and-borrowing/vault.md)
 
-## 🧙♀ Bitcoin Oracle
+## 🧙‍♀️ Bitcoin Oracle
 
 * [What is the Bitcoin Oracle](bitcoin-oracle/what-is-the-bitcoin-oracle/README.md)
   * [Why Bitcoin Oracle - BRC20](bitcoin-oracle/what-is-the-bitcoin-oracle/what-is-the-bitcoin-oracle.md)
 * ["On Demand" Consensus Data](bitcoin-oracle/on-demand-consensus-data.md)
-* [Threshold-based Consensus](bitcoin-oracle/threshold-based-consensus.md)
+* [Threshold-based Consensus](bitcoin-oracle/threshold-based-consensus/README.md)
+  * [Threshold Sampling](bitcoin-oracle/threshold-based-consensus/threshold-sampling.md)
 * [Security Audits](bitcoin-oracle/security-audits.md)
 
 ## 🩸 Bitcoin Bridge

@@ -6,9 +6,11 @@ Using the "on-demand" consensus data, dapps and other end consumers of such data
 
 Bitcoin Oracle provides a consensus model framework that allows the end consumer to customise their consensus model by optimising across the trust and the security budget.
 
-Each end consumer may specify a number of required (i.e. trusted) and optional (i.e. untrusted) validators as its consensus model.
+Each end consumer may specify a number of required (i.e. trusted) and optional (i.e. non-trusted) validators as its consensus model.
 
 For each event to validate, all required validators must agree **and** a certain threshold (say 51%) of all validators (including required and optional) must agree.
+
+A fast derivation of consensus is achieved through [Threshold Sampling](threshold-sampling.md) among non-trusted nodes.
 
 Some may choose to have only required validators, in which case, effectively, a federated concensus model is run. In this case, a trust element is introduced to eliminate the security budget constraint.&#x20;
 

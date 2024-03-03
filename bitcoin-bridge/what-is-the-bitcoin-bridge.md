@@ -20,7 +20,7 @@ Asset transfers from users to Endpoints are monitored by a group of "[validators
 
 There is a minimum threshold of such proofs that must be provided and verified before the assets received into Endpoint can be sent to the relevant address.
 
-Bitcoin Bridge is being integrated with [Bitcoin Oracle](broken-reference) which provides the [necessary consensus infrastructure](../bitcoin-oracle/threshold-based-consensus.md).
+Bitcoin Bridge is being integrated with [Bitcoin Oracle](broken-reference) which provides the [necessary consensus infrastructure](../bitcoin-oracle/threshold-based-consensus/).
 
 Upon meeting such minimum threshold, a "[relayer](what-is-the-bitcoin-bridge.md#relayers)" calls into Endpoint with the proofs to trigger the transfer of the received destination assets to the relevant address.
 

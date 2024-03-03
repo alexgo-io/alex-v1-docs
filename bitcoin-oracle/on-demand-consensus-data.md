@@ -1,14 +1,14 @@
 # "On Demand" Consensus Data
 
-## End consumer of consensus data dictates how it is verified
+## End consumer of consensus data dictates how it is validated and verified
 
-Bitcoin Oracle produces the consensus data based on the computation from the off-chain engines, but the verification of such consensus data can be implemented by the end consumer as they see fit.
+Bitcoin Oracle produces the consensus data based on the computation from the off-chain engines, but the validation and verification of such consensus data can be implemented by the end consumer as they see fit.
 
-For example, wallet integrating Bitcoin Oracle may implement a client-side verification of the consensus data, instead of relying on an on-chain verification.
+For example, wallet integrating Bitcoin Oracle may implement a client-side verification of the consensus data, instead of relying on an on-chain validation.
 
 A website that wants to display users' BRC20 balances, but do not need to verify the consensus data, may simply use the data without verification.
 
-A BRC20 trading dapp on an EVM-compatible Bitcoin L2 may implement their own smart contract written in Solidity to verify the consensus data, before initiating other smart contract interactions.
+A BRC20 trading dapp on an EVM-compatible Bitcoin L2 may implement their own smart contract written in Solidity to validate the consensus data, before initiating other smart contract interactions.
 
 ## So how can one fetch the consensus data from Bitcoin Oracle?
 
@@ -82,14 +82,14 @@ The endpoint supports query conditions for addresses in two formats: Bech32 and 
 [https://api.bitcoin-oracle.network/swagger-ui-yaml](https://api.bitcoin-oracle.network/swagger-ui-yaml)
 {% endswagger %}
 
-#### How to verify the consensus data
+#### How to validate the consensus data
 
 With the consensus data, you can&#x20;
 
 1. determine if a minimum threshold you require was reached among data providers
 2. (for Stacks smart contracts) determine whether or not the relevant Bitcoin transaction was indeed mined
 
-#### Verification of off-chain computation
+#### Validation of off-chain computation
 
 `order_hash` is the sha256 hash of the following tuple:
 

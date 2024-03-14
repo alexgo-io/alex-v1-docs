@@ -82,22 +82,10 @@ Front-end developers may use our REST API ([https://api.alexgo.io](https://api.a
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
-{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/orderbook/{ticker_id}" method="get" %}
-[https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
-{% endswagger %}
-
 {% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v2/coin-gecko/pairs" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
 {% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v2/coin-gecko/tickers" method="get" %}
-[https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
-{% endswagger %}
-
-{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/bitcoin-oracle/user-balance" method="get" %}
-[https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
-{% endswagger %}
-
-{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/bitcoin-oracle/bitcoin-tx-indexed" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}

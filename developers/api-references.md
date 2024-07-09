@@ -6,31 +6,31 @@ Front-end developers may use our REST API ([https://api.alexgo.io](https://api.a
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
-{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/pool_stats/{pool_token}" method="get" %}
+{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/pool_stats/{pool_token_id}" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
-{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/pool_volume/{pool_token}" method="get" %}
+{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/pool_volume/{pool_token_id}" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
-{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/volume_24h/{token}" method="get" %}
+{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/volume_24h/{pool_token_id}" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
-{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/volume_7d/{token}" method="get" %}
+{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/volume_7d/{pool_token_id}" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
-{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/pool_liquidity/{pool_token}" method="get" %}
+{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/pool_liquidity/{pool_token_id}" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
-{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/liquidity/{token}" method="get" %}
+{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/liquidity/{pool_token_id}" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
-{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/fee/{pool_token}" method="get" %}
+{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/fee/{pool_token_id}" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
@@ -50,7 +50,7 @@ Front-end developers may use our REST API ([https://api.alexgo.io](https://api.a
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
-{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/pool_token_price/{pool_token}" method="get" %}
+{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/pool_token_price/{pool_token_id}" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
@@ -78,7 +78,7 @@ Front-end developers may use our REST API ([https://api.alexgo.io](https://api.a
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
-{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/historical_swaps/{ticker}" method="get" %}
+{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/historical_swaps/{pool_token_id}" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 

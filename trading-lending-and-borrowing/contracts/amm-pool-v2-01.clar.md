@@ -167,9 +167,8 @@ The following functions are tools to assist the off-chain activities.
 
 3. `is-paused` A read-only function that checks the operational status of the contract.\
    **Input**: None.
-4. `pause` A public function, governed through the `is-dao-or-extension`, that can change the contract's operational status.
-
-**Input**:
+4. `pause` A public function, governed through the `is-dao-or-extension`, that can change the contract's operational status.\
+   **Input**:
 
 ```lisp
 (new-paused bool)

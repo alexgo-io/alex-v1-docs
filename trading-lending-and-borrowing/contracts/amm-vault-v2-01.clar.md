@@ -1,12 +1,12 @@
-### Contract: *amm-vault-v2-01.clar*.
+# Contract: *amm-vault-v2-01.clar*.
 
-###### **Location**: *`./alex-dao-2/contracts/aux/amm-vault-v2-01.clar`*
+#### **Location**: *`./alex-dao-2/contracts/aux/amm-vault-v2-01.clar`*
 
 This document provides comprehensive technical details for the vault contract within ALEX's Automated Market Maker (AMM) Trading Pool system. The vault contract supports the primary contract `amm-pool-v2-01.clar` in position and swap operations by keeping record of the reserves accumulated from fees and securing pool assets. It ensures asset security through transfer transactions where the vault contract is the recipient of token transfers, thereby holding and safeguarding the assets within the pool. [LINK xxx xxx xxx].
 In addition to supporting Trading Pool operations, the vault contract also offers a flash-loan feature for registered tokens, available to authorized users.
 
 **Storage**:
- 
+
 DATA
 
 * `paused` (bool)
@@ -45,11 +45,11 @@ Calls are made to token contracts that comply with the <ft-trait> defined in eac
 * `flash-loan-user-trait`
 Calls are made to token contracts that comply with the <flash-loan-trait> defined in the flash-loan-user-trait variable to execute loans for the approved flash-loan users and tokens.
 
-**Features:** 
+**Features:**
 
 1) `add-to-reserve`
 This function increases the existing reserves of a specific token by the given amount. It is governed by the `is-dao-or-extension` check to ensure that the `tx-sender` is an ALEX admin operator. Intended to be invoked by the main `amm-pool-v2-01.clar` contract during swap operations, this function is called following a transfer of the incoming token (token-x) to the vault contract. The `add-to-reserve` function is then executed with the token principal and the specified amount, representing the swap fees charged by the system for the transaction.
-    
+
 **Input**:
 ```lisp
 (token-trait principal)
@@ -133,7 +133,7 @@ A public function, governed through the `is-dao-or-extension`, that can change t
 (new-paused bool)
 ```
 
-##### Getter and Setter functions
+### Getter and Setter functions
 Vault administration getter:
 * `get-reserve`
 
@@ -148,7 +148,7 @@ Getters:
 * `get-flash-loan-enabled`
 * `get-flash-loan-fee-rate`
 
-##### Internal helper functions
+### Internal helper functions
 
 * `check-is-approved-flash-loan-user`
 This is a private function designed to verify whether a flash-loan user is approved in the contract's persisted datamap, `approved-flash-loan-users`.
@@ -171,7 +171,7 @@ These helper functions aid in various calculations within the context of the con
 * `mul-down`
 * `mul-up`
 
-##### Errors defined in the contract
+### Errors defined in the contract
 * `ERR-NOT-AUTHORIZED`
 * `ERR-PAUSED`
 * `ERR-INVALID-BALANCE`

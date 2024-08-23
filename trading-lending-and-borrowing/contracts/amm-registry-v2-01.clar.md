@@ -1,6 +1,6 @@
-### Contract: *amm-registry-v2-01.clar*.
+# Contract: *amm-registry-v2-01.clar*.
 
-###### **Location**: *`./alex-dao-2/contracts/aux/amm-registry-v2-01.clar`*
+#### **Location**: *`./alex-dao-2/contracts/aux/amm-registry-v2-01.clar`*
 
 This document provides comprehensive technical details for the registry contract within ALEX's Automated Market Maker (AMM) Trading Pool system. The contract primarily functions as a persistence module for all pool-related information needed by the main contract `amm-pool-v2-01.clar`. [LINK xxx xxx xxx]
 
@@ -9,7 +9,7 @@ To achieve this, the contract allows for the creation and updating of pools. Poo
 Additionally, the contract includes configuration getters and setters that support position and swap operations. It is also responsible for managing a list of blocklisted operators.
 
 **Storage**:
- 
+
 DATA
 * `pools-data-map` (datamap
                         key:
@@ -66,7 +66,7 @@ It is declared as `u100000000`.
 * `executor-dao`
 This call is used to verify whether a certain contract caller is designated as an extension.
 
-**Features:** 
+**Features:**
 
 1) `create-pool`
 This function establishes a liquidity pool for a specified token pair (token-x/token-y). It begins by verifying that the `tx-sender` is an ALEX admin operator (see the function `is-dao-or-extension`), as it is intended to be used by the main `amm-pool-v2-01.clar` contract in the current model.
@@ -94,7 +94,7 @@ Similar to the aforementioned `create-pool` function, `update-pool` is designed 
     total-supply: uint,
     balance-x: uint,
     balance-y: uint,
-    pool-owner: principal,    
+    pool-owner: principal,
     fee-rate-x: uint,
     fee-rate-y: uint,
     fee-rebate: uint,
@@ -136,13 +136,13 @@ A public function, governed by the `is-dao-or-extension` mechanism, that allows 
 })
 ```
 
-##### Getter and Setter functions
+### Getter and Setter functions
 Pool administration setters:
 * `set-switch-threshold`
 * `set-max-ratio-limit`
 * `set-fee-rebate`
 * `set-pool-owner`
- 
+
 Pool operation setters and getters:
 The following groups of functions support pool usage and configuration features consumed by the main `amm-pool-v2-01.clar` contract.
 
@@ -166,7 +166,7 @@ Getters:
 * `get-pool-exists`
 
 
-##### Internal helper functions
+### Internal helper functions
 
 * `set-blocklist`
 This is a private function designed to complement the aforementioned governance function `set-blocklist-many`.
@@ -177,7 +177,7 @@ This is a private function designed to complement the aforementioned governance 
 (blocked bool)
 ```
 
-##### Errors defined in the contract
+### Errors defined in the contract
 * `ERR-NOT-AUTHORIZED`
 * `ERR-INVALID-POOL`
 * `ERR-INVALID-LIQUIDITY`

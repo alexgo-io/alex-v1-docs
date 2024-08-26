@@ -3,7 +3,7 @@
 #### Location: _`./alex-dao-2/contracts/aux/amm-vault-v2-01.clar`_
 
 This document provides comprehensive technical details for the vault contract within ALEX's Automated Market Maker (AMM) Trading Pool system. The vault contract supports the primary contract `amm-pool-v2-01.clar` in position and swap operations by keeping record of the reserves accumulated from fees and securing pool assets. It ensures asset security through transfer transactions where the vault contract is the recipient of token transfers, thereby holding and safeguarding the assets within the pool. [LINK xxx xxx xxx].
-In addition to supporting Trading Pool operations, the vault contract also offers a flash-loan feature for registered tokens, available to authorized users.
+In addition to supporting Trading Pool operations, the vault contract also offers a flash-loan feature for registered tokens, available to approved users.
 
 ## Storage
 
@@ -41,7 +41,7 @@ This symbolic constant is employed to define and restrict decimal precision to 8
 
 * `executor-dao` This call is used to verify whether a certain contract caller is designated as an extension.
 
-* `token-trait` Calls are made to token contracts that comply with the <ft-trait> defined in each token-trait variable to facilitate token transfers and retrieve balances during transfer and loan operations.
+* `token-trait` Calls are made to token contracts that comply with the <ft-trait> defined in each token-trait parameter to facilitate token transfers and retrieve balances during transfer and loan operations.
 
 * `flash-loan-user-trait` Calls are made to token contracts that comply with the <flash-loan-trait> defined in the flash-loan-user-trait variable to execute loans for the approved flash-loan users and tokens.
 

@@ -38,7 +38,7 @@ These symbolic constants are employed to define and restrict decimal precision a
 
 ### POOL features
 
-1. `create-pool` This function establishes a liquidity pool for a specified token pair (token-x/token-y). It starts by verifying that the `tx-sender` is not blacklisted through the `is-blocklisted-or-default` function \[LINK XXX XXX XXX)]. Following this validation, the function delegates the pool creation task to the registry. Upon successful creation, the function automatically invokes `add-to-position` function \[LINK XXX XXX XXX)] to initialize token positions for the specified pair within the new pool.\
+1. `create-pool` This function establishes a liquidity pool for a specified token pair (token-x/token-y). It starts by verifying that the `tx-sender` is not blacklisted through the `is-blocklisted-or-default` function \[LINK XXX XXX XXX)]. Following this validation, the function delegates the pool creation task to the registry. The pools are uniquely identified by their `token-x`, `token-y`, and `factor` values. Upon successful creation, the function automatically invokes `add-to-position` function \[LINK XXX XXX XXX)] to initialize token positions for the specified pair within the new pool.\
    **Input**:
 
 ```lisp
@@ -256,8 +256,7 @@ These helper functions facilitate the retrieval of specific token data using ano
 **Mathematical helpers**
 
 These helper functions aid in various calculations within the context of 
-the contract, such as amounts, percentages, etc. Some of them 
-utilize [mathematical constants](amm-pool-v2-01.clar.md#mathematical-constants): `accumulate_division`, `accumulate_product`, `div-down`, `div-up`, `exp-fixed`, `exp-pos`, `ln-fixed`, `ln-priv`, `log-fixed`, `mul-down`, `mul-up`, `pow-down`, `pow-fixed`, `pow-priv`, `pow-up`, `rolling_div_sum`, `rolling_sum_div`.
+the contract, such as amounts, percentages, etc. Some of these functions rely on predefined constants, as specified in [mathematical constants](amm-pool-v2-01.clar.md#mathematical-constants): `accumulate_division`, `accumulate_product`, `div-down`, `div-up`, `exp-fixed`, `exp-pos`, `ln-fixed`, `ln-priv`, `log-fixed`, `mul-down`, `mul-up`, `pow-down`, `pow-fixed`, `pow-priv`, `pow-up`, `rolling_div_sum`, `rolling_sum_div`.
 
 
 ## Errors defined in the contract

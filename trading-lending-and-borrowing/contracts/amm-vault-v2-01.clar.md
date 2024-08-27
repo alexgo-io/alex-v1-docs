@@ -47,7 +47,7 @@ This symbolic constant is employed to define and restrict decimal precision to 8
 
 ## Features
 
-1. `add-to-reserve` This function increases the existing reserves of a specific token by the given amount. It is governed by the `is-dao-or-extension` check to ensure that the `tx-sender` is an ALEX admin operator. Intended to be invoked by the main `amm-pool-v2-01.clar` contract during swap operations, this function is called following a transfer of the incoming token (token-x) to the vault contract. The `add-to-reserve` function is then executed with the token principal and the specified amount, representing the swap fees charged by the system for the transaction.
+1. `add-to-reserve` This function increases the existing reserves of a specific token by the given amount. It is governed by the `is-dao-or-extension` check to ensure that the `tx-sender` is an ALEX admin operator. Intended to be invoked by the main `amm-pool-v2-01.clar` contract during swap operations, this function is called following a transfer of the incoming token (token-x) to the vault contract. The `add-to-reserve` function is then executed with the token principal and the specified amount, representing the swap fees charged by the system for the transaction.\
 **Input**:
 ```lisp
 (token-trait principal)
@@ -55,7 +55,7 @@ This symbolic constant is employed to define and restrict decimal precision to 8
 ```
 
 2. `remove-from-reserve` This function serves as the reverse operation of `add-to-reserve`, decreasing the specified amount for the given token. An additional check ensures that the amount is less than or equal to the token's current reserve in the vault.
-Although it is not currently called by any existing module, the function also verifies that the `tx-sender` is an ALEX admin operator via the `is-dao-or-extension` control.
+Although it is not currently called by any existing module, the function also verifies that the `tx-sender` is an ALEX admin operator via the `is-dao-or-extension` control.\
 **Input**:
 ```lisp
 (token-trait principal)
@@ -63,7 +63,7 @@ Although it is not currently called by any existing module, the function also ve
 ```
 
 3. `transfer-ft` Like `add-to-reserve`, this function is intended to be called by the `amm-pool-v2-01.clar` contract during swap operations and is governed by the `is-dao-or-extension` check. Controls are in place to ensure that the contract is operational (not paused) and that the given token is approved in the contract's list.
-If all these conditions are met, the function will execute a transfer of the specified amount from the vault to the designated recipient.
+If all these conditions are met, the function will execute a transfer of the specified amount from the vault to the designated recipient.\
 **Input**:
 ```lisp
 (token-trait <ft-trait>)
@@ -71,7 +71,7 @@ If all these conditions are met, the function will execute a transfer of the spe
 (recipient principal)
 ```
 
-4. `transfer-ft-two` This function serves as a helper for calling the `transfer-ft` function twice with two different tokens and amounts for the same recipient within a single transaction. In the current model, this feature is utilized by the `amm-pool-v2-01.clar` contract during position reduction operations to return assets to the user.
+4. `transfer-ft-two` This function serves as a helper for calling the `transfer-ft` function twice with two different tokens and amounts for the same recipient within a single transaction. In the current model, this feature is utilized by the `amm-pool-v2-01.clar` contract during position reduction operations to return assets to the user.\
 **Input**:
 ```lisp
 (token-x-trait <ft-trait>)
@@ -81,7 +81,7 @@ If all these conditions are met, the function will execute a transfer of the spe
 (recipient principal)
 ```
 
-5. `transfer-sft` This function is similar to `transfer-ft`, but it is designed for semi-fungible tokens, which operate with a token ID. It includes the same controls as `transfer-ft` regarding the vault's operational status and approved tokens. Although this function is not called by the `amm-pool-v2-01.clar` contract in the current system design, it requires invocation by an ALEX admin operator, as governed by the `is-dao-or-extension` check.
+5. `transfer-sft` This function is similar to `transfer-ft`, but it is designed for semi-fungible tokens, which operate with a token ID. It includes the same controls as `transfer-ft` regarding the vault's operational status and approved tokens. Although this function is not called by the `amm-pool-v2-01.clar` contract in the current system design, it requires invocation by an ALEX admin operator, as governed by the `is-dao-or-extension` check.\
 **Input**:
 ```lisp
 (token-trait <sft-trait>)
@@ -91,7 +91,7 @@ If all these conditions are met, the function will execute a transfer of the spe
 ```
 
 6. `flash-loan` This function is designed to lend the recipient (the `tx-sender`) a specified amount of tokens to execute an embedded function declared in the `flash-loan-trait`. The recipient then transfers back the same amount plus the corresponding fee (refer to `flash-loan-fee-rate`).
-As with previous features, controls are in place to check the vault's operational status, approve tokens and flash-loan users, and ensure there is sufficient balance to make the transfer.
+As with previous features, controls are in place to check the vault's operational status, approve tokens and flash-loan users, and ensure there is sufficient balance to make the transfer.\
 **Input**:
 ```lisp
 (flash-loan-user-trait <flash-loan-trait>)
@@ -102,15 +102,15 @@ As with previous features, controls are in place to check the vault's operationa
 
 ### Governance features
 
-1. `is-dao-or-extension` This standard protocol function checks whether a caller (`tx-sender`) is the DAO executor or an authorized extension, delegating the extensions check to the `executor-dao` contract.
+1. `is-dao-or-extension` This standard protocol function checks whether a caller (`tx-sender`) is the DAO executor or an authorized extension, delegating the extensions check to the `executor-dao` contract.\
 **Input**:
 None.
 
-2. `is-paused` A read-only function that checks the operational status of the contract.
+2. `is-paused` A read-only function that checks the operational status of the contract.\
 **Input**:
 None.
 
-3. `pause` A public function, governed through the `is-dao-or-extension`, that can change the contract's operational status.
+3. `pause` A public function, governed through the `is-dao-or-extension`, that can change the contract's operational status.\
 **Input**:
 ```lisp
 (new-paused bool)
@@ -136,13 +136,13 @@ None.
 
 #### Internal helper functions
 
-* `check-is-approved-flash-loan-user` This is a private function designed to verify whether a flash-loan user is approved in the contract's persisted datamap, `approved-flash-loan-users`.
+* `check-is-approved-flash-loan-user` This is a private function designed to verify whether a flash-loan user is approved in the contract's persisted datamap, `approved-flash-loan-users`.\
 **Input**:
 ```lisp
 (flash-loan-user-trait principal)
 ```
 
-* `check-is-approved-token` This is a private function designed to verify whether a token is approved in the contract's persisted datamap, `approved-tokens`.
+* `check-is-approved-token` This is a private function designed to verify whether a token is approved in the contract's persisted datamap, `approved-tokens`.\
 **Input**:
 ```lisp
 (flash-loan-token principal)

@@ -73,7 +73,7 @@ This symbolic constant is employed to define and restrict decimal precision to 8
 
 1. `create-pool` This function establishes a liquidity pool for a specified token pair (token-x/token-y). It begins by verifying that the `tx-sender` is an ALEX admin operator (see the function `is-dao-or-extension`), as it is intended to be used by the main `amm-pool-v2-01.clar` contract in the current model.
 The primary validation performed by this function ensures that the pool does not already exist; if it does, an error is thrown. This validation considers the factor and both token combinations (token-x/token/y or token-y/token-x) as unique identifiers. When a pool is created, an entry is added to the `pools-data-map` structure, using this unique identifier as the key to keep track of all pool information, including balances, fees, thresholds, and more. Additionally, the function generates an ID for the newly created pool (see `pool-nonce`).
-All remaining values in the datamap are initialized to zero (`u0`), except for `oracle-enabled`, which is set to `false`. Additionally, `start-block` and `end-block` are initialized with the maximum uint value to ensure the pool remains in a non-operational status until properly initialized. For a complete list of fields, refer to the `pools-data-map`.
+All remaining values in the datamap are initialized to zero (`u0`), except for `oracle-enabled`, which is set to `false`. Additionally, `start-block` and `end-block` are initialized with the maximum uint value to ensure the pool remains in a non-operational status until properly initialized. For a complete list of fields, refer to the `pools-data-map`.\
 **Input**:
 ```lisp
 (token-x-trait <ft-trait>)
@@ -83,7 +83,7 @@ All remaining values in the datamap are initialized to zero (`u0`), except for `
 ```
 
 2. `update-pool` This function updates a liquidity pool identified by the unique combination of `token-x`, `token-y`, and `factor`. It is a governed function that restricts the `tx-sender` to be an ALEX admin operator (see the function `is-dao-or-extension`).
-Similar to the aforementioned `create-pool` function, `update-pool` is designed to be used by the main `amm-pool-v2-01.clar` contract. However, in this case, it is used indirectly in position and swap operations.
+Similar to the aforementioned `create-pool` function, `update-pool` is designed to be used by the main `amm-pool-v2-01.clar` contract. However, in this case, it is used indirectly in position and swap operations.\
 **Input**:
 ```lisp
 (token-x principal)
@@ -112,17 +112,17 @@ Similar to the aforementioned `create-pool` function, `update-pool` is designed 
 
 ### Governance features
 
-1. `is-dao-or-extension` This standard protocol function checks whether a caller (`tx-sender`) is the DAO executor or an authorized extension, delegating the extensions check to the `executor-dao` contract.
+1. `is-dao-or-extension` This standard protocol function checks whether a caller (`tx-sender`) is the DAO executor or an authorized extension, delegating the extensions check to the `executor-dao` contract.\
 **Input**:
 None.
 
-2. `is-blocklisted-or-default` A read-only feature that verifies if a given address is blacklisted using the `blocklist` map.
+2. `is-blocklisted-or-default` A read-only feature that verifies if a given address is blacklisted using the `blocklist` map.\
 **Input**:
 ```lisp
 (sender principal)
 ```
 
-3. `set-blocklist-many` A public function, governed by the `is-dao-or-extension` mechanism, that allows setting or updating the blocklisted status for a list of addresses (up to 1000 addresses).
+3. `set-blocklist-many` A public function, governed by the `is-dao-or-extension` mechanism, that allows setting or updating the blocklisted status for a list of addresses (up to 1000 addresses).\
 **Input**:
 ```lisp
 (list 1000 {
@@ -166,7 +166,7 @@ The following groups of functions support pool usage and configuration features 
 
 #### Internal helper functions
 
-* `set-blocklist` This is a private function designed to complement the aforementioned governance function `set-blocklist-many`.
+* `set-blocklist` This is a private function designed to complement the aforementioned governance function `set-blocklist-many`.\
 **Input**:
 ```lisp
 (sender principal)

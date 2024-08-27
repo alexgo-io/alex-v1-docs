@@ -38,7 +38,7 @@ These symbolic constants are employed to define and restrict decimal precision a
 
 ### POOL features
 
-1. `create-pool` This function establishes a liquidity pool for a specified token pair (token-x/token-y). It starts by verifying that the `tx-sender` is not blacklisted through the `is-blocklisted-or-default` function \[LINK XXX XXX XXX)]. Following this validation, the function delegates the pool creation task to the registry. The pools are uniquely identified by their `token-x`, `token-y`, and `factor` values. Upon successful creation, the function automatically invokes `add-to-position` function \[LINK XXX XXX XXX)] to initialize token positions for the specified pair within the new pool.\
+1. `create-pool` This function establishes a liquidity pool for a specified token pair (token-x/token-y). It starts by verifying that the `tx-sender` is not blacklisted through the [`is-blocklisted-or-default` function](amm-pool-v2-01.clar.md#governance-features). Following this validation, the function delegates the pool creation task to the registry. The pools are uniquely identified by their `token-x`, `token-y`, and `factor` values. Upon successful creation, the function automatically invokes `add-to-position` function to initialize token positions for the specified pair within the new pool.\
    **Input**:
 
 ```lisp
@@ -49,8 +49,6 @@ These symbolic constants are employed to define and restrict decimal precision a
 (dx uint)
 (dy uint)
 ```
-
-TBD: LINKS to NON-TECH DOC FOR BUSINESS CONCEPTS (factor, dx, dy, etc)
 
 2. `add-to-position` The `add-to-position` function adds asset positions to an existing liquidity pool by transferring the respective tokens from the `tx-sender` to the system vault contract. It updates the pool details in the registry contract and mints LP tokens to the sender, representing their share of the pool and potential earnings. This minting operation is tracked using a unique pool identifier (POOL\_ID).\
    **Input**:
@@ -63,8 +61,6 @@ TBD: LINKS to NON-TECH DOC FOR BUSINESS CONCEPTS (factor, dx, dy, etc)
 (max-dy (optional uint))
 ```
 
-TBD: LINKS to NON-TECH DOC FOR BUSINESS CONCEPTS (max-dy, slippage, etc)
-
 3. `reduce-position` This function performs the inverse operation of `add-to-position` by allowing users to withdraw asset positions from an existing token pair pool. Upon meeting all requirements (such as the operational status of the pool contract, a valid percentage, and sufficient liquidity pool supply), the function transfers the calculated amount from the vault to the sender and burns the corresponding LP tokens. Note that this function cannot be invoked by blacklisted senders.\
    **Input**:
 
@@ -75,9 +71,7 @@ TBD: LINKS to NON-TECH DOC FOR BUSINESS CONCEPTS (max-dy, slippage, etc)
 (percent uint)
 ```
 
-TBD: LINKS to NON-TECH DOC FOR BUSINESS CONCEPTS (percent)
-
-4. **Swap tokens functions**: The swap tokens functions enable token exchanges between two given tokens within the liquidity pool. For a swap to occur, the pool contract must have a funded liquidity pool for the token pair. The basic steps are: a. transferring a specified amount of token-x from the sender to the system vault b. transferring a calculated amount of token-y from the system vault to the sender while considering swap fees and expected minimum amounts c. registering the fee in token-x within the vault d. updating the pool registry's liquidity status\
+4. **Swap tokens functions**: The swap tokens functions enable token exchanges between two given tokens within the liquidity pool. For a swap to successfully execute, the pool contract must contain sufficient liquidity for the specified token pair. The basic steps are: a. transferring a specified amount of token-x from the sender to the system vault b. transferring a calculated amount of token-y from the system vault to the sender while considering swap fees and expected minimum amounts c. registering the fee in token-x within the vault d. updating the pool registry's liquidity status\
    \
    These steps are mirrored for swaps involving the reverse token pair (token-y/token-x).\
    \
@@ -142,8 +136,6 @@ TBD: LINKS to NON-TECH DOC FOR BUSINESS CONCEPTS (percent)
 ```
 
 **Note**: all these helpers use the swap supporting functions `swap-x-for-y` and `swap-y-for-x`.
-
-TBD: LINKS to NON-TECH DOC FOR BUSINESS CONCEPTS (swap concept, min-dy)
 
 ### Supporting features
 

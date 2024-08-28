@@ -1,8 +1,8 @@
 # Pool
 
-#### Location: _`./alex-dao-2/contracts/extensions/amm-pool-v2-01.clar`_
+#### Location: [_`./alex-dao-2/contracts/extensions/amm-pool-v2-01.clar`_](https://github.com/alexgo-io/alex-dao-2/blob/main/contracts/extensions/amm-pool-v2-01.clar)
 
-This document provides comprehensive technical documentation for the primary contract in ALEX's AMM Trading Pool system. The contract encompasses several core operations, including pool creation, liquidity operations (adding or removing assets), LP token management (minting and burning tokens that represent a user's share of the pool and potential earnings), and token swapping (facilitating the exchange of tokens within an existing and funded pool while charging a corresponding fee). This contract is complemented by two auxiliary contracts: a REGISTRY contract that handles the persistence of pool information, and a VAULT contract that secures the assets and manages the reserves accumulated from the fees. For detailed information about these auxiliary contracts, please refer to their respective technical documentation: amm-registry-v2-01.clar and amm-vault-v2-01.clar. \[LINK XXX XXX XXX]
+This document provides comprehensive technical documentation for the primary contract in ALEX's AMM Trading Pool system. The contract encompasses several core operations, including pool creation, liquidity operations (adding or removing assets), LP token management (minting and burning tokens that represent a user's share of the pool and potential earnings), and token swapping (facilitating the exchange of tokens within an existing and funded pool while charging a corresponding fee). This contract is complemented by two auxiliary contracts: a REGISTRY contract that handles the persistence of pool information, and a VAULT contract that secures the assets and manages the reserves accumulated from the fees. For detailed information about these auxiliary contracts, please refer to their respective technical documentation: [amm-registry-v2-01.clar](../amm-registry-v2-01.clar.md) and [amm-vault-v2-01.clar](../amm-vault-v2-01.clar.md).
 
 ## Storage
 

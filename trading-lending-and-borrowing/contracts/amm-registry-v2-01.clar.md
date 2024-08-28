@@ -1,8 +1,8 @@
 # Registry
 
-#### Location: _`./alex-dao-2/contracts/aux/amm-registry-v2-01.clar`_
+#### Location: [_`./alex-dao-2/contracts/aux/amm-registry-v2-01.clar`_](https://github.com/alexgo-io/alex-dao-2/blob/main/contracts/aux/amm-registry-v2-01.clar)
 
-This document provides comprehensive technical details for the registry contract within ALEX's Automated Market Maker (AMM) Trading Pool system. The contract primarily functions as a persistence module for all pool-related information needed by the main contract `amm-pool-v2-01.clar`. [LINK xxx xxx xxx]
+This document provides comprehensive technical details for the registry contract within ALEX's Automated Market Maker (AMM) Trading Pool system. The contract primarily functions as a persistence module for all pool-related information needed by the main contract [amm-pool-v2-01.clar](../amm-pool-v2-01.clar.md).
 
 To achieve this, the contract allows for the creation and updating of pools. Pool creation involves persisting an entry in a datamap, using `token-x`, `token-y`, and `factor` as the key and containing all relevant pool information.
 
@@ -57,7 +57,7 @@ A persisted variable used to generate a new pool ID incrementally. The stored va
 An internal variable used to set a fixed threshold for calculations. It is initialized with `u80000000` and can be retrieved and modified using `get-switch-threshold` and `set-switch-threshold` functions. The value of `switch-threshold` must be less than or equal to the constant `ONE_8`. This value is crucial for the mathematical formulas used within the `amm-pool-v2-01.clar` contract.
 
 * `max-ratio-limit` (uint)
-An internal variable that defines the maximum ratio limit. It is initialized with the value of the constant `ONE_8`.
+  This variable sets the upper limit for the ratio in a token pool. These ratios are evaluated during each pool swap operation to determine the maximum amount that can be deposited or exchanged in the pool. It is initialized with the value of the constant `ONE_8`.
 
 #### Mathematical constants
 

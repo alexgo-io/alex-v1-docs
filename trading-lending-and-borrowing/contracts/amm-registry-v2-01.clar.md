@@ -46,7 +46,7 @@ A datamap structure that persists complete pool information. The map key consist
 A datamap structure that facilitates the retrieval of pool details using the pool ID as the key. The stored values include `token-x` and `token-y` principals, and `factor`.
 
 * `blocklist` (datamap key: principal value: bool)
-  A datamap structure that stores a persisted list of blocklisted addresses for operating within the Alex Trading Pool.
+A datamap structure that stores a persisted list of blocklisted addresses for operating within the Alex Trading Pool.
  
 ### Variables: (data-var)
 
@@ -57,7 +57,7 @@ A persisted variable used to generate a new pool ID incrementally. The stored va
 An internal variable used to set a fixed threshold for calculations. It is initialized with `u80000000` and can be retrieved and modified using `get-switch-threshold` and `set-switch-threshold` functions. The value of `switch-threshold` must be less than or equal to the constant `ONE_8`. This value is crucial for the mathematical formulas used within the `amm-pool-v2-01.clar` contract.
 
 * `max-ratio-limit` (uint)
-  This variable sets the upper limit for the ratio in a token pool. These ratios are evaluated during each pool swap operation to determine the maximum amount that can be deposited or exchanged in the pool. It is initialized with the value of the constant `ONE_8`.
+This variable sets the upper limit for the ratio in a token pool. These ratios are evaluated during each pool swap operation to determine the maximum amount that can be deposited or exchanged in the pool. It is initialized with the value of the constant `ONE_8`.
 
 #### Mathematical constants
 

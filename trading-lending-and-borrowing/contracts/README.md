@@ -1,3 +1,3 @@
 # Overview / Map
 
-Insert amalgamator code here.
+Insert Amalgamator code here.

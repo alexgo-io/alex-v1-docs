@@ -4,15 +4,7 @@ This section provides an overview of the ALEX on-chain Trading Pool and its Auto
 
 ## Contracts map
 
-```plantuml
-rectangle "AMM Trading Pool" {
-rectangle "<b>amm-pool-v2-01.clar</b>\noperations" as pool
-rectangle "<b>amm-registry-v2-01.clar</b>\npersistency" as registry
-rectangle "<b>amm-vault-v2-01.clar</b>\nfee reserves + secured assests" as vault
-}
-pool -> registry
-pool --> vault
-```
+![](https://kroki.io/plantuml/svg/eNptjs0KgzAQhO8-xeK1pH9nEfoAQg8ee1njNgRiIrtRkNJ3b1SKB73OzDczTDqiN44gf1QV1Iyt9QaeIbgcPhlvdtGU2HWqT44a7-p6O2uHXFya8uVDT4zRBi85oMCcOUCZjJXI0w5PtCSHvJ4W_h886BhxcHFX8CZKkBCPJHACIT0wtalKSOL6aQGzbzZ_A1VuG6uQlDXxA1KNXfM=)
 
 ### Pool: amm-pool-v2-01.clar
 

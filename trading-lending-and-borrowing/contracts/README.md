@@ -72,10 +72,10 @@ This is a custom trait from ALEX designed to support flash-loan operations and i
 
 The Pool and Vault contracts are equipped with helper functions that facilitate various mathematical operations (e.g., amounts, percentages) with the necessary precision. These helpers improve the expressiveness of the contracts' logic. Some of these helper functions utilize mathematical constants defined within each contract. All helper functions are declared as private and, like the governance functions, may be replicated across both contracts using the same equations.
 
-|  |  |
+|Topic|Functions|
 |--|--|
 |Precision multipliers and divisors|`mul-down`, `mul-up`, `div-down`, `div-up`|
 |Rolling summation|`rolling_sum_div`, `rolling_div_sum`|
-|Accumulate functions|`accumulate_division`, `accumulate_product`|
-|Power and exponential functions|`pow-fixed`, `pow-priv`, `pow-down`, `pow-up`, `exp-fixed`, `exp-pos`|
-|Logarithmic functions|`log-fixed`, `ln-fixed`, `ln-priv`|
+|Accumulate|`accumulate_division`, `accumulate_product`|
+|Power and exponential|`pow-fixed`, `pow-priv`, `pow-down`, `pow-up`, `exp-fixed`, `exp-pos`|
+|Logarithmic|`log-fixed`, `ln-fixed`, `ln-priv`|

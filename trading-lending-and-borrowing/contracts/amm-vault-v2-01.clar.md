@@ -2,7 +2,7 @@
 
 #### Location: [_`./alex-dao-2/contracts/aux/amm-vault-v2-01.clar`_](https://github.com/alexgo-io/alex-dao-2/blob/main/contracts/aux/amm-vault-v2-01.clar)
 
-This document provides comprehensive technical details for the vault contract within ALEX's Automated Market Maker (AMM) Trading Pool system. The vault contract supports the primary contract [amm-pool-v2-01.clar](../amm-pool-v2-01.clar.md) in position and swap operations by keeping record of the reserves accumulated from fees and securing pool assets. It ensures asset security through transfer transactions where the vault contract is the recipient of token transfers, thereby holding and safeguarding the assets within the pool.
+This document provides comprehensive technical details for the vault contract within ALEX's Automated Market Maker (AMM) Trading Pool system. The vault contract supports the primary contract [amm-pool-v2-01.clar](./amm-pool-v2-01.clar.md) in position and swap operations by keeping record of the reserves accumulated from fees and securing pool assets. It ensures asset security through transfer transactions where the vault contract is the recipient of token transfers, thereby holding and safeguarding the assets within the pool.
 In addition to supporting Trading Pool operations, the vault contract also offers a flash-loan feature for registered tokens, available to approved users.
 
 ## Storage

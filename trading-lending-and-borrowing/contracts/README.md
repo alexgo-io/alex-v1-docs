@@ -10,20 +10,20 @@ This section provides an overview of the ALEX on-chain Trading Pool and its Auto
 
 This is the primary contract in ALEX's AMM Trading Pool system. It encompasses several core operations, including pool creation, liquidity operations, LP token management, and token swapping. This contract is complemented by the two auxiliary contracts listed below.
 
-[Complete technical documentation](../amm-pool-v2-01.clar.md)
+[Complete technical documentation](./amm-pool-v2-01.clar.md)
 
 ### Registry: amm-registry-v2-01.clar
 
 This contract functions as a persistence module for all pool-related information needed by the ALEX Automated Market Maker (AMM) Trading Pool system. It also manages a list of blocklisted operators.
 
-[Complete technical documentation](../amm-registry-v2-01.clar.md)
+[Complete technical documentation](./amm-registry-v2-01.clar.md)
 
 
 ### Vault: amm-vault-v2-01.clar
 
 The vault contract supports the primary contract `amm-pool-v2-01.clar` in position and swap operations by keeping records of the reserves accumulated from fees and securing pool assets. This contract also offers a flash-loan feature for registered tokens, available to approved users.
 
-[Complete technical documentation](../amm-vault-v2-01.clar.md)
+[Complete technical documentation](./amm-vault-v2-01.clar.md)
 
 ## Common features
 

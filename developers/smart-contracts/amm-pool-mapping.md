@@ -8,11 +8,11 @@ We have three smart contracts in production that provide AMM.
 
 ### Trading Pool
 
-[Trading Pool](../../trading-lending-and-borrowing/trading-pool.md) is the latest AMM smart contract that developers should use whenever possible.
+[Trading Pool](../../trading-lending-and-borrowing/trading-pool/) is the latest AMM smart contract that developers should use whenever possible.
 
 Trading Pool implements Generalised Mean Equation and, with a suitable parameterisation, supports both risky pairs (i.e. $$x y=L$$), stable pairs (i.e. $$x +y=L$$) and any linear combination in-between (i.e. Curve).
 
-Trading Pool is parameterised with a single parameter $$t$$. $$t$$ can be between 0 and 1, with $$t=1$$ being equivalent of constant product formula (i.e. Uniswap V2) and  $$t=0$$ being equivalent of constant sum formula (i.e. mStable). $$0<t <1$$ then gives a Curve-like formula.
+Trading Pool is parameterised with a single parameter $$t$$. $$t$$ can be between 0 and 1, with $$t=1$$ being equivalent of constant product formula (i.e. Uniswap V2) and $$t=0$$ being equivalent of constant sum formula (i.e. mStable). $$0<t <1$$ then gives a Curve-like formula.
 
 #### Contract address
 
@@ -30,7 +30,7 @@ Fixed Weight Pool has been deprecated since the introduction of [Trading Pool](a
 
 ### Simple Weight Pool
 
-Simple Weight Pool supports the constant product formula (i.e.  $$x y=L$$).
+Simple Weight Pool supports the constant product formula (i.e. $$x y=L$$).
 
 Simple Weight Pool has been deprecated since the introduction of [Trading Pool](amm-pool-mapping.md#trading-pool).
 
@@ -201,4 +201,3 @@ Simple Weight Pool has been deprecated since the introduction of [Trading Pool](
 
 * `token-x`: `SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.age000-governance-token`
 * `token-y`: `SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.token-wslm`
-

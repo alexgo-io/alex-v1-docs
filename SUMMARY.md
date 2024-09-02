@@ -5,14 +5,13 @@
 ## 📈 Trading, Lending and Borrowing
 
 * [Our Design](trading-lending-and-borrowing/platform-architecture-that-supports-ecosystem-development.md)
-* [Trading Pool](trading-lending-and-borrowing/trading-pool.md)
+* [Trading Pool](trading-lending-and-borrowing/trading-pool/README.md)
+  * [amm-pool-v2-01.clar](trading-lending-and-borrowing/trading-pool/amm-pool-v2-01.clar.md)
+  * [amm-registry-v2-01.clar](trading-lending-and-borrowing/trading-pool/amm-registry-v2-01.clar.md)
+  * [amm-vault-v2-01.clar](trading-lending-and-borrowing/trading-pool/amm-vault-v2-01.clar.md)
 * [Collateral Rebalancing Pool](trading-lending-and-borrowing/collateral-rebalancing-pool.md)
 * [Yield Token Pool](trading-lending-and-borrowing/automated-market-making-designed-for-lending-protocols.md)
 * [Vault](trading-lending-and-borrowing/vault.md)
-* [Contracts](trading-lending-and-borrowing/contracts/README.md)
-  * [`amm-pool-v2-01.clar`](trading-lending-and-borrowing/contracts/amm-pool-v2-01.clar.md)
-  * [`amm-registry-v2-01.clar`](trading-lending-and-borrowing/contracts/amm-registry-v2-01.clar.md)
-  * [`amm-vault-v2-01.clar`](trading-lending-and-borrowing/contracts/amm-vault-v2-01.clar.md)
 
 ## 🧙‍♀️ Bitcoin Oracle
 

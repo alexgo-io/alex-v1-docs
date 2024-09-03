@@ -1,3 +1,5 @@
+<mark style="color:green;">Demo note: this document seems to be outdated. We propose to remove it.</mark>
+
 # AMM Pool Mapping
 
 Below table maps the pool listed on [https://app.alexlab.co/pool](https://app.alexlab.co/pool) to smart contracts with the relevant parameters

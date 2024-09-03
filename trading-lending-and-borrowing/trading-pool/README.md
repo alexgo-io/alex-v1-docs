@@ -1,3 +1,5 @@
+<mark style="color:green;">Demo note: this document will be adjusted with some updated operations context and an enriched glossary. A link to developers contract section will be included.</mark>
+
 # Trading Pool
 
 ## Introduction

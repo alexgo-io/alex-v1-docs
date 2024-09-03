@@ -1,3 +1,5 @@
+<mark style="color:green;">Demo note: A link to developers contract section will be included.</mark>
+
 # Vault
 
 Vault holds and manages the assets of all ALEX pools. The separation of pool and vault has many benefits including, among others, cheaper transaction costs for users and quicker learning curve for developers when building custom pools on ALEX.

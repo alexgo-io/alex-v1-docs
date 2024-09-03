@@ -6,9 +6,6 @@
 
 * [Our Design](trading-lending-and-borrowing/platform-architecture-that-supports-ecosystem-development.md)
 * [Trading Pool](trading-lending-and-borrowing/trading-pool/README.md)
-  * [amm-pool-v2-01.clar](trading-lending-and-borrowing/trading-pool/amm-pool-v2-01.clar.md)
-  * [amm-registry-v2-01.clar](trading-lending-and-borrowing/trading-pool/amm-registry-v2-01.clar.md)
-  * [amm-vault-v2-01.clar](trading-lending-and-borrowing/trading-pool/amm-vault-v2-01.clar.md)
 * [Collateral Rebalancing Pool](trading-lending-and-borrowing/collateral-rebalancing-pool.md)
 * [Yield Token Pool](trading-lending-and-borrowing/automated-market-making-designed-for-lending-protocols.md)
 * [Vault](trading-lending-and-borrowing/vault.md)
@@ -53,8 +50,13 @@
 
 ## 🎮 Developers
 
-* [Testnet](developers/testnet.md)
+* [Environments](developers/environments/README.md)
+  * [Mainnet](developers/environments/mainnet.md)
+  * [Token List](developers/environments/token-list.md)
+  * [Testnet](developers/environments/testnet.md)
+  * [AMM Pool Mapping](developers/environments/amm-pool-mapping.md)
 * [Smart Contracts](developers/smart-contracts/README.md)
-  * [Token List](developers/smart-contracts/token-list.md)
-  * [AMM Pool Mapping](developers/smart-contracts/amm-pool-mapping.md)
+  * [amm-pool-v2-01.clar](developers/smart-contracts/amm-pool-v2-01.clar.md)
+  * [amm-registry-v2-01.clar](developers/smart-contracts/amm-registry-v2-01.clar.md)
+  * [amm-vault-v2-01.clar](developers/smart-contracts/amm-vault-v2-01.clar.md) 
 * [REST API](developers/api-references.md)

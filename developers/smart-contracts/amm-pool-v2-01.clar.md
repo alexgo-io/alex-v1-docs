@@ -174,16 +174,17 @@ All getter and setter functions in the contract handle pool information, delegat
 
 The following is the complete list of setter functions for pool configurations. All set configuration functions are restricted to the respective pool owner or ALEX admin operators (see function `is-dao-or-extension`).
 
-* `set-start-block`
-* `set-end-block`
-* `set-fee-rate-x`
-* `set-fee-rate-y`
-* `set-max-in-ratio`
-* `set-max-out-ratio`
-* `set-oracle-enabled`
-* `set-oracle-average`
-* `set-threshold-x`
-* `set-threshold-y`
+* `set-fee-rate-x` and `set-fee-rate-y`: set the swap fee (% of swap amount) of `token-x` and `token-y`, respectively. Both `fee-rate-x` and `fee-rate-y` are zero by default.
+
+* `set-start-block` and `set-end-block`: set the block heights before and after, respectively, which the pool is not available. Both `start-block` and `end-block` is set to `u340282366920938463463374607431768211455` by default.
+
+* `set-threshold-x` and `set-threshold-y`: set the amount of `token-x` and `token-y`, respectively, below which a minimum % slippage is applied. Both `threshold-x` and `threshold-y` are zero by default.
+
+* `set-max-in-ratio` and `set-max-out-ratio`: set the maximum ratio values used to calculate the highest amount that can be deposited (IN) or exchanged (OUT) within the pool.
+
+* `set-oracle-enabled`: add or remove the pool from the on-chain price oracle. Oracle is disabled by default.
+
+* `set-oracle-average`: set the exponential moving average factor for the `oracle-resilient`. Please note this call will reset the existing `oracle-resilient` value. The `oracle-average` is zero by default. We recommend `0.99e8`.
 
 #### Getters
 

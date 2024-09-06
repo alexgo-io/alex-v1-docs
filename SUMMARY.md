@@ -50,12 +50,10 @@
 
 ## 🎮 Developers
 
-* [Environments](developers/environments/README.md)
+* [Networks](developers/environments/README.md)
   * [Mainnet](developers/environments/mainnet.md)
-  * [Token List](developers/environments/token-list.md)
   * [Testnet](developers/environments/testnet.md)
-  * [AMM Pool Mapping](developers/environments/amm-pool-mapping.md)
-* [Smart Contracts](developers/smart-contracts/README.md)
+* [Protocol Contracts](developers/smart-contracts/README.md)
   * [amm-pool-v2-01.clar](developers/smart-contracts/amm-pool-v2-01.clar.md)
   * [amm-registry-v2-01.clar](developers/smart-contracts/amm-registry-v2-01.clar.md)
   * [amm-vault-v2-01.clar](developers/smart-contracts/amm-vault-v2-01.clar.md) 

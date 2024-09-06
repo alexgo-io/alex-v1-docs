@@ -1,29 +1,34 @@
-<mark style="color:green;">Demo note: this bridge document will be reworked as an overall ALEXGO inventory (not only the trading pool contracts).</mark>
+# ALEX DAO: Comprehensive Technical Design Overview
 
-# ALEX DAO AMM Trading Pool
+This document provides a detailed overview of the smart contracts that enable ALEX DeFi operations. We categorize these contracts based on their functionalities, explain their interactions, and describe some common technical aspects.
 
-This section provides an overview of the ALEX on-chain Trading Pool and its Automated Market Making (AMM) protocol. The AMM Trading Pool protocol consists of a set of smart contracts that facilitate trading operations within the ALEX DeFi ecosystem. Below, we list these contracts, explain how they interact with each other, and describe some common technical aspects.
+## AMM Trading Pool
 
-## Contracts map
+This section provides an overview of the ALEX on-chain Trading Pool and its Automated Market Making (AMM) protocol.
 
-![](https://kroki.io/plantuml/svg/eNptjs0KgzAQhO8-xeK1pH9nEfoAQg8ee1njNgRiIrtRkNJ3b1SKB73OzDczTDqiN44gf1QV1Iyt9QaeIbgcPhlvdtGU2HWqT44a7-p6O2uHXFya8uVDT4zRBi85oMCcOUCZjJXI0w5PtCSHvJ4W_h886BhxcHFX8CZKkBCPJHACIT0wtalKSOL6aQGzbzZ_A1VuG6uQlDXxA1KNXfM=)
+### Contracts map
 
-### Pool: amm-pool-v2-01.clar
+![](https://kroki.io/plantuml/svg/eNptjssKgzAQRfd-xeC2pK-1CP0AoQuX3YxxGgIxkZkoSOm_NyrFhW7vuefOMOmI3jiC_FFVUDO21ht4huBy-GS84aIpsetUn4ga7-p6O2uHXFya8uVDT4zRBi85oMDcOVCZjJXI005PtiRCXk-L_y9m34OVEQcXdxNvoqQJ8UgCJxDSA1ObxoQkrl8tYjb_BqrcbqxBSlb-A0UYXfM=)
+
+#### Pool: amm-pool-v2-01.clar
 
 This is the primary contract in ALEX's AMM Trading Pool system. It encompasses several core operations, including pool creation, liquidity operations, LP token management, and token swapping. This contract is complemented by the two auxiliary contracts listed below.
 
 [Complete technical documentation](./amm-pool-v2-01.clar.md)
 
-### Registry: amm-registry-v2-01.clar
+#### Registry: amm-registry-v2-01.clar
 
 This contract functions as a persistence module for all pool-related information needed by the ALEX Automated Market Maker (AMM) Trading Pool system. It also manages a list of blocklisted operators.
 
 [Complete technical documentation](./amm-registry-v2-01.clar.md)
 
+## Vault
+
+The Vault component of the ALEX platform is distinct from the Trading Pool components by design. This separation offers numerous advantages, such as reduced transaction costs for users and a faster learning curve for developers who are creating custom pools on ALEX.
 
 ### Vault: amm-vault-v2-01.clar
 
-The vault contract supports the primary contract `amm-pool-v2-01.clar` in position and swap operations by keeping records of the reserves accumulated from fees and securing pool assets. This contract also offers a flash-loan feature for registered tokens, available to approved users.
+The Vault contract supports the primary contract `amm-pool-v2-01.clar` in position and swap operations by keeping records of the reserves accumulated from fees and securing pool assets. This contract also offers a flash-loan feature for registered tokens, available to approved users.
 
 [Complete technical documentation](./amm-vault-v2-01.clar.md)
 
@@ -35,7 +40,7 @@ The smart contracts discussed in this section include features to control admini
 
 #### Admin access control
 
-Each of the three contracts includes a feature that checks administrative access through the function `is-dao-or-extension`. This function ensures that the caller (`tx-sender`) is either the DAO executor or an authorized extension.
+Contracts in the ALEX platform may include a feature that checks administrative access through the function `is-dao-or-extension`. This function ensures that the caller (`tx-sender`) is either the DAO executor or an authorized extension.
 
 #### Operational status
 
@@ -43,7 +48,7 @@ The `amm-pool-v2-01` and `amm-vault-v2-01` contracts have functionalities to set
 
 #### Blocklisted operators
 
-The `amm-registry-v2-01` contract features the ability to update (on admin operator request) and query a list of blacklisted addresses that are prohibited from operating within the trading pool. The `amm-pool-v2-01` contract delegates the task of this verification to the registry, which performs a check against the `tx-sender`.
+The `amm-registry-v2-01` contract features the ability to update (on admin operator request) and query a list of blacklisted addresses that are prohibited from operating within the trading pool. The `amm-pool-v2-01` contract delegates the task of this verification to the Registry, which performs a check against the `tx-sender`.
 
 ### Imported Traits
 
@@ -51,7 +56,7 @@ In Clarity language, a trait defines a public interface to which smart contracts
 
 #### sip-010-trait
 
-This is a customized version of the Stacks' Standard Trait Definition for Fungible Tokens and is used by all three Trading Pool contracts. The changes in this version include support for 8-digit fixed notation and additional helper functions for `transfer`, `get-balance`, and `get-total-supply`. Mint and burn functions are also included along with their respective helpers.
+This is a customized version of the Stacks' Standard Trait Definition for Fungible Tokens and is used by contracts in the ALEX platform. The changes in this version include support for 8-digit fixed notation and additional helper functions for `transfer`, `get-balance`, and `get-total-supply`. Mint and burn functions are also included along with their respective helpers.
 
 [ALEX sip-010 customized implementation](https://github.com/alexgo-io/alex-dao-2/blob/main/contracts/traits/trait-sip-010.clar) | 
 [Full sip-010 standard](https://github.com/stacksgov/sips/blob/main/sips/sip-010/sip-010-fungible-token-standard.md)

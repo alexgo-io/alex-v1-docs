@@ -1,0 +1,5 @@
+redirects:
+  developers/testnet: developers/networks/testnet.md
+  developers/smart-contracts: developers/networks/mainnet.md
+  developers/smart-contracts/token-list: developers/networks/mainnet.md
+  developers/smart-contracts/amm-pool-mapping: developers/protocol-contracts/README.md

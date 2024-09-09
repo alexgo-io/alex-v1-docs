@@ -50,11 +50,11 @@
 
 ## 🎮 Developers
 
-* [Networks](developers/environments/README.md)
-  * [Mainnet](developers/environments/mainnet.md)
-  * [Testnet](developers/environments/testnet.md)
-* [Protocol Contracts](developers/smart-contracts/README.md)
-  * [amm-pool-v2-01.clar](developers/smart-contracts/amm-pool-v2-01.clar.md)
-  * [amm-registry-v2-01.clar](developers/smart-contracts/amm-registry-v2-01.clar.md)
-  * [amm-vault-v2-01.clar](developers/smart-contracts/amm-vault-v2-01.clar.md) 
+* [Networks](developers/networks/README.md)
+  * [Mainnet](developers/networks/mainnet.md)
+  * [Testnet](developers/networks/testnet.md)
+* [Protocol Contracts](developers/protocol-contracts/README.md)
+  * [amm-pool-v2-01.clar](developers/protocol-contracts/amm-pool-v2-01.clar.md)
+  * [amm-registry-v2-01.clar](developers/protocol-contracts/amm-registry-v2-01.clar.md)
+  * [amm-vault-v2-01.clar](developers/protocol-contracts/amm-vault-v2-01.clar.md) 
 * [REST API](developers/api-references.md)

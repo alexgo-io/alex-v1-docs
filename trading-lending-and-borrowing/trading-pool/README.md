@@ -24,7 +24,7 @@ Trading Pool is permission-less in that anyone can register a pair with initial 
 
 Certain privileged functions are available to `pool-owner` to govern the pool. The `pool-owner` address is set at the time of a pool creation. ALEX DAO, as part of its governance, has the power to update and replace the `pool-owner` address. Therefore, you can view this as ALEX DAO delegating the governance of each pool to its respective `pool-owner`.
 
-[Refer to the comprehensive list of Pool governed setters](./../../developers/smart-contracts/amm-pool-v2-01.clar.md#setters). 
+[Refer to the comprehensive list of Pool governed setters](../../developers/protocol-contracts/amm-pool-v2-01.clar.md#setters). 
 
 ## Pool liquidity operations
 Users can participate by adding (injecting liquidity with function `add-to-position`) or reducing (withdrawing with function `reduce-position`) assets positions in a specific pool that deals with a pair of tokens. When users add assets, they receive pool tokens (a.k.a. LP Tokens), which represent their share of the pool and potential earnings. When withdrawing assets, users return pool tokens.
@@ -135,4 +135,4 @@ In the Automated Market Maker (AMM) Pool contract, slippage refers to the differ
 Please note we use 8-digit fixed notation to represent decimals. If you interact directly with any of our contracts, you must provide all numbers in the correct format. For example, 1 should be passed as 10,000,000 (= 1e8), i.e. 1.00000000.
 
 ## Implementation
-Refer to the Trading Pool contracts technical [documentation](../../developers/smart-contracts/README.md#alex-dao-amm-trading-pool).
+Refer to the Trading Pool contracts technical [documentation](../../developers/protocol-contracts/README.md#alex-dao-amm-trading-pool).

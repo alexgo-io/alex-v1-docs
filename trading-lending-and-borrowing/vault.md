@@ -11,4 +11,4 @@ Flash Loans are uncollateralized loans that must be repaid (plus interest) in th
 Flash Loan allows arbitrageurs to take advantages of any price discrepancies in two or more pools without the needs for holding any input tokens.
 
 # Implementation
-Refer to the Vault contract technical [documentation](../developers/smart-contracts/README.md#vault-amm-vault-v2-01clar).
+Refer to the Vault contract technical [documentation](../developers/protocol-contracts/README.md#vault-amm-vault-v2-01clar).

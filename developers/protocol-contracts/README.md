@@ -8,17 +8,15 @@ This document provides a detailed overview of the smart contracts that enable AL
 
 This section provides an overview of the ALEX on-chain Trading Pool and its Automated Market Making (AMM) protocol.
 
-### Contracts map
-
 ![](https://kroki.io/plantuml/svg/eNptjssKgzAQRfd-xeC2pK-1CP0AoQuX3YxxGgIxkZkoSOm_NyrFhW7vuefOMOmI3jiC_FFVUDO21ht4huBy-GS84aIpsetUn4ga7-p6O2uHXFya8uVDT4zRBi85oMDcOVCZjJXI005PtiRCXk-L_y9m34OVEQcXdxNvoqQJ8UgCJxDSA1ObxoQkrl8tYjb_BqrcbqxBSlb-A0UYXfM=)
 
-#### Pool: amm-pool-v2-01.clar
+### Pool: amm-pool-v2-01.clar
 
 This is the primary contract in ALEX's AMM Trading Pool system. It encompasses several core operations, including pool creation, liquidity operations, LP token management, and token swapping. This contract is complemented by the two auxiliary contracts listed below.
 
 [Complete technical documentation](./amm-pool-v2-01.clar.md)
 
-#### Registry: amm-registry-v2-01.clar
+### Registry: amm-registry-v2-01.clar
 
 This contract functions as a persistence module for all pool-related information needed by the ALEX Automated Market Maker (AMM) Trading Pool system. It also manages a list of blocklisted operators.
 

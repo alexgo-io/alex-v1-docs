@@ -10,13 +10,22 @@ Trading Pool implements Generalized Mean Equation and, with a suitable parameter
 
 Trading Pool is parameterised with a single parameter $$t$$. $$t$$ can be between 0 and 1, with $$t=1$$ being equivalent of constant product formula (i.e. Uniswap V2) and $$t=0$$ being equivalent of constant sum formula (i.e. mStable). $$0<t <1$$ then gives a Curve-like formula.
 
-Regarding its implementation, the Trading Pool protocol consists of a set of smart contracts that facilitate trading operations within the ALEX DeFi ecosystem. Below, there are listed the main features of the pool.
+Regarding its implementation, the Trading Pool protocol consists of a set of smart contracts built on the Stacks blockchain that facilitate trading operations within the ALEX DeFi ecosystem. Below, there are listed the main features of the pool.
 
+{% hint style="info" %}
 For more of the theory and fundaments behind the Alex AMM protocol refer to the [ALEX AMM Whitepaper](../../whitepaper/automated-market-making-of-alex/).
+If you are looking for technical details and implementation design please refer to the [Developers Protocol Contracts section](../../developers/protocol-contracts/README.md#alex-dao-amm-trading-pool).
+{% endhint %}
 
-## Pool creation
+{% hint style="danger" %}
+**Caution on fixed notation**: Please note we use 8-digit fixed notation to represent decimals. If you interact directly with any of our contracts, you must provide all numbers in the correct format. For example, 1 should be passed as 10,000,000 (= 1e8), i.e. 1.00000000.
+{% endhint %}
 
-A pair can be registered (i.e. a pool can be created) by calling `create-pool` with the parameters including the traits of the two tokens (`token-x` and `token-y`), the factor $$t$$, the governance address (`pool-owner`) and the initial liquidity.
+## Pool management
+
+### Pool creation
+
+A pair can be registered (i.e. a pool can be created) by calling `create-pool` function indicating the traits of the two tokens (`token-x` and `token-y`), the factor $$t$$, the governance address (`pool-owner`) and the initial liquidity.
 
 Trading Pool is permission-less in that anyone can register a pair with initial liquidity, so long as the two tokens are pre-approved (this is to prevent introducing malicious tokens to the platform).
 
@@ -24,7 +33,7 @@ Trading Pool is permission-less in that anyone can register a pair with initial 
 
 Certain privileged functions are available to `pool-owner` to govern the pool. The `pool-owner` address is set at the time of a pool creation. ALEX DAO, as part of its governance, has the power to update and replace the `pool-owner` address. Therefore, you can view this as ALEX DAO delegating the governance of each pool to its respective `pool-owner`.
 
-[Refer to the comprehensive list of Pool governed setters](../../developers/protocol-contracts/amm-pool-v2-01.clar.md#setters). 
+[Refer to the comprehensive list of pool-governed setters](../../developers/protocol-contracts/amm-pool-v2-01.clar.md#setters). 
 
 ## Pool liquidity operations
 Users can participate by adding (injecting liquidity with function `add-to-position`) or reducing (withdrawing with function `reduce-position`) assets positions in a specific pool that deals with a pair of tokens. When users add assets, they receive pool tokens (a.k.a. LP Tokens), which represent their share of the pool and potential earnings. When withdrawing assets, users return pool tokens.
@@ -47,13 +56,13 @@ The percentage will be converted to the number of pool tokens to be burnt and th
 When a pool for a specific token pair is funded, it allows users to exchange those tokens, with a fee for each swap.
 Users can swap one token with another by calling `swap-x-for-y` or `swap-y-for-x`. As the names imply, `swap-x-for-y` swaps token-x into token-y and `swap-y-for-x` swaps token-y into token-x.
 
-Users can specify the slippage limit (the minimum amount of the target token they expect to receive: `min-dy` and `min-dx`, respectively), so that the call fails if the swapped amount does not meet your target.
+Users can specify the slippage limit (the minimum amount of the desired target token they expect to receive: `min-dy` and `min-dx`, respectively), so that the call fails if the swapped amount does not meet your target.
 
 ### Swap helper and routing
 
-It may not be reasonable to expect developers or users to remember the correct order of token pairs. Therefore, we provide `swap-helper` function that helps choose between `swap-x-for-y` and `swap-y-for-x` and swaps token-x into token-y without users having to know the correct order.
+It may not be reasonable to expect developers or users to remember the correct order of token pairs. Therefore, we provide `swap-helper` function that helps choose between `swap-x-for-y` and `swap-y-for-x` and swaps `token-x` into `token-y` without users having to know the correct order.
 
-Sometimes, a direct swap isn't possible. In such cases, the system employs intermediate tokens to complete the exchange. For example, swapping Token-A to Token-C might require an intermediate swap through Token-B. This process is known as a multi-hop or multi-step swap. It is intended for scenarios where a direct pool for Token-A/Token-C does not exist, but there are pools for Token-A/Token-B and Token-B/Token-C. The current version of the protocol supports chains of up to 4 pools.
+Sometimes, a direct swap isn't possible. In such cases, the system employs intermediate tokens to complete the exchange. For example, swapping Token-A to Token-C might require an intermediate swap through Token-B. This process is known as a multi-hop or multi-step swap. It is intended for scenarios where a direct pool for Token-A/Token-C does not exist, but there are pools for Token-A/Token-B and Token-B/Token-C. To facilitate multi-hop swaps, we provide three helper routing functions: `swap-helper-a`, `swap-helper-b`, and `swap-helper-c`. These functions support multi-hop swaps involving two, three, and four pools, respectively.
 
 ## Helper functions
 
@@ -69,7 +78,7 @@ Resilient oracle (`get-oracle-resilient`) on the other hand gives you a trade-we
 
 ### Liquidity provision
 
-Lastly, it will be useful to know, for example, to determine the slippage limit, how many token-x and token-y must be provided to mint certain number of pool tokens, to burn certain number of pool tokens, or how many pool tokens may be minted or burnt if certain number of token-x and token-y are provided. The relevant helper functions are `get-position-given-mint`, `get-position-given-burn` and `get-token-given-position`.
+In certain cases, prior information is necessary to perform operations effectively. For example, to determine the slippage limit, you need to know the specific amounts of token-x and token-y required to mint a certain number of pool tokens. Additionally, it can be useful to know how many pool tokens can be minted or burnt if a specific amount of token-x and token-y are provided. The relevant helper functions for these operations are: `get-position-given-mint`, `get-position-given-burn` and `get-token-given-position`.
 
 ## Glossary
 
@@ -86,10 +95,10 @@ Also known as the "quoted" token, the target token is the cryptocurrency token t
 The factor is a multiplier (scaling factor) defined within a token pair pool, playing a critical role in determining the value of `dy` (amount of target token) given `dx` (amount of base token) and the pool balances of each token. Together with the token principals, the factor constitutes the pool identifier that is utilized to retrieve the pool details.
 
 ### Dx
-The amount of the base token that a user inputs into a swap transaction.
+The amount of the token-x involved in liquidity and trading operations.
 
 ### Dy
-The amount of the target token that a user receives from a swap transaction.
+The amount of the token-y involved in liquidity and trading operations.
 
 ### Minimum Dy (`min-dy`)
 In the context of a swap transaction, this amount defines the minimum quantity of the target token that the user expects to receive. If the resulting amount falls below this specified threshold, the transaction will be reverted with the error `ERR-EXCEEDS-MAX-SLIPPAGE`.
@@ -97,8 +106,8 @@ In the context of a swap transaction, this amount defines the minimum quantity o
 ### Liquidity Positions
 When a user provides liquidity to a pool, they are said to be adding liquidity positions (using the `add-to-position` function). The reverse operation occurs when users withdraw their assets, thus reducing their positions (using the `reduce-position` function). Both operations involve the minting and burning of LP Tokens, respectively, to represent the user's share of the pool.
 
-### Pool tokens 
-Also known as "LP Token" (Liquidity Provider Token); issued to users who contribute assets to a liquidity pool, representing their share of the pool and potential earnings.
+### Pool token / LP Token 
+Pool token, also known as "LP Token" (Liquidity Provider Token); issued to users who contribute assets to a liquidity pool, representing their share of the pool and potential earnings.
 The token contract is `token-amm-pool-v2-01` and it implements [SIP013](https://github.com/stacksgov/sips/pull/42).
 Each pool is mapped to a unique id (`pool-id`) with associated liquidity mapped to the balance under that id (`token-id`).
 
@@ -113,11 +122,11 @@ Part of the fee may be [rebated](#fee-rebates) to liquidity providers as a rewar
 ### Fee Rate
 The percentage of the transaction amount that is taken as a fee during a swap or other operations.
 
-### Fee Rebates
-Trading Pool re-invests any fee rebates to the relevant pool liquidity, i.e. the invariant increases slightly after each transaction, similar to Uniswap V2.
+### Fee Rebate
+The portion of the swap fee that is reinvested into the relevant pool's liquidity, causing the pool's invariant to increase slightly after each transaction. This mechanism is similar to that of Uniswap V2.
 
 ### Ratio
-In each pool, there are two predefined values that are used to calculate the relationship between the amounts of tokens involved in a swap operation. These ratios determine the maximum amount that can be deposited or exchanged within the pool.
+The ratio represents the relationship between the amounts of a token pair involved in pool operations. Each pool has two predefined values, `max-in-ratio` and `max-out-ratio`, which set the maximum amounts that can be involved in swap operations.
 
 ### Out given in
 Sometimes you may want to know the expected amount of token-y if you were to swap certain amount of token-x. Or you may want to know the expected amount of token-x for some token-y. Two read-only functions - `get-y-given-x` and `get-x-given-y` will do that for you.
@@ -130,9 +139,3 @@ If you are an arbitrageur, you may want to know the amount of token-x or token-y
 
 ### Slippage
 In the Automated Market Maker (AMM) Pool contract, slippage refers to the difference between the calculated amount of the target token and the configured maximum or minimum limit during a transaction. If no limit is set, the default limits are `u340282366920938463463374607431768211455` (the maximum value for `uint` type in Clarity language: `2**128 - 1`) for the maximum and `u0` for the minimum. These limits are enforced within the pool contract and are validated using the custom error `ERR-EXCEEDS-MAX-SLIPPAGE`.
-
-## <mark style="color:red;">Caution on fixed notation</mark>
-Please note we use 8-digit fixed notation to represent decimals. If you interact directly with any of our contracts, you must provide all numbers in the correct format. For example, 1 should be passed as 10,000,000 (= 1e8), i.e. 1.00000000.
-
-## Implementation
-Refer to the Trading Pool contracts technical [documentation](../../developers/protocol-contracts/README.md#alex-dao-amm-trading-pool).

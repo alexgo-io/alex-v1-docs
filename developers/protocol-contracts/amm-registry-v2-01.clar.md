@@ -1,6 +1,6 @@
 # Registry
 
-#### Location: [_`./alex-dao-2/contracts/aux/amm-registry-v2-01.clar`_](https://github.com/alexgo-io/alex-dao-2/blob/main/contracts/aux/amm-registry-v2-01.clar)
+#### Location: [`alex-dao-2/contracts/aux/amm-registry-v2-01.clar`](https://github.com/alexgo-io/alex-dao-2/blob/main/contracts/aux/amm-registry-v2-01.clar)
 
 This document provides comprehensive technical details for the registry contract within ALEX's Automated Market Maker (AMM) Trading Pool system. The contract primarily functions as a persistence module for all pool-related information needed by the main contract [amm-pool-v2-01.clar](amm-pool-v2-01.clar.md).
 

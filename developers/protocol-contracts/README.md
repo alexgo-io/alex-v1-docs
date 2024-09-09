@@ -1,4 +1,6 @@
-# ALEX DAO: Comprehensive Technical Design Overview
+---
+description: ALEX DAO - Comprehensive Technical Design Overview
+---
 
 This document provides a detailed overview of the smart contracts that enable ALEX DeFi operations. We categorize these contracts based on their functionalities, explain their interactions, and describe some common technical aspects.
 
@@ -50,7 +52,7 @@ The `amm-pool-v2-01` and `amm-vault-v2-01` contracts have functionalities to set
 
 The `amm-registry-v2-01` contract features the ability to update (on admin operator request) and query a list of blacklisted addresses that are prohibited from operating within the trading pool. The `amm-pool-v2-01` contract delegates the task of this verification to the Registry, which performs a check against the `tx-sender`.
 
-### Imported Traits
+### Traits
 
 In Clarity language, a trait defines a public interface to which smart contracts can conform. All Trading Pool contracts in this documentation import traits to ensure interface conformity for various types (such as tokens and flash-loan users) and to conduct their transactions safely. These traits are customized versions of standard traits which are provided by the ALEX platform to serve specific purposes. Below is a list of all the traits utilized by the Trading Pool contracts.
 

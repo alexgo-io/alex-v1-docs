@@ -117,7 +117,7 @@ In the context of an add positions transaction, this amount specifies the maximu
 ### Fee
 The cost associated with performing a swap or other operations within the platform. It is deducted from each transaction on the "in" leg (i.e., token-x for `swap-x-for-y` and token-y for `swap-y-for-x`).
 The fee to be calculated is set at the [pool creation](#pool-creation) and may be updated through the governance.
-Part of the fee may be [rebated](#fee-rebates) to liquidity providers as a reward.
+Part of the fee may be [rebated](#fee-rebate) to liquidity providers as a reward.
 
 ### Fee Rate
 The percentage of the transaction amount that is taken as a fee during a swap or other operations.

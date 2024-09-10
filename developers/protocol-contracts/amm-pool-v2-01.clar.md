@@ -168,7 +168,7 @@ The following functions are tools to assist the off-chain activities.
 
 ### Getter and Setter functions
 
-All getter and setter functions in the contract handle pool information, delegating their retrieval or update operations to the corresponding functions in the registry contract \[amm-registry-v2-01]\(xxx xxx).
+All getter and setter functions in the contract handle pool information, delegating their retrieval or update operations to the corresponding functions in the registry contract [amm-registry-v2-01.clar](amm-registry-v2-01.clar.md).
 
 #### Setters
 

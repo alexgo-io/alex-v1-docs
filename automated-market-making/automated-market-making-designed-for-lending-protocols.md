@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Yield Token Pool
 
 Please refer to our [white paper](https://docs.alexgo.io/whitepaper/automated-market-making-of-alex) for a more rigorous treatment on the subject.

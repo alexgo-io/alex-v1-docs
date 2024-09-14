@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Our Design
 
 ALEX allows for implementation of arbitrary trading strategies and borrows its design from [Balancer V2](https://docs.balancer.fi).
@@ -10,7 +14,7 @@ Equation triggers Pool rebalancing. This allows creation of any arbitrary rebala
 
 ### Generalised Mean Equation
 
-Generalised Mean Equation is an invariant function associated with generalised mean that underpins the [non-lending Trading Pools](trading-pool/) at ALEX. With a suitable parameterisation, Generalised Mean Equation supports both risky pairs (i.e. $$x y=L$$), stable pairs (i.e. $$x +y=L$$) and any linear combination in-between (i.e. Curve)
+Generalised Mean Equation is an invariant function associated with generalised mean that underpins the [non-lending Trading Pools](trading-pool.md) at ALEX. With a suitable parameterisation, Generalised Mean Equation supports both risky pairs (i.e. $$x y=L$$), stable pairs (i.e. $$x +y=L$$) and any linear combination in-between (i.e. Curve)
 
 ### Weighted Equation
 

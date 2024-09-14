@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Using the Launchpad
 
 ## Deployment
@@ -11,7 +15,7 @@
 * `launch-token-trait` : the trait reference of `project token` (e.g. ALEX)
 * `payment-token-trait` : trait reference of `payment token` (e.g. sUSDT)
 * `launch-owner` : address of the project that launches the `project token`
-* `launch-tokens-per-ticket` : number of `project token` per `ticket`&#x20;
+* `launch-tokens-per-ticket` : number of `project token` per `ticket`
 * `price-per-ticket-in-fixed` : `payment token` deposit required per `ticket` (in 8-digit fixed notation)
 * `activation-threshold` : number of tickets required to activate the launch
 * `registration-start-height` : start (inclusive) block-height of registration period
@@ -50,7 +54,7 @@ Assuming (1) registration period has started, (2) registration period has not en
 
 ## Lottery
 
-The lottery will be drawn one block after the registration ended. The claim/lottery period ends at `claim-end` block-height.&#x20;
+The lottery will be drawn one block after the registration ended. The claim/lottery period ends at `claim-end` block-height.
 
 `contract-owner` or `launch-owner` will draw the lottery off-chain using the [prescribed rule](what-is-the-launchpad.md#e255) and call `claim` repeatedly with the following parameters
 
@@ -59,7 +63,7 @@ The lottery will be drawn one block after the registration ended. The claim/lott
 * `launch-token-trait` : trait reference of `project token`
 * `payment-token-trait` : trait reference of `payment token`
 
-Upon calling `claim`, assuming (1) registration period has ended, (2) not all tickets are already won, (3) the launch is activated and (4) the claim/lottery period has not ended yet, the contract will verify the validity of `input` and&#x20;
+Upon calling `claim`, assuming (1) registration period has ended, (2) not all tickets are already won, (3) the launch is activated and (4) the claim/lottery period has not ended yet, the contract will verify the validity of `input` and
 
 * transfer the proceeds of `payment token`, net of `fee`, to `launch-owner`,
 * transfer `fee` to the platform, and

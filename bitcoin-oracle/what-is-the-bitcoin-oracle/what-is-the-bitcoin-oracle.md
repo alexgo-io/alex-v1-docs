@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Why Bitcoin Oracle - BRC20
 
 ## Bitcoin does not understand you

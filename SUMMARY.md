@@ -2,33 +2,24 @@
 
 * [😀 What is ALEX?](README.md)
 
-## 📈 Trading, Lending and Borrowing
+## 📈 Automated Market Making
 
-* [Our Design](trading-lending-and-borrowing/platform-architecture-that-supports-ecosystem-development.md)
-* [Trading Pool](trading-lending-and-borrowing/trading-pool/README.md)
-* [Collateral Rebalancing Pool](trading-lending-and-borrowing/collateral-rebalancing-pool.md)
-* [Yield Token Pool](trading-lending-and-borrowing/automated-market-making-designed-for-lending-protocols.md)
-* [Vault](trading-lending-and-borrowing/vault.md)
+* [Our Design](automated-market-making/platform-architecture-that-supports-ecosystem-development.md)
+* [Our Design](automated-market-making/trading-pool.md)
+* [Collateral Rebalancing Pool](automated-market-making/collateral-rebalancing-pool.md)
+* [Yield Token Pool](automated-market-making/automated-market-making-designed-for-lending-protocols.md)
+* [Vault](automated-market-making/vault.md)
 
 ## 🧙‍♀️ Bitcoin Oracle
 
 * [What is the Bitcoin Oracle](bitcoin-oracle/what-is-the-bitcoin-oracle/README.md)
   * [Why Bitcoin Oracle - BRC20](bitcoin-oracle/what-is-the-bitcoin-oracle/what-is-the-bitcoin-oracle.md)
 * ["On Demand" Consensus Data](bitcoin-oracle/on-demand-consensus-data.md)
-* [Threshold-based Consensus](bitcoin-oracle/threshold-based-consensus/README.md)
-  * [Threshold Sampling](bitcoin-oracle/threshold-based-consensus/threshold-sampling.md)
 * [Security Audits](bitcoin-oracle/security-audits.md)
 
-## 🩸 Bitcoin Bridge
+## 🩸 XLink
 
-* [What is the Bitcoin Bridge](bitcoin-bridge/what-is-the-bitcoin-bridge.md)
-* [Reserves](bitcoin-bridge/reserves.md)
-* [Integrations](bitcoin-bridge/integrations/README.md)
-  * [Bitcoin](bitcoin-bridge/integrations/understanding-the-bitcoin-bridge.md)
-  * [Bitcoin L2s](bitcoin-bridge/integrations/bitcoin-l2s.md)
-  * [Non-Bitcoin chains](bitcoin-bridge/integrations/non-bitcoin-chains.md)
-* [🟧 aBTC, a.k.a ALEX BTC](bitcoin-bridge/abtc-a.k.a-alex-btc.md)
-* [Security Audits](bitcoin-bridge/security-audits.md)
+* [XLink](https://docs.xlink.network)
 
 ## 🚅 Orderbook
 
@@ -56,5 +47,5 @@
 * [Protocol Contracts](developers/protocol-contracts/README.md)
   * [amm-pool-v2-01.clar](developers/protocol-contracts/amm-pool-v2-01.clar.md)
   * [amm-registry-v2-01.clar](developers/protocol-contracts/amm-registry-v2-01.clar.md)
-  * [amm-vault-v2-01.clar](developers/protocol-contracts/amm-vault-v2-01.clar.md) 
+  * [amm-vault-v2-01.clar](developers/protocol-contracts/amm-vault-v2-01.clar.md)
 * [REST API](developers/api-references.md)

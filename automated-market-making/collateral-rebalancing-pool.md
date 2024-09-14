@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Collateral Rebalancing Pool
 
 Please refer to our [white paper](../whitepaper/automated-market-making-of-collateral-rebalancing-pool.md) for a more rigorous treatment on the subject.

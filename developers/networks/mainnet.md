@@ -1,4 +1,10 @@
-# Token List
+# Smart Contracts
+
+## Deployed Protocol Contracts
+
+<table><thead><tr><th width="167">Contract</th><th>Address</th></tr></thead><tbody><tr><td>DAO</td><td><code>SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.executor-dao</code></td></tr><tr><td>Vault</td><td><code>SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.alex-vault</code></td></tr><tr><td>Reserve Pool</td><td><code>SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.alex-reserve-pool</code></td></tr><tr><td>Launchpad</td><td><code>SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.alex-launchpad-v1-1</code></td></tr><tr><td>Lottery</td><td><code>SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.alex-lottery</code></td></tr><tr><td>Trading Pool</td><td><code>SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.amm-swap-pool-v1-1</code></td></tr><tr><td>Fixed Weight Pool<td><code>SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.fixed-weight-pool-v1-01</code></td></tr><tr><td>Simple Weight Pool</td><td><code>SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.simple-weight-pool-alex</code></td></tr><tr><td>Swap Router</td><td>(to route between Fixed Weight Pool and Simple Weight Pool)<br><code>SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.swap-helper-v1-03</code></td></tr><tr><td>Swap Bridge </td><td>(to route between Trading Pool and Fixed Weight Pool / Simple Weight Pool)<br><code>SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.swap-helper-bridged</code></td></tr><tr><td>ALEX Token</td><td><code>SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.age000-governance-token</code></td></tr><tr><td>autoALEX Token</td><td><code>SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.auto-alex</code></td></tr><tr><td>Bridge Endpoint</td><td><code>SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.bridge-endpoint-v1-01</code></td></tr><tr><td>sUSDT</td><td><code>SP3K8BC0PPEVCV7NZ6QSRWPQ2JE9E5B6N3PA0KBR9.token-susdt</code></td></tr></tbody></table>
+
+## Token List
 
 Where applicable, ALEX uses "wrapped" token to ensure certain functionalities (mainly the support for the fixed notation) are added to the native, 3rd-party, tokens.
 
@@ -6,7 +12,7 @@ These "wrapped" tokens do not hold any native tokens, but are "pass-throughs". T
 
 <table><thead><tr><th width="154">Token</th><th>Address</th></tr></thead><tbody><tr><td>STX</td><td><code>SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-wstx-v2</code></td></tr><tr><td>ALEX</td><td><code>SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-alex</code></td></tr><tr><td>xBTC</td><td><code>SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-wxbtc</code></td></tr><tr><td>sUSDT</td><td><code>SP2XD7417HGPRTREMKF748VNEQPDRR0RMANB7X1NK.token-susdt</code></td></tr><tr><td>xUSD</td><td><code>SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-wxusd</code></td></tr><tr><td>autoALEX</td><td><code>SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.auto-alex-v3</code></td></tr><tr><td>USDA</td><td><code>SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-wusda</code></td></tr><tr><td>DIKO</td><td><code>SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-wdiko</code></td></tr><tr><td>MIA</td><td><code>SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-wmia</code></td></tr><tr><td>NYC</td><td><code>SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-wnyc</code></td></tr><tr><td>BANANA</td><td><code>SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-wban</code></td></tr><tr><td>SLIME</td><td><code>SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-wslm</code></td></tr><tr><td>WELSH</td><td><code>SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-wcorgi</code></td></tr><tr><td>VIBES</td><td><code>SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-wvibes</code></td></tr></tbody></table>
 
-## BRC20 Tokens
+### BRC20 Tokens
 
 BRC20 tokens on ALEX represent those BRC20 tokens that are pegged in from Bitcoin.
 

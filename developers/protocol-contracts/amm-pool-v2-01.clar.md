@@ -1,8 +1,8 @@
 # Pool
 
-#### Location: [_`./alex-dao-2/contracts/extensions/amm-pool-v2-01.clar`_](https://github.com/alexgo-io/alex-dao-2/blob/main/contracts/extensions/amm-pool-v2-01.clar)
+#### Location: [`alex-dao-2/contracts/extensions/amm-pool-v2-01.clar`](https://github.com/alexgo-io/alex-dao-2/blob/main/contracts/extensions/amm-pool-v2-01.clar)
 
-This document provides comprehensive technical documentation for the primary contract in ALEX's AMM Trading Pool system. The contract encompasses several core operations, including pool creation, liquidity operations (adding or removing assets), LP token management (minting and burning tokens that represent a user's share of the pool and potential earnings), and token swapping (facilitating the exchange of tokens within an existing and funded pool while charging a corresponding fee). This contract is complemented by two auxiliary contracts: a REGISTRY contract that handles the persistence of pool information, and a VAULT contract that secures the assets and manages the reserves accumulated from the fees. For detailed information about these auxiliary contracts, please refer to their respective technical documentation: [amm-registry-v2-01.clar](./amm-registry-v2-01.clar.md) and [amm-vault-v2-01.clar](./amm-vault-v2-01.clar.md).
+This document provides comprehensive technical documentation for the primary contract in ALEX's AMM Trading Pool system. The contract encompasses several core operations, including pool creation, liquidity operations (adding or removing assets), LP token management (minting and burning tokens that represent a user's share of the pool and potential earnings), and token swapping (facilitating the exchange of tokens within an existing and funded pool while charging a corresponding fee). This contract is complemented by two auxiliary contracts: a REGISTRY contract that handles the persistence of pool information, and a VAULT contract that secures the assets and manages the reserves accumulated from the fees. For detailed information about these auxiliary contracts, please refer to their respective technical documentation: [amm-registry-v2-01.clar](amm-registry-v2-01.clar.md) and [amm-vault-v2-01.clar](amm-vault-v2-01.clar.md).
 
 ## Storage
 
@@ -168,22 +168,23 @@ The following functions are tools to assist the off-chain activities.
 
 ### Getter and Setter functions
 
-All getter and setter functions in the contract handle pool information, delegating their retrieval or update operations to the corresponding functions in the registry contract \[amm-registry-v2-01]\(xxx xxx).
+All getter and setter functions in the contract handle pool information, delegating their retrieval or update operations to the corresponding functions in the registry contract [amm-registry-v2-01.clar](amm-registry-v2-01.clar.md).
 
 #### Setters
 
 The following is the complete list of setter functions for pool configurations. All set configuration functions are restricted to the respective pool owner or ALEX admin operators (see function `is-dao-or-extension`).
 
-* `set-start-block`
-* `set-end-block`
-* `set-fee-rate-x`
-* `set-fee-rate-y`
-* `set-max-in-ratio`
-* `set-max-out-ratio`
-* `set-oracle-enabled`
-* `set-oracle-average`
-* `set-threshold-x`
-* `set-threshold-y`
+* `set-fee-rate-x` and `set-fee-rate-y`: set the swap fee (% of swap amount) of `token-x` and `token-y`, respectively. Both `fee-rate-x` and `fee-rate-y` are zero by default.
+
+* `set-start-block` and `set-end-block`: set the block heights before and after, respectively, which the pool is not available. Both `start-block` and `end-block` is set to `u340282366920938463463374607431768211455` by default.
+
+* `set-threshold-x` and `set-threshold-y`: set the amount of `token-x` and `token-y`, respectively, below which a minimum % slippage is applied. Both `threshold-x` and `threshold-y` are zero by default.
+
+* `set-max-in-ratio` and `set-max-out-ratio`: set the maximum ratio values used to calculate the highest amount that can be deposited (IN) or exchanged (OUT) within the pool.
+
+* `set-oracle-enabled`: add or remove the pool from the on-chain price oracle. Oracle is disabled by default.
+
+* `set-oracle-average`: set the exponential moving average factor for the `oracle-resilient`. Please note this call will reset the existing `oracle-resilient` value. The `oracle-average` is zero by default. We recommend `0.99e8`.
 
 #### Getters
 

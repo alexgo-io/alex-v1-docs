@@ -12,10 +12,10 @@
 
 ## 🧙‍♀️ Bitcoin Oracle
 
-* [What is the Bitcoin Oracle](bitcoin-oracle/what-is-the-bitcoin-oracle/README.md)
-  * [Why Bitcoin Oracle - BRC20](bitcoin-oracle/what-is-the-bitcoin-oracle/what-is-the-bitcoin-oracle.md)
+* [What is the Bitcoin Oracle](bitcoin-oracle/what-is-the-bitcoin-oracle.md)
 * ["On Demand" Consensus Data](bitcoin-oracle/on-demand-consensus-data.md)
 * [Security Audits](bitcoin-oracle/security-audits.md)
+* [Why Bitcoin Oracle - BRC20](bitcoin-oracle/what-is-the-bitcoin-oracle-1.md)
 
 ## 🩸 XLink
 

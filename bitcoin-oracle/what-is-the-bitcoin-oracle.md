@@ -22,7 +22,7 @@ Each end consumer may specify a number of required (i.e. trusted) and optional (
 
 For example, for each event to validate, the end consumer may specify that the required validators must agree and a certain threshold (say 51%) of all validators (including required and optional) must agree.
 
-A fast derivation of consensus is achieved through [Threshold Sampling](./#threshold-sampling) among nodes.
+A fast derivation of consensus is achieved through [Threshold Sampling](what-is-the-bitcoin-oracle.md#threshold-sampling) among nodes.
 
 Some may choose to have only required validators, in which case, effectively, a federated concensus model is run. In this case, a trust element is introduced to eliminate the security budget constraint.&#x20;
 

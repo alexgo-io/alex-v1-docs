@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Security Audits
 
 Bitcoin Oracle is audited by CoinFabrik.

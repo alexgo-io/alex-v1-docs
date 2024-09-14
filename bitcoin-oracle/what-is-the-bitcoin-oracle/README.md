@@ -1,10 +1,12 @@
 # What is the Bitcoin Oracle
 
-## Consensus layer for all and any off-chain computation engines
+## Cross-chain message and consensus layer for all and any off-chain computation engines
 
-Bitcoin Oracle acts as a consensus layer for all and any off-chain computation engines that builds on Bitcoin.
+Bitcoin Oracle is a cross-chain message and consensus layer for all and any off-chain computation engines that builds on Bitcoin.
 
-The consensus is reached when a minimum threshold (i.e. "_m-of-n_") of the relevant community agree to a particular event.
+Bitcoin Oracle provides infrastructure that (1) allows two or more off-chain computation engines on Bitcoin to exchange messages and (2) provides the consensus model to validate such cross-chain messages.
+
+The consensus is deemed to have reached when a minimum threshold (i.e. "_m-of-n_") of the relevant community agree to a particular event.
 
 End consumers can then verify the consensus before making a decision or taking an action with respect to that particular event, thus enhancing the security assumptions.
 

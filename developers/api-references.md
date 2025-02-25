@@ -93,3 +93,7 @@ Front-end developers may use our REST API ([https://api.alexgo.io](https://api.a
 {% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/public/pairs" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
+
+{% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/public/amm-pool-stats" method="get" %}
+[https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
+{% endswagger %}

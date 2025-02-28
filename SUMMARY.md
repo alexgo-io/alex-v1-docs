@@ -48,4 +48,5 @@
   * [amm-pool-v2-01.clar](developers/protocol-contracts/amm-pool-v2-01.clar.md)
   * [amm-registry-v2-01.clar](developers/protocol-contracts/amm-registry-v2-01.clar.md)
   * [amm-vault-v2-01.clar](developers/protocol-contracts/amm-vault-v2-01.clar.md)
+  * [farming-campaign-v2-02.clar](developers/protocol-contracts/farming-campaign-v2-02.clar.md)
 * [REST API](developers/api-references.md)

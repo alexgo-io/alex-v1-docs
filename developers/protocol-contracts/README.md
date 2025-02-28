@@ -32,7 +32,7 @@ The Vault contract supports the primary contract `amm-pool-v2-01.clar` in positi
 
 [Complete technical documentation](./amm-vault-v2-01.clar.md)
 
-### Farming Campaign: farming-campaign-v2-02.clar
+## Farming Campaign: farming-campaign-v2-02.clar
 
 This contract manages the ALEX Surge liquidity incentive program, overseeing pool registration, voting, staking, and reward distribution. It determines how $ALEX rewards are allocated based on user votes and supports additional voter incentives.
 

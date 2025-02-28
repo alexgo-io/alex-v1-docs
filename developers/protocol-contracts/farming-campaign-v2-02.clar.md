@@ -5,8 +5,8 @@
 
 The `farming-campaign-v2-02` contract manages the ALEX Surge liquidity incentive program, where liquidity pools compete to receive $ALEX rewards. Participants influence the reward distribution by voting for pools, while liquidity providers can stake LP tokens to earn additional rewards.
 Surge is structured in rounds. The process follows these steps:
-1. **Pool Registration** – Projects can register liquidity pools before the deadline to participate in the Surge round.
-2. **Voting** – Users vote using $ALEX and $LiALEX tokens to decide how rewards will be distributed among the registered pools.
+1. **Pool Registration** – Projects must register liquidity pools before the deadline to participate in the Surge round.
+2. **Voting** – Users vote using ALEX and LiALEX tokens to decide how rewards will be distributed among the registered pools.
 3. **Staking** – Liquidity providers stake LP tokens, which represent their share of a trading pool’s assets, to earn additional rewards.
 4. **Reward Distribution** – At the end of the round, $ALEX rewards are distributed among the pools based on the votes received. Within each pool, the rewards are allocated proportionally to liquidity providers based on the amount of LP tokens they staked.
 
@@ -44,7 +44,7 @@ The contract determines the user's share based on the $ALEX rewards allocated to
 #### `register-for-campaign`
 
 This function allows a liquidity pool to register to participate in a Surge campaign. Before registering, it ensures that the pool is whitelisted and that the registration deadline has not been reached. Additionally, it checks that the pool has not already been registered.
-Once validated, the function creates an entry in `campaign-registrations`, initializing reward amounts and total staked values to `0`. It also updates `campaign-registered-pools` to add the new registered pool  A notification event logs the registration.
+Once validated, the function creates an entry in `campaign-registrations`, initializing reward amounts and total staked values to `0`. It also updates `campaign-registered-pools` to add the new registered pool. A notification event logs the registration.
 
 ##### Parameters
 

@@ -2,42 +2,57 @@ openapi: 3.0.0
 paths:
   /v1/allswaps:
     get:
+      description: >-
+        Returns all existing swap pairs with their current volumes and prices in
+        USD.
       operationId: PoolController_getAllSwaps_v1
       parameters: []
       responses:
         "200":
-          description: Successfully returning all existing swaps
+          description: Successfully returning all existing swaps.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AllSwapsResponse"
         "403":
           description: Forbidden
         "404":
           description: Not found
-      summary: Returns all existing swaps with status
+      summary: Returns all available swap pairs
       tags: &ref_0
         - pool
   /v1/pool_stats/{pool_token_id}:
     get:
+      description: >-
+        Returns detailed statistics for a specific swap pool including volumes,
+        fees, liquidity metrics and APR. Data is provided as a time series, with
+        each entry corresponding to a specific Stacks block height.
       operationId: PoolController_getPriceHistory_v1
       parameters:
         - name: pool_token_id
           required: true
           in: path
-          description: pool token id of swap pool eg. 13
+          description: Pool token ID of swap pool.
           schema:
             oneOf:
               - type: integer
         - name: offset
           required: false
           in: query
-          description: Specifies the offset of data to be returned, default value is 0
+          description: Specifies the offset of data to be returned, default value is 0.
           schema: {}
         - name: limit
           required: true
           in: query
-          description: Specifies number of data to be returned, default value is 10
+          description: Specifies number of data to be returned, default value is 10.
           schema: {}
       responses:
         "200":
-          description: Successfully returning pool stats
+          description: Successfully returning pool stats.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PoolStatsResponse"
         "403":
           description: Forbidden
         "404":
@@ -46,33 +61,41 @@ paths:
       tags: *ref_0
   /v1/pool_volume/{pool_token_id}:
     get:
+      description: >-
+        Returns 24-hour pool volume history for a specific swap pool. Data is
+        provided as a time series, with each entry corresponding to a specific
+        Stacks block height.
       operationId: PoolController_getPoolVolumeHistory_v1
       parameters:
         - name: pool_token_id
           required: true
           in: path
-          description: pool token id of swap pool eg. 13
+          description: Pool token ID of swap pool.
           schema:
             oneOf:
               - type: integer
         - name: offset
           required: false
           in: query
-          description: Specifies the offset of data to be returned, default value is 0
+          description: Specifies the offset of data to be returned, default value is 0.
           schema: {}
         - name: limit
           required: true
           in: query
-          description: Specifies number of data to be returned, default value is 10
+          description: Specifies number of data to be returned, default value is 10.
           schema: {}
       responses:
         "200":
-          description: Successfully returning volumes
+          description: Successfully returning volumes.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PoolVolumeResponse"
         "403":
           description: Forbidden
         "404":
           description: Not found
-      summary: Returns all 24 hour pool volumes in time series
+      summary: Returns daily pool volume
       tags: *ref_0
   /v1/volume_24h/{pool_token_id}:
     get:
@@ -81,19 +104,19 @@ paths:
         - name: pool_token_id
           required: true
           in: path
-          description: pool token id of swap pool eg. 13
+          description: Pool token ID of swap pool.
           schema:
             oneOf:
               - type: integer
         - name: offset
           required: false
           in: query
-          description: Specifies the offset of data to be returned, default value is 0
+          description: Specifies the offset of data to be returned, default value is 0.
           schema: {}
         - name: limit
           required: true
           in: query
-          description: Specifies number of data to be returned, default value is 10
+          description: Specifies number of data to be returned, default value is 10.
           schema: {}
       responses:
         "200":
@@ -106,63 +129,79 @@ paths:
       tags: *ref_0
   /v1/volume_7d/{pool_token_id}:
     get:
+      description: >-
+        Returns 7-day pool volume history for a specific swap pool. Data is
+        provided as a time series, with each entry corresponding to a specific
+        Stacks block height.
       operationId: PoolController_getVolume7DHistory_v1
       parameters:
         - name: pool_token_id
           required: true
           in: path
-          description: pool token id of swap pool eg. 13
+          description: Pool token ID of swap pool.
           schema:
             oneOf:
               - type: integer
         - name: offset
           required: false
           in: query
-          description: Specifies the offset of data to be returned, default value is 0
+          description: Specifies the offset of data to be returned, default value is 0.
           schema: {}
         - name: limit
           required: true
           in: query
-          description: Specifies number of data to be returned, default value is 10
+          description: Specifies number of data to be returned, default value is 10.
           schema: {}
       responses:
         "200":
-          description: Successfully returning volumes
+          description: Successfully returning volumes.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PoolVolume7DayResponse"
         "403":
           description: Forbidden
         "404":
           description: Not found
-      summary: Returns weekly volumes of token in time series
+      summary: Returns weekly pool volume
       tags: *ref_0
   /v1/pool_liquidity/{pool_token_id}:
     get:
+      description: >-
+        Returns liquidity history for a specific swap pool. Data is provided as
+        a time series, with each entry corresponding to a specific Stacks block
+        height.
       operationId: PoolController_getPoolLiquidityHistory_v1
       parameters:
         - name: pool_token_id
           required: true
           in: path
-          description: pool token id of swap pool eg. 13
+          description: Pool token ID of swap pool.
           schema:
             oneOf:
               - type: integer
         - name: offset
           required: false
           in: query
-          description: Specifies the offset of data to be returned, default value is 0
+          description: Specifies the offset of data to be returned, default value is 0.
           schema: {}
         - name: limit
           required: true
           in: query
-          description: Specifies number of data to be returned, default value is 10
+          description: Specifies number of data to be returned, default value is 10.
           schema: {}
       responses:
         "200":
-          description: Successfully returning liquidity
+          description: Successfully returning liquidity.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TokenLiquidityResponse"
         "403":
           description: Forbidden
         "404":
           description: Not found
-      summary: Returns liquidity in time series
+      summary: Returns pool liquidity
       tags: *ref_0
   /v1/liquidity/{pool_token_id}:
     get:
@@ -171,23 +210,27 @@ paths:
         - name: pool_token_id
           required: true
           in: path
-          description: pool token id of swap pool eg. 13
+          description: Pool token ID of swap pool.
           schema:
             oneOf:
               - type: integer
         - name: offset
           required: false
           in: query
-          description: Specifies the offset of data to be returned, default value is 0
+          description: Specifies the offset of data to be returned, default value is 0.
           schema: {}
         - name: limit
-          required: false
+          required: true
           in: query
-          description: Specifies number of data to be returned, default value is 10
+          description: Specifies number of data to be returned, default value is 10.
           schema: {}
       responses:
         "200":
           description: Successfully returning liquidity
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TokenLiquidityResponse"
         "403":
           description: Forbidden
         "404":
@@ -196,33 +239,41 @@ paths:
       tags: *ref_0
   /v1/fee/{pool_token_id}:
     get:
+      description: >-
+        Returns pool's fee rebate history for a specific swap pool. Data is
+        provided as a time series, with each entry corresponding to a specific
+        Stacks block height.
       operationId: PoolController_getFeeHistory_v1
       parameters:
         - name: pool_token_id
           required: true
           in: path
-          description: pool token id of swap pool eg. 13
+          description: Pool token ID of swap pool.
           schema:
             oneOf:
               - type: integer
         - name: offset
           required: false
           in: query
-          description: Specifies the offset of data to be returned, default value is 0
+          description: Specifies the offset of data to be returned, default value is 0.
           schema: {}
         - name: limit
           required: true
           in: query
-          description: Specifies number of data to be returned, default value is 10
+          description: Specifies number of data to be returned, default value is 10.
           schema: {}
       responses:
         "200":
           description: Successfully returning fee
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PoolFeeResponse"
         "403":
           description: Forbidden
         "404":
           description: Not found
-      summary: Returns pool fee in time series
+      summary: Returns pool fee
       tags: *ref_0
   /v1/stats/tvl:
     get:
@@ -1021,6 +1072,325 @@ components:
       bearerFormat: JWT
       type: http
   schemas:
+    Swap:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 7
+        base:
+          type: string
+          example: token-alex
+        baseSymbol:
+          type: string
+          example: alex
+        baseId:
+          type: string
+          example: SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-alex
+        quote:
+          type: string
+          example: token-wban
+        quoteSymbol:
+          type: string
+          example: BANANA
+        quoteId:
+          type: string
+          example: SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-wban
+        baseVolume:
+          type: number
+          example: 105.45894916044628
+        quoteVolume:
+          type: number
+          example: 98.15140304673803
+        lastBasePriceInUSD:
+          type: number
+          example: 0.03150216
+        lastQuotePriceInUSD:
+          type: number
+          example: 0.005409090542472804
+      required:
+        - id
+        - base
+        - baseSymbol
+        - baseId
+        - quote
+        - quoteSymbol
+        - quoteId
+        - baseVolume
+        - quoteVolume
+        - lastBasePriceInUSD
+        - lastQuotePriceInUSD
+    AllSwapsResponse:
+      type: object
+      properties:
+        data:
+          description: >-
+            List of all existing swap pairs (base and quote tokens) with their
+            current volumes and prices in USD.
+          type: array
+          items:
+            $ref: "#/components/schemas/Swap"
+      required:
+        - data
+    PoolStatus:
+      type: object
+      properties:
+        pool_token:
+          type: number
+          example: 13
+          description: Unique identifier of the pool token
+        block_height:
+          type: number
+          example: 746617
+          description: Stacks block height at which this status was recorded
+        token_x:
+          type: string
+          example: SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-wstx-v2
+          description: Contract identifier for token X in the pool
+        token_y:
+          type: string
+          example: SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-alex
+          description: Contract identifier for token Y in the pool
+        volume_x_24h:
+          type: number
+          example: 112443.97784314597
+          description: 24-hour trading volume for token X
+        volume_y_24h:
+          type: number
+          example: 111321.83151559353
+          description: 24-hour trading volume for token Y
+        volume_24h:
+          type: number
+          example: 225221.63555752003
+          description: Total 24-hour trading volume
+        volume_x_7d:
+          type: number
+          example: 772478.6819111536
+          description: 7-day trading volume for token X
+        volume_y_7d:
+          type: number
+          example: 763925.8164915497
+          description: 7-day trading volume for token Y
+        volume_7d:
+          type: number
+          example: 1548772.3056866901
+          description: Total 7-day trading volume
+        fee_rebate_x_24h:
+          type: number
+          example: 83.41996769813575
+          description: 24-hour fee rebate for token X
+        fee_rebate_y_24h:
+          type: number
+          example: 196.64898177152597
+          description: 24-hour fee rebate for token Y
+        fee_rebate_24h:
+          type: number
+          example: 276.89283447830627
+          description: Total 24-hour fee rebate
+        fee_rebate_x_7d:
+          type: number
+          example: 953.7354657850966
+          description: 7-day fee rebate for token X
+        fee_rebate_y_7d:
+          type: number
+          example: 19723.707926126946
+          description: 7-day fee rebate for token Y
+        fee_rebate_7d:
+          type: number
+          example: 1909.7699233141293
+          description: Total 7-day fee rebate
+        est_pool_token_price:
+          type: number
+          example: 1.8974830418148833e-7
+          description: Estimated price of the pool token
+        liquidity:
+          type: number
+          example: 4092767.3621235755
+          description: Current liquidity in the pool
+        total_supply:
+          type: number
+          example: 4092767.3621156355
+          description: Total supply of pool tokens
+        apr_7d:
+          type: number
+          example: 2.433093588672123
+          description: 7-day Annual Percentage Rate (APR)
+        burn_block_time:
+          type: number
+          example: 1741601675
+          description: Bitcoin's block height
+        sync_at:
+          type: string
+          example: "2025-03-10T10:33:32.378+00:00"
+          description: Timestamp when this data was synchronized
+      required:
+        - pool_token
+        - block_height
+        - token_x
+        - token_y
+        - volume_x_24h
+        - volume_y_24h
+        - volume_24h
+        - volume_x_7d
+        - volume_y_7d
+        - volume_7d
+        - fee_rebate_x_24h
+        - fee_rebate_y_24h
+        - fee_rebate_24h
+        - fee_rebate_x_7d
+        - fee_rebate_y_7d
+        - fee_rebate_7d
+        - est_pool_token_price
+        - liquidity
+        - total_supply
+        - apr_7d
+        - burn_block_time
+        - sync_at
+    PoolStatsResponse:
+      type: object
+      properties:
+        token:
+          type: number
+          example: 13
+          description: Pool token identifier
+        pool_status:
+          description: >-
+            Array of pool status records ordered by block height. All monetary
+            values use base token (token X) units unless explicitly specified
+            with a "_y" suffix for quote token.
+          type: array
+          items:
+            $ref: "#/components/schemas/PoolStatus"
+      required:
+        - token
+        - pool_status
+    VolumeValue:
+      type: object
+      properties:
+        block_height:
+          type: number
+          example: 748628
+          description: Stacks block height at which this status was recorded
+        volume_24h:
+          type: number
+          example: 294318.0656719518
+          description: 24-hour volume in base token (token X) units
+      required:
+        - block_height
+        - volume_24h
+    PoolVolumeResponse:
+      type: object
+      properties:
+        token:
+          type: number
+          example: 13
+          description: Pool token identifier
+        volume_values:
+          description: >-
+            Array of 24-hour pool volume records ordered by block height. All
+            monetary values use base token (token X) units
+          type: array
+          items:
+            $ref: "#/components/schemas/VolumeValue"
+      required:
+        - token
+        - volume_values
+    VolumeValue7Day:
+      type: object
+      properties:
+        block_height:
+          type: number
+          example: 748811
+          description: Stacks block height at which this status was recorded
+        volume_7d:
+          type: number
+          example: 1517660.0316130652
+          description: 7-day volume in base token (token X) units
+      required:
+        - block_height
+        - volume_7d
+    PoolVolume7DayResponse:
+      type: object
+      properties:
+        token:
+          type: number
+          example: 13
+          description: Pool token identifier
+        volume_values:
+          description: >-
+            Array of pool volume records ordered by block height. All monetary
+            values use base token (token X) units
+          type: array
+          items:
+            $ref: "#/components/schemas/VolumeValue7Day"
+      required:
+        - token
+        - volume_values
+    TokenLiquidityValue:
+      type: object
+      properties:
+        block_height:
+          type: number
+          example: 748855
+          description: Stacks block height at which this status was recorded
+        liquidity:
+          type: number
+          example: 3769712.496803321
+          description: Pool liquidity in base token (token X) units
+      required:
+        - block_height
+        - liquidity
+    TokenLiquidityResponse:
+      type: object
+      properties:
+        token:
+          type: number
+          example: 13
+          description: Pool token identifier
+        liquidity_value:
+          description: >-
+            Array of liquidity records ordered by block height. All monetary
+            values use base token (token X) units
+          type: array
+          items:
+            $ref: "#/components/schemas/TokenLiquidityValue"
+      required:
+        - token
+        - liquidity_value
+    PoolFeeValue:
+      type: object
+      properties:
+        block_height:
+          type: number
+          example: 748936
+          description: Stacks block height at which this status was recorded
+        fee_rebate_24h:
+          type: number
+          example: 615.3625117185487
+          description: Fee rebate value for the past 24 hours
+        fee_rebate_7d:
+          type: number
+          example: 3173.3596157582247
+          description: Fee rebate value for the past 7 days
+      required:
+        - block_height
+        - fee_rebate_24h
+        - fee_rebate_7d
+    PoolFeeResponse:
+      type: object
+      properties:
+        pool_token:
+          type: number
+          example: 13
+          description: Pool token identifier
+        fee_value:
+          description: Array of fee rebate records ordered by block height.
+          type: array
+          items:
+            $ref: "#/components/schemas/PoolFeeValue"
+      required:
+        - pool_token
+        - fee_value
     Ticker:
       type: object
       properties:

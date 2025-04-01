@@ -74,7 +74,7 @@ Front-end developers may use our REST API ([https://api.alexgo.io](https://api.a
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
-## Dex
+## DEX
 
 ---
 

@@ -2,6 +2,10 @@
 
 Front-end developers may use our REST API ([https://api.alexgo.io](https://api.alexgo.io)) to access the latest market data on ALEX.
 
+## Pool
+
+---
+
 {% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/allswaps" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
@@ -34,6 +38,10 @@ Front-end developers may use our REST API ([https://api.alexgo.io](https://api.a
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
+## Stats
+
+---
+
 {% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/stats/tvl" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
@@ -45,6 +53,10 @@ Front-end developers may use our REST API ([https://api.alexgo.io](https://api.a
 {% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/stats/total_supply/{token}" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
+
+## Price
+
+---
 
 {% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/price/{token}" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
@@ -61,6 +73,10 @@ Front-end developers may use our REST API ([https://api.alexgo.io](https://api.a
 {% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/price_history/{token}" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
+
+## DEX
+
+---
 
 {% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/pairs" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
@@ -82,6 +98,10 @@ Front-end developers may use our REST API ([https://api.alexgo.io](https://api.a
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
 
+## Coin-gecko
+
+---
+
 {% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v2/coin-gecko/pairs" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
@@ -89,6 +109,10 @@ Front-end developers may use our REST API ([https://api.alexgo.io](https://api.a
 {% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v2/coin-gecko/tickers" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)
 {% endswagger %}
+
+## Public
+
+---
 
 {% swagger src="https://api.alexgo.io/swagger-ui-yaml" path="/v1/public/pairs" method="get" %}
 [https://api.alexgo.io/swagger-ui-yaml](https://api.alexgo.io/swagger-ui-yaml)

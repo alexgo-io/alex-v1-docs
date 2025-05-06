@@ -153,3 +153,50 @@ The `wrapped-token-template` is a list of code segments (as ASCII strings) that 
 | Name           | Type                                 |
 |----------------|--------------------------------------|
 | `new-template` | `(list 20 (string-ascii 5000))`      |
+
+### Getters
+
+#### `get-approved-token-x-or-default`
+
+##### Parameters
+
+| Name      | Type       |
+|-----------|------------|
+| `token-x` | `principal`|
+
+#### `get-fee-rebate`
+
+#### `get-lock-period`
+
+#### `get-locked-liquidity-or-default`
+
+##### Parameters
+
+| Name     | Type       |
+|----------|------------|
+| `owner`  | `principal`|
+| `pool-id`| `uint`     |
+
+#### `get-locked-liquidity-for-pool-or-default`
+
+##### Parameters
+
+| Name     | Type |
+|----------|------|
+| `pool-id`|`uint`|
+
+#### `get-burnt-liquidity-or-default`
+
+##### Parameters
+
+| Name     | Type |
+|----------|------|
+| `pool-id`|`uint`|
+
+#### `get-wrapped-token-contract-code`
+
+##### Parameters
+
+| Name    | Type       |
+|---------|------------|
+| `token` | `principal`|

@@ -200,3 +200,41 @@ The `wrapped-token-template` is a list of code segments (as ASCII strings) that 
 | Name    | Type       |
 |---------|------------|
 | `token` | `principal`|
+
+### Relevant internal functions
+
+#### `pre-check`
+
+This private function performs validations prior to pool creation in both permissioned and permissionless flows.
+
+It verifies that:
+- The `token-x` is approved and has sufficient balance (`bal-x`).
+- A pool with the given pair and factor does not already exist (in either order).
+- The provided `lock` parameter is valid (`NONE`, `LOCK`, or `BURN`).
+
+It retrieves the approval and minimum balance requirements from the internal `approved-token-x` map and interacts with the external `amm-pool-v2-01` contract to check pool existence.
+
+##### Parameters
+
+| Name              | Type                                               |
+|-------------------|----------------------------------------------------|
+| `request-details` | `{ token-x-trait: <ft-trait>, token-y-trait: <ft-trait>, factor: uint, bal-x: uint, bal-y: uint, fee-rate-x: uint, fee-rate-y: uint, max-in-ratio: uint, max-out-ratio: uint, threshold-x: uint, threshold-y: uint, oracle-enabled: bool, oracle-average: uint, start-block: uint, lock: (buff 1) }` |
+
+#### `post-check`
+
+This private function finalizes pool creation by initializing the AMM pool and applying additional configuration parameters.
+
+It performs the following actions:
+- Calls the `create-pool` function from the external `.amm-pool-v2-01` contract to initialize the pool with the provided liquidity amounts.
+- If the `lock` parameter is set to `LOCK`, it calls `lock-liquidity` from the `.liquidity-locker` contract to lock the initial LP tokens.
+- If the `lock` is `BURN`, it calls `burn-liquidity` from the `.liquidity-locker` contract instead.
+- Applies pool parameters like fee rates, max ratios, thresholds, oracle settings, and the `start-block` by calling their respective setter functions in the `.amm-pool-v2-01` contract.
+- Finally, it applies the global fee rebate for the pool by calling `set-fee-rebate` from the external `.amm-registry-v2-01` contract.
+
+This function is used after both `create` and `create2` to complete the pool setup.
+
+##### Parameters
+
+| Name              | Type                                               |
+|-------------------|----------------------------------------------------|
+| `request-details` | `{ token-x-trait: <ft-trait>, token-y-trait: <ft-trait>, factor: uint, bal-x: uint, bal-y: uint, fee-rate-x: uint, fee-rate-y: uint, max-in-ratio: uint, max-out-ratio: uint, threshold-x: uint, threshold-y: uint, oracle-enabled: bool, oracle-average: uint, start-block: uint, lock: (buff 1) }` |

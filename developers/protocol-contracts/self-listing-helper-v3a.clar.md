@@ -25,7 +25,7 @@ This dual approach gives projects the flexibility to choose between a guided lis
 
 #### `create`
 
-This function initiates the creation of a liquidity pool between two pre-approved tokens. It is used in the **permissioned listing** flow, where the listing token (`token-y`) has already been approved by governance or whitelisted in the system.
+This function initiates the creation of a liquidity pool between two pre-approved tokens. It is used in the permissioned listing flow, where the listing token (`token-y`) has already been approved by governance or whitelisted in the system.
 
 The function first runs validation checks via `pre-check`, which ensures the anchor token (`token-x`) is approved and that the caller provides sufficient liquidity. It also checks that no existing pool with the given token pair and `factor` already exists.
 
@@ -47,7 +47,7 @@ The function emits a print log with the full pool configuration for transparency
 
 #### `create2`
 
-This function allows the creation of a new liquidity pool using a token that has **not been pre-approved** by governance. It is the main entry point for the **permissionless listing** flow.
+This function allows the creation of a new liquidity pool using a token that has not been pre-approved by governance. It is the main entry point for the permissionless listing flow.
 
 Before calling this function, the user must deploy a wrapper contract for the listing token (`token-y`) that matches an approved template. The contract must then be verified on-chain by submitting proof of deployment.
 

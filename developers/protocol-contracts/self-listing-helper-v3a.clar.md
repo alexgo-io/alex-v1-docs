@@ -2,16 +2,17 @@
 
 - [Deployed contract](https://explorer.hiro.so/txid/SP1E0XBN9T4B10E9QMR7XMFJPMA19D77WY3KP2QKC.self-listing-helper-v3a?chain=mainnet)
 
-The `self-listing-helper-v3a` contract enables the creation of trading pools on the ALEX DEX through two distinct mechanisms: a permissioned flow and a permissionless flow.
+The `self-listing-helper-v3a` contract enables the creation of trading pools on the ALEX DEX through two distinct mechanisms: a permissioned flow and a permissionless flow. In both cases, pools are formed by pairing a governance-approved anchor token (`token-x`) with a listed token (`token-y`), which is the asset being introduced for trading.
+
+This dual approach gives projects the flexibility to choose between a guided listing process or a fully autonomous, on-chain setup — all while using the same core infrastructure.
 
 ## Permissioned
 
-In the **permissioned flow**, pools can be created with pre-approved tokens by following a guided process through the ALEX UI. Each pool must pair an **anchor token** (`token-x`) with a user-provided token (`token-y`), which is the asset being newly listed (**listed token**). Both anchor and listed tokens must be approved by the ALEX team.
+Pools can be created by following a guided process through the ALEX UI. The user supplies a `token-y` that must be pre-approved by governance before the pool can be initialized.
 
 ## Permissionless
 
-In the **permissionless flow**, users can list a new token (`token-y`) by deploying a wrapper contract that matches an approved template, and without requiring the approval step. The pool is formed against an existing, governance-approved `token-x`. The contract includes a verification system to ensure the integrity of the deployment: it reconstructs and validates the original contract transaction using Merkle proofs and block data, confirming that the wrapper is trustworthy.
-Once verification succeeds, the token is dynamically approved and a pool is created.
+Users can list a new `token-y` without requiring a prior approval step by deploying a wrapper contract that matches a governance-approved template. The contract includes a verification system that reconstructs and validates the original deployment transaction using Merkle proofs and block data. Once verification succeeds, the token is dynamically approved and the pool is created.
 
 ## Additional Capabilities
 
@@ -21,8 +22,6 @@ The contract also supports:
 - On-chain parameter configuration (fees, oracles, thresholds)
 - Governance-controlled token approvals
 - Rebates management for AMM incentives
-
-This dual approach gives projects the flexibility to choose between a guided listing process or a fully autonomous, on-chain setup — all while using the same core infrastructure.
 
 ## Features
 
@@ -293,7 +292,7 @@ This allows the AMM system to recognize and route trades through the correct wra
 
 - `executor-dao`: calls are made to verify whether a certain contract-caller is designated as an extension.
 - `liquidity-locker`: this contract is used to manage post-creation liquidity settings. It allows the contract to lock, burn, or later claim LP tokens based on the pool creator’s configuration.
-- `clarity-stacks`: this contract is used to verify that a token wrapper contract was properly deployed on the Stacks blockchain. It ensures the deployment was mined and included in a valid block.
+- `clarity-stacks`: this contract is used to verify that a wrapper contract was properly deployed on the Stacks blockchain. It checks that the contract was mined and included in a valid block. This system is built on top of Marvin Janssen’s `clarity-stacks` proof framework.
 - `clarity-stacks-helper`: this contract is called to convert a Clarity string into its consensus-encoded buffer format.
 - `amm-vault-v2-01`: this contract is called to verify that `token-y` has reserves before pool creation and to approve it in the permissionless listing flow after successful wrapper verification.
 - `amm-pool-v2-01`: this contract is used to validate pool existence, create new trading pools, and configure pool parameters such as fees, slippage thresholds, oracles, and start block.

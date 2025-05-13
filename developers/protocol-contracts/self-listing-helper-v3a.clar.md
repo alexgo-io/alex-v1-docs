@@ -4,11 +4,16 @@
 
 The `self-listing-helper-v3a` contract enables the creation of trading pools on the ALEX DEX through two distinct mechanisms: a permissioned flow and a permissionless flow.
 
-In the **permissioned flow**, pre-approved tokens can create pools by following a guided process through the ALEX UI. These tokens must be whitelisted and have sufficient anchor token liquidity. Each pool must pair a pre-approved anchor token (`token-x`) with a user-provided token (`token-y`), which is the asset being newly listed.
+## Permissioned
 
-In the **permissionless flow**, any user can list a new token (`token-y`) by deploying a wrapper contract that matches an approved template. The pool is formed against an existing, governance-approved `token-x`. The contract includes a verification system to ensure the integrity of the deployment: it reconstructs and validates the original contract transaction using Merkle proofs and block data, confirming that the wrapper is trustworthy.
+In the **permissioned flow**, pools can be created with pre-approved tokens by following a guided process through the ALEX UI. Each pool must pair an **anchor token** (`token-x`) with a user-provided token (`token-y`), which is the asset being newly listed (**listed token**). Both anchor and listed tokens must be approved by the ALEX team.
 
+## Permissionless
+
+In the **permissionless flow**, users can list a new token (`token-y`) by deploying a wrapper contract that matches an approved template, and without requiring the approval step. The pool is formed against an existing, governance-approved `token-x`. The contract includes a verification system to ensure the integrity of the deployment: it reconstructs and validates the original contract transaction using Merkle proofs and block data, confirming that the wrapper is trustworthy.
 Once verification succeeds, the token is dynamically approved and a pool is created.
+
+## Additional Capabilities
 
 The contract also supports:
 
@@ -21,17 +26,17 @@ This dual approach gives projects the flexibility to choose between a guided lis
 
 ## Features
 
-### Public Features
+### Public
 
 #### `create`
 
-This function initiates the creation of a liquidity pool between two pre-approved tokens. It is used in the permissioned listing flow, where the listing token (`token-y`) has already been approved by governance or whitelisted in the system.
+Permissioned pool creation. The listed token (`token-y`) must be pre-approved to initiate the process.
 
-The function first runs validation checks via `pre-check`, which ensures the anchor token (`token-x`) is approved and that the caller provides sufficient liquidity. It also checks that no existing pool with the given token pair and `factor` already exists.
+The function first runs validation checks via [`pre-check`](#pre-check), which ensures the anchor token (`token-x`) is approved and that the caller provides sufficient liquidity. It also checks that no existing pool with the given token pair and `factor` already exists.
 
 Next, it verifies that the listing token has a reserve in the `amm-vault-v2-01` contract, which serves as a proxy for its approval status.
 
-If all validations pass, the function calls `post-check`, which:
+If all validations pass, the function calls [`post-check`](#post-check), which:
 
 - Creates the new pool on `amm-pool-v2-01`
 - Configures its parameters (fees, thresholds, oracle)
@@ -47,11 +52,9 @@ The function emits a print log with the full pool configuration for transparency
 
 #### `create2`
 
-This function allows the creation of a new liquidity pool using a token that has not been pre-approved by governance. It is the main entry point for the permissionless listing flow.
+Permissionless pool creation. The pool is created in a single transaction using a wrapper contract that matches an approved template and includes on-chain verification data.
 
-Before calling this function, the user must deploy a wrapper contract for the listing token (`token-y`) that matches an approved template. The contract must then be verified on-chain by submitting proof of deployment.
-
-The function begins by validating the request with `pre-check`. It then calls `verify-deploy`, which:
+The function begins by validating the request with [`pre-check`](#pre-check). It then calls `verify-deploy`, which:
 
 - Reconstructs the transaction ID based on the deployment parameters
 - Validates that the contract was mined using a Merkle proof and block data
@@ -59,7 +62,7 @@ The function begins by validating the request with `pre-check`. It then calls `v
 
 If verification succeeds, the wrapper is stored in `wrap-token-map`, and `token-y` is dynamically approved via `amm-vault-v2-01.set-approved-token`.
 
-Finally, `post-check` is executed to create the pool and configure its parameters. The function emits a print log with both the request and verification details.
+Finally, [`post-check`](#post-check) is executed to create the pool and configure its parameters. The function emits a print log with both the request and verification details.
 
 ##### Parameters
 
@@ -72,7 +75,7 @@ Finally, `post-check` is executed to create the pool and configure its parameter
 
 This function locks a specified amount of LP tokens for a given pool. It is typically used immediately after a pool is created, when the creator chooses to lock the initial liquidity as a trust signal for other users.
 
-Internally, it calls the `lock-liquidity` function of the external `liquidity-locker` contract. That contract:
+Internally, it calls the `lock-liquidity` function of the `liquidity-locker` contract. That contract:
 
 - Transfers the LP tokens from the caller to its own custody
 - Records the locked amount and sets an unlock block height (default: ~6 months)
@@ -88,7 +91,7 @@ Internally, it calls the `lock-liquidity` function of the external `liquidity-lo
 
 This function allows the caller to burn a specified amount of LP tokens from a given pool. It is one of the options available when configuring the pool after creation, typically used to make the initial liquidity permanently inaccessible.
 
-Internally, it calls the `burn-liquidity` function of the external `liquidity-locker` contract. That contract:
+Internally, it calls the `burn-liquidity` function of the `liquidity-locker` contract. That contract:
 
 - Calls the `burn-fixed` function on the pool contract to destroy the LP tokens
 - Updates the internal `burnt-liquidity` record for that pool
@@ -104,7 +107,7 @@ Internally, it calls the `burn-liquidity` function of the external `liquidity-lo
 
 This function allows users to reclaim their previously locked LP tokens after the lock period has expired.
 
-Internally, it calls the `claim-liquidity` function from the external `liquidity-locker` contract. That contract:
+Internally, it calls the `claim-liquidity` function from the `liquidity-locker` contract. That contract:
 
 - Checks that the caller has a non-zero locked amount
 - Verifies that the current block is past the `end-burn-block` set during locking
@@ -141,7 +144,7 @@ This function updates the `approved-token-x` map, enabling the protocol to defin
 
 A public function, governed through the `is-dao-or-extension`, that sets the default fee rebate value used during pool creation.
 
-This value is stored locally in the contract and passed as an argument to the `set-fee-rebate` function of the external `amm-registry-v2-01` contract when a new pool is initialized.
+This value is stored locally in the contract and passed as an argument to the `set-fee-rebate` function of the `amm-registry-v2-01` contract when a new pool is initialized.
 
 ##### Parameters
 
@@ -220,7 +223,7 @@ It verifies that:
 - A pool with the given pair and factor does not already exist (in either order).
 - The provided `lock` parameter is valid (`NONE`, `LOCK`, or `BURN`).
 
-It retrieves the approval and minimum balance requirements from the internal `approved-token-x` map and interacts with the external `amm-pool-v2-01` contract to check pool existence.
+It retrieves the approval and minimum balance requirements from the internal `approved-token-x` map and interacts with the `amm-pool-v2-01` contract to check pool existence.
 
 ##### Parameters
 
@@ -234,11 +237,11 @@ This private function finalizes pool creation by initializing the AMM pool and a
 
 It performs the following actions:
 
-- Calls the `create-pool` function from the external `.amm-pool-v2-01` contract to initialize the pool with the provided liquidity amounts.
+- Calls the `create-pool` function from the `.amm-pool-v2-01` contract to initialize the pool with the provided liquidity amounts.
 - If the `lock` parameter is set to `LOCK`, it calls `lock-liquidity` from the `liquidity-locker` contract to lock the initial LP tokens.
 - If the `lock` is `BURN`, it calls `burn-liquidity` from the `liquidity-locker` contract instead.
 - Applies pool parameters like fee rates, max ratios, thresholds, oracle settings, and the `start-block` by calling their respective setter functions in the `amm-pool-v2-01` contract.
-- Finally, it applies the global fee rebate for the pool by calling `set-fee-rebate` from the external `amm-registry-v2-01` contract.
+- Finally, it applies the global fee rebate for the pool by calling `set-fee-rebate` from the `amm-registry-v2-01` contract.
 
 This function is used after both `create` and `create2` to complete the pool setup.
 

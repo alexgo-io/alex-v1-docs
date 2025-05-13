@@ -8,11 +8,11 @@ This dual approach gives projects the flexibility to choose between a guided lis
 
 ## Permissioned
 
-Pools can be created by following a guided process through the ALEX UI. The user supplies a `token-y` that must be pre-approved by governance before the pool can be initialized.
+Pools can be created by following a guided process through the [ALEX Lab UI](https://app.alexlab.co/self-service-listing). The user supplies a `token-y` that must be pre-approved by governance before the pool can be initialized.
 
 ## Permissionless
 
-Users can list a new `token-y` without requiring a prior approval step by deploying a wrapper contract that matches a governance-approved template. The contract includes a verification system that reconstructs and validates the original deployment transaction using Merkle proofs and block data. Once verification succeeds, the token is dynamically approved and the pool is created.
+Users can list a new `token-y` without requiring a prior approval step by deploying a wrapper contract that matches a governance-approved template. The contract includes a verification system, based on the [`clarity-stacks`](https://github.com/MarvinJanssen/clarity-stacks) library, that reconstructs and validates the original deployment transaction using Merkle proofs and block data. Once verification succeeds, the token is dynamically approved and the pool is created.
 
 ## Additional Capabilities
 
@@ -292,7 +292,7 @@ This allows the AMM system to recognize and route trades through the correct wra
 
 - `executor-dao`: calls are made to verify whether a certain contract-caller is designated as an extension.
 - `liquidity-locker`: this contract is used to manage post-creation liquidity settings. It allows the contract to lock, burn, or later claim LP tokens based on the pool creator’s configuration.
-- `clarity-stacks`: this contract is used to verify that a wrapper contract was properly deployed on the Stacks blockchain. It checks that the contract was mined and included in a valid block. This system is built on top of Marvin Janssen’s `clarity-stacks` proof framework.
+- `clarity-stacks`: this contract is used to verify that a wrapper contract was properly deployed on the Stacks blockchain. It checks that the contract was mined and included in a valid block. This system is built on top of Marvin Janssen’s [`clarity-stacks`](https://github.com/MarvinJanssen/clarity-stacks) proof framework.
 - `clarity-stacks-helper`: this contract is called to convert a Clarity string into its consensus-encoded buffer format.
 - `amm-vault-v2-01`: this contract is called to verify that `token-y` has reserves before pool creation and to approve it in the permissionless listing flow after successful wrapper verification.
 - `amm-pool-v2-01`: this contract is used to validate pool existence, create new trading pools, and configure pool parameters such as fees, slippage thresholds, oracles, and start block.

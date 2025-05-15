@@ -288,3 +288,33 @@ Maps a token pair and bin size to its corresponding `pool-id`. This provides a w
 | Map  | `{ pool-id: uint, tick: int } => { total-supply: uint, balance-x: uint, balance-y: uint, fee-x: uint, fee-y: uint }` |
 
 Stores the state of each bin in a pool, indexed by `pool-id` and `tick`. It tracks the total LP token supply, token balances, and accumulated fees for that specific price range within the pool.
+
+## Contract calls
+
+- `executor-dao`: calls are made to verify whether a certain contract-caller is designated as an extension.
+- `amm-liquidity-token-v3`: used to mint and burn LP tokens that represent user positions in specific ticks.
+- `token-x-trait` / `token-y-trait`: represent the fungible tokens involved in each pool. These trait contracts are used to perform transfers during swaps and liquidity updates.
+
+## Errors
+
+| Error Name                              | Value         |
+| --------------------------------------- | ------------- |
+| `ERR-NOT-AUTHORIZED`                    | `(err u1000)` |
+| `ERR-POOL-PAUSED`                       | `(err u1001)` |
+| `ERR-POOL-SUNSET`                       | `(err u1002)` |
+| `ERR-POOL-NOT-FOUND`                    | `(err u1003)` |
+| `ERR-INVALID-PAIR`                      | `(err u1004)` |
+| `ERR-POOL-ALREADY-EXISTS`              | `(err u2000)` |
+| `ERR-INVALID-PRICE`                     | `(err u2001)` |
+| `ERR-INVALID-TOKEN-TRAIT`              | `(err u2002)` |
+| `ERR-INVALID-BIN-SIZE`                 | `(err u2003)` |
+| `ERR-PERCENT-GREATER-THAN-ONE`         | `(err u2004)` |
+| `ERR-ZERO-PERCENT`                      | `(err u2005)` |
+| `ERR-INVALID-AMOUNT`                    | `(err u2006)` |
+| `ERR-POSITION-NOT-FOUND`               | `(err u2007)` |
+| `ERR-PERCENT-GREATER-THAN-OR-EQUALS-ONE` | `(err u2008)` |
+| `ERR-INSUFFICIENT-LIQUIDITY`           | `(err u2009)` |
+| `ERR-STORAGE-FAILURE`                  | `(err u3001)` |
+| `ERR-INVALID-LP-STATE`                 | `(err u3002)` |
+| `ERR-MAX-POOLS-ALLOWED`                | `(err u3003)` |
+| `ERR-TICK-OUT-OF-RANGE`                | `(err u3004)` |

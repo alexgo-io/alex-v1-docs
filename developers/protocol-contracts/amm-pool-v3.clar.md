@@ -179,3 +179,112 @@ A public function, governed through `is-dao-or-extension`, that allows the DAO t
 | `pool-id`         | `uint`      |
 | `tick`            | `int`       |
 | `fee-to-address`  | `principal` |
+
+### Getters
+
+#### `get-pool-count`
+
+#### `get-pool-id`
+
+##### Parameters
+
+| Name | Type |
+|------|------|
+| `key` | `{ token-x: principal, token-y: principal, bin-size: uint }` |
+
+#### `get-pool`
+
+##### Parameters
+
+| Name | Type |
+|------|------|
+| `pool-id` | `uint` |
+
+#### `get-pool-balances`
+
+##### Parameters
+
+| Name | Type |
+|------|------|
+| `pool-id` | `uint` |
+| `tick`    | `int`  |
+
+#### `get-liquidity-token-id`
+
+##### Parameters
+
+| Name | Type |
+|------|------|
+| `pool-id` | `uint` |
+| `tick`    | `int`  |
+
+#### `parse-liquidity-token-id`
+
+##### Parameters
+
+| Name | Type |
+|------|------|
+| `token-id` | `uint` |
+
+#### `tick-to-price`
+
+##### Parameters
+
+| Name | Type |
+|------|------|
+| `bin-size` | `uint` |
+| `tick`     | `int`  |
+
+#### `get-price-bounds`
+
+##### Parameters
+
+| Name | Type |
+|------|------|
+| `bin-size` | `uint` |
+| `tick`     | `int`  |
+
+#### `get-virtual-balances`
+
+##### Parameters
+
+| Name        | Type |
+|-------------|------|
+| `bin-size`  | `uint` |
+| `tick`      | `int`  |
+| `balance-x` | `uint` |
+| `balance-y` | `uint` |
+
+## Storage
+
+### `pool-id-nonce`
+
+| Data     | Type |
+|----------|------|
+| Variable | `uint` |
+
+A global counter used to assign unique identifiers to new pools. It is incremented each time a pool is created through the `create-pool` function.
+
+### `pools`
+
+| Data | Type |
+|------|------|
+| Map  | `uint => { token-x: principal, token-y: principal, bin-size: uint, pool-owner: principal, fee-rate-x: uint, fee-rate-y: uint, fee-rebate: uint, sunset: bool, paused: bool }` |
+
+Stores configuration data for each pool, indexed by `pool-id`. It includes the token pair, bin size, fee parameters, and status flags (`paused` and `sunset`). This map is used to validate pool existence and retrieve parameters during pool creation, swaps, and liquidity operations.
+
+### `pool-id-by-token`
+
+| Data | Type |
+|------|------|
+| Map  | `{ token-x: principal, token-y: principal, bin-size: uint } => uint` |
+
+Maps a token pair and bin size to its corresponding `pool-id`. This provides a way to retrieve an existing pool’s ID based on its asset configuration.
+
+### `pool-supply`
+
+| Data | Type |
+|------|------|
+| Map  | `{ pool-id: uint, tick: int } => { total-supply: uint, balance-x: uint, balance-y: uint, fee-x: uint, fee-y: uint }` |
+
+Stores the state of each bin in a pool, indexed by `pool-id` and `tick`. It tracks the total LP token supply, token balances, and accumulated fees for that specific price range within the pool.

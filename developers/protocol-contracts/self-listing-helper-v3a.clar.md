@@ -1,8 +1,9 @@
 # self-listing-helper-v3a.clar
 
+- Location: `./contracts/extensions/self-listing-helper-v3a.clar`
 - [Deployed contract](https://explorer.hiro.so/txid/SP1E0XBN9T4B10E9QMR7XMFJPMA19D77WY3KP2QKC.self-listing-helper-v3a?chain=mainnet)
 
-The `self-listing-helper-v3a` contract enables the creation of trading pools on the ALEX DEX through two distinct mechanisms: a permissioned flow and a permissionless flow. In both cases, pools are formed by pairing a governance-approved anchor token (`token-x`) with a listed token (`token-y`), which is the asset being introduced for trading.
+The `self-listing-helper-v3a` contract enables the creation of trading pools on the ALEX DEX through two distinct mechanisms: a governance-controlled flow and a permissionless flow. In both cases, pools are formed by pairing a governance-approved anchor token (`token-x`) with a listed token (`token-y`), which is the asset being introduced for trading.
 
 This dual approach gives projects the flexibility to choose between a guided listing process or a fully autonomous, on-chain setup — all while using the same core infrastructure.
 
@@ -12,7 +13,7 @@ Pools can be created by following a guided process through the [ALEX Lab UI](htt
 
 ## Permissionless
 
-Users can list a new `token-y` without requiring a prior approval step by deploying a wrapper contract that matches a governance-approved template. The contract includes a verification system, based on the [`clarity-stacks`](https://github.com/MarvinJanssen/clarity-stacks) library, that reconstructs and validates the original deployment transaction using Merkle proofs and block data. Once verification succeeds, the token is dynamically approved and the pool is created.
+Users can list a new `token-y` without prior approval by deploying a wrapper contract that matches a governance-approved template. The contract includes a verification system, based on the [`clarity-stacks`](https://github.com/MarvinJanssen/clarity-stacks) library, that reconstructs and validates the original deployment transaction using Merkle proofs and block data. Once verification succeeds, the token is dynamically approved and the pool is created.
 
 ## Additional Capabilities
 
@@ -72,7 +73,7 @@ Finally, [`post-check`](#post-check) is executed to create the pool and configur
 
 #### `lock-liquidity`
 
-This function locks a specified amount of LP tokens for a given pool. It is typically used immediately after a pool is created, when the creator chooses to lock the initial liquidity as a trust signal for other users.
+This function locks a specified amount of LP tokens for a given pool. It is typically used immediately after a pool is created, when the creator chooses to lock the initial liquidity to signal trust to other users.
 
 Internally, it calls the `lock-liquidity` function of the `liquidity-locker` contract. That contract:
 
@@ -127,7 +128,7 @@ This standard protocol function checks whether a caller (`tx-sender`) is the DAO
 
 #### `approve-token-x`
 
-A public function, governed through the `is-dao-or-extension`, that sets the approval status and minimum required balance for a token to be used as the anchor token (`token-x`) in pool creation.
+A public function, governed through `is-dao-or-extension`, that sets the approval status and minimum required balance for a token to be used as the anchor token (`token-x`) in pool creation.
 
 This function updates the `approved-token-x` map, enabling the protocol to define which tokens can serve as anchors and to enforce a minimum contribution threshold (`min-x`) for those tokens.
 
@@ -141,7 +142,7 @@ This function updates the `approved-token-x` map, enabling the protocol to defin
 
 #### `set-fee-rebate`
 
-A public function, governed through the `is-dao-or-extension`, that sets the default fee rebate value used during pool creation.
+A public function, governed through `is-dao-or-extension`, that sets the default fee rebate value used during pool creation.
 
 This value is stored locally in the contract and passed as an argument to the `set-fee-rebate` function of the `amm-registry-v2-01` contract when a new pool is initialized.
 
@@ -153,7 +154,7 @@ This value is stored locally in the contract and passed as an argument to the `s
 
 #### `set-wrapped-token-template`
 
-A public function, governed through the `is-dao-or-extension`, that sets the reference template used to validate wrapper token contracts during permissionless pool creation.
+A public function, governed through `is-dao-or-extension`, that sets the reference template used to validate wrapper token contracts during permissionless pool creation.
 
 The `wrapped-token-template` is a list of code segments (as ASCII strings) that represent the expected body of a compliant wrapper contract. When a user submits a deployment proof via `create2`, this template is used to reconstruct the expected code and verify that the deployed contract matches it exactly.
 
@@ -237,9 +238,9 @@ This private function finalizes pool creation by initializing the AMM pool and a
 It performs the following actions:
 
 - Calls the `create-pool` function from the `.amm-pool-v2-01` contract to initialize the pool with the provided liquidity amounts.
-- If the `lock` parameter is set to `LOCK`, it calls `lock-liquidity` from the `liquidity-locker` contract to lock the initial LP tokens.
-- If the `lock` is `BURN`, it calls `burn-liquidity` from the `liquidity-locker` contract instead.
-- Applies pool parameters like fee rates, max ratios, thresholds, oracle settings, and the `start-block` by calling their respective setter functions in the `amm-pool-v2-01` contract.
+- If the `lock` is set to `LOCK`, it calls `lock-liquidity` from the `liquidity-locker` contract to lock the initial LP tokens.
+- If the `lock` is set to `BURN`, it calls `burn-liquidity` from the `liquidity-locker` contract instead.
+- It applies pool parameters like fee rates, max ratios, thresholds, oracle settings, and the `start-block` by calling their respective setter functions in the `amm-pool-v2-01` contract.
 - Finally, it applies the global fee rebate for the pool by calling `set-fee-rebate` from the `amm-registry-v2-01` contract.
 
 This function is used after both `create` and `create2` to complete the pool setup.
@@ -258,7 +259,7 @@ This function is used after both `create` and `create2` to complete the pool set
 | -------- | ----------------------------- |
 | Variable | `list 20 (string-ascii 5000)` |
 
-A list of strings that together define the expected code template for a valid wrapper token contract. Each entry represents a fragment of the full contract body, and the full code is reconstructed by concatenating these parts with the listed token's contract address.
+A list of strings that define the expected code template for a valid wrapper token contract. Each entry represents a fragment of the full contract body, and the full code is reconstructed by concatenating these parts with the listed token's contract address.
 
 This template is used during permissionless pool creation (`create2`) to verify that a wrapper contract deployed by a user matches the expected safe implementation.
 
@@ -312,3 +313,5 @@ This allows the AMM system to recognize and route trades through the correct wra
 | `err-invalid-length-signature`  | `(err u2002)` |
 | `err-invalid-principal-version` | `(err u2003)` |
 | `err-principal-not-contract`    | `(err u2004)` |
+
+<!-- Documentation Contract Template v0.1.1 -->

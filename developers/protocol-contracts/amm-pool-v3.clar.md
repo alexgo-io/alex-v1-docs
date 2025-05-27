@@ -64,7 +64,7 @@ The `percent` parameter represents the portion of the position to withdraw, usin
 
 #### `swap-x-for-y-ioc`
 
-This function allows users to swap a specific amount of token X (`dx`) for token Y in a selected bin (`tick`) of a DAMM pool, under an Immediate-Or-Cancel (IOC) execution logic. That means the swap will only proceed if the resulting price stays within the user-defined `max-price` limit. If the conditions are not met, the function either cancels the operation or executes the portion of the swap that can be filled without exceeding the price cap.
+This function allows users to swap a specific amount of token X (`dx`) for token Y in a selected bin (`tick`) of a DAMM pool, under an Immediate-Or-Cancel (IOC) execution logic. That means the swap will only proceed if the resulting price stays within the user-defined `max-price` limit. If the conditions are not met, the function either cancels the operation or executes the portion of the swap that can be fulfilled without exceeding the price cap.
 
 The function starts by validating the pool's status and confirming that the token traits passed as arguments match the registered pool configuration. It then calculates how much of the input token X can be used in the swap without breaching the price limit. This calculation relies on the virtual balances model used in DAMM, which ensures that trading remains bounded within the configured bin.
 
@@ -156,7 +156,7 @@ A public function, governed through `is-dao-or-extension`, that updates the fee 
 
 #### `set-pool-status`
 
-A public function, governed through `is-dao-or-extension`, that updates the operational status of a pool. It can mark a pool as `paused` (temporarily disabling activity) or `sunset` (permanently deactivating the pool), affecting its availability for swaps and liquidity actions, and emits an event with the pool ID, the deactivation and pause status, and the transaction sender.
+A public function, governed through `is-dao-or-extension`, that updates the operational status of a pool. It can mark a pool as `paused` (temporarily disabling activity) or `sunset` (permanently deactivating the pool), affecting its availability for swaps and actions like adding or removing liquidity. Finally, it emits an event with the pool ID, the deactivation and pause status, and the transaction sender.
 
 ##### Parameters
 
@@ -200,7 +200,16 @@ A public function, governed through `is-dao-or-extension`, that allows the DAO t
 |------|------|
 | `pool-id` | `uint` |
 
-#### `get-pool-balances`, `get-liquidity-token-id`
+#### `get-pool-balances`
+
+##### Parameters
+
+| Name | Type |
+|------|------|
+| `pool-id` | `uint` |
+| `tick`    | `int`  |
+
+#### `get-liquidity-token-id`
 
 ##### Parameters
 
@@ -217,7 +226,16 @@ A public function, governed through `is-dao-or-extension`, that allows the DAO t
 |------|------|
 | `token-id` | `uint` |
 
-#### `tick-to-price`, `get-price-bounds`
+#### `tick-to-price`
+
+##### Parameters
+
+| Name | Type |
+|------|------|
+| `bin-size` | `uint` |
+| `tick`     | `int`  |
+
+#### `get-price-bounds`
 
 ##### Parameters
 

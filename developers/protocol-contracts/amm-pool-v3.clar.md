@@ -1,5 +1,7 @@
 # amm-pool-v3.clar
 
+- Location: `./contracts/amm-pool-v3.clar`
+
 <!-- - [Deployed contract]() -->
 
 The `amm-pool-v3` contract implements the core logic of DAMM (Discrete Automated Market Maker), a concentrated liquidity protocol designed to maximize capital efficiency by organizing liquidity into discrete price ranges called **bins** or **ticks**.
@@ -11,7 +13,7 @@ This contract supports the full lifecycle of DAMM pools:
 - **Liquidity Provision** – LPs add liquidity to specific ticks within a pool, receiving fungible LP tokens for each tick.
 - **Liquidity Management** – LPs can reduce their positions by percentage, claiming back their share of assets and accrued fees.
 - **Swapping** – Supports swaps of token X for token Y (and vice versa) within a tick.
-- **Administrative Control** – The DAO can pause or sunset pools and adjust fee parameters at any time.
+- **Administrative Control** – The ALEX DAO can pause or sunset pools and adjust fee parameters at any time.
 - **Fee Claiming** – Accumulated fees can be withdrawn by the DAO to a target address.
 
 ## Features
@@ -20,11 +22,13 @@ This contract supports the full lifecycle of DAMM pools:
 
 #### `add-to-position`
 
-This function allows a user to add liquidity to a specific price bin (tick) within a DAMM pool. Unlike traditional AMMs where liquidity is distributed evenly across all prices, here the user targets a defined price range. The function accepts a max amount of both tokens (`dx`, `dy`) and bounds on the acceptable price range (`min-price`, `max-price`).
+This function allows a user to add liquidity to a specific price bin (tick) within a DAMM pool. Unlike traditional AMMs where liquidity is distributed evenly across all prices, here the user targets a defined price range. The `min-price` and `max-price` parameters act as a safety check, even if the user selects a bin, they might not want to enter at just any price inside that range. These bounds let users specify a narrower range of acceptable prices for their deposit. If the actual price (after adding liquidity) falls outside of this min-max window, the transaction will revert to protect the user from entering at an unfavorable rate. The function accepts a max amount of both tokens (`dx`, `dy`) and bounds on the acceptable price range (`min-price`, `max-price`).
 
 It internally calculates the actual amounts of each token that can be added given the pool's current balances and fee configuration. If the price after the addition falls outside the user-defined bounds, the transaction reverts.
 
 If this is the first liquidity added to the tick, it sets the virtual balances and initializes the price bin. Otherwise, it uses the existing balances to calculate a fair proportional LP minting.
+
+This function interacts with the `amm-liquidity-token-v3` contract to mint LP tokens for the position, and with the respective SIP-010 token contracts to transfer the user's tokens into the pool. All funds are held directly by the `amm-pool-v3 contract`, there is no external vault.
 
 ##### Parameters
 
@@ -44,7 +48,7 @@ If this is the first liquidity added to the tick, it sets the virtual balances a
 
 This function allows a user to reduce their liquidity position in a specific tick of a DAMM pool by a given percentage. Internally, it calculates the user's LP token balance for the selected bin, burns the requested portion, and sends back the proportional share of token X and token Y to the user.
 
-The function interacts with the `amm-liquidity-token-v3` contract to burn LP tokens, and with the respective SIP-010 token contracts to transfer assets back to the user. It ensures the position exists, the pool is active, and the reduction is within valid bounds.
+The function interacts with the `amm-liquidity-token-v3` contract to burn LP tokens, and with the respective SIP-010 token contracts to transfer assets back to the user. All liquidity is held directly by the `amm-pool-v3` contract, there is no external vault mechanism involved.
 
 The `percent` parameter represents the portion of the position to withdraw, using fixed-point math with 8 decimal precision. For example:
 
@@ -64,18 +68,9 @@ The `percent` parameter represents the portion of the position to withdraw, usin
 
 #### `swap-x-for-y-ioc`
 
-This function allows users to swap a specific amount of token X (`dx`) for token Y in a selected bin (`tick`) of a DAMM pool, under an Immediate-Or-Cancel (IOC) execution logic. That means the swap will only proceed if the resulting price stays within the user-defined `max-price` limit. If the conditions are not met, the function either cancels the operation or executes the portion of the swap that can be fulfilled without exceeding the price cap.
+This function allows users to swap a specific amount of token X (`dx`) for token Y in a selected bin (`tick`) of a DAMM pool, using an **Immediate-Or-Cancel (IOC)** strategy. The swap will only proceed if the resulting price does not exceed the user-defined `max-price`.
 
-The function starts by validating the pool's status and confirming that the token traits passed as arguments match the registered pool configuration. It then calculates how much of the input token X can be used in the swap without breaching the price limit. This calculation relies on the virtual balances model used in DAMM, which ensures that trading remains bounded within the configured bin.
-
-Once the maximum amount of input (`actual-dx`) is determined, the contract applies the relevant fee and rebate logic: a percentage of `actual-dx` is taken as a fee, and part of that fee may be rebated back into the pool. The output amount of token Y (`actual-dy`) is then calculated using a modified constant product formula based on updated virtual reserves.
-
-If the calculated swap is valid, the function performs the following actions:
-- Transfers `actual-dx` of token X from the user to the pool contract.
-- Transfers `actual-dy` of token Y from the pool contract back to the user.
-- Updates the internal balances and fee accounting for the bin in storage.
-
-If the swap doesn't meet the required price conditions or if liquidity is insufficient, it returns zeroed amounts, aligning with the IOC semantics.
+The function validates the pool's status and token traits, calculates how much of token X can be swapped without breaching the price cap, applies fees and potential rebates, and executes the transfers. If conditions are not met (e.g. price exceeds `max-price` or insufficient liquidity), it returns zero values for all outputs.
 
 ##### Parameters
 
@@ -90,15 +85,9 @@ If the swap doesn't meet the required price conditions or if liquidity is insuff
 
 #### `swap-y-for-x-ioc`
 
-This function executes a swap from token Y to token X within a specific price bin (tick), using the Immediate or Cancel (IOC) strategy. The user specifies a maximum input (`dy`) and a minimum acceptable price (`min-price`), and the function attempts to perform the swap without breaching that price constraint.
+This function is the reverse of `swap-x-for-y-ioc`, enabling a swap from token Y to token X within a specific bin (`tick`) of a DAMM pool.
 
-Internally, the function uses the virtual balances model to determine how much of token Y can be swapped while keeping the output price within the valid range for the tick. It computes the resulting amount of token X (`dx`) that would be received, applies fees, and then executes the transfers:
-
-- Transfers `dy` from the user to the contract
-- Transfers `dx` from the contract to the user
-- Updates internal balances, fee records, and emits a print event
-
-If the conditions can't be met, the function returns `0` values for all fields, indicating that the swap was canceled.
+The execution logic is identical, except that the transaction will only proceed if the resulting price does not fall below the user-defined `min-price`.
 
 ##### Parameters
 
@@ -113,13 +102,15 @@ If the conditions can't be met, the function returns `0` values for all fields, 
 
 ### Governance Features
 
+The following functions are guarded by the `is-dao-or-extension` function. This implies that only the ALEX DAO or an enabled extension can use these features.
+
 #### `is-dao-or-extension`
 
-This standard protocol function checks whether a caller (`tx-sender`) is the DAO executor or an authorized extension, delegating the extensions check to the `executor-dao` contract.
+Standard protocol function to check whether the `contract-caller` is an enabled extension within the DAO or the `tx-sender` is the DAO itself. The extension check is delegated to the `executor-dao` contract.
 
 #### `create-pool`
 
-A public function, governed through the `is-dao-or-extension`, that creates a new DAMM pool between two SIP-010 fungible tokens.
+Creates a new DAMM pool between two SIP-010 fungible tokens.
 
 This function configures a pool with a specific `bin-size`, fee rates for each token, and a fee rebate percentage. It performs several validations before pool creation:
 
@@ -143,7 +134,7 @@ The pool is stored using a new `pool-id` generated by incrementing `pool-id-nonc
 
 #### `update-pool-fee`
 
-A public function, governed through `is-dao-or-extension`, that updates the fee configuration for an existing pool. It sets new values for the swap fee on each token and the rebate returned to liquidity providers. The function also validates that the new fee values for token X and token Y are both less than `ONE_8` (i.e. below 100%). Finally, it emits an event with the pool ID, the updated fees, the fee rebate, and the transaction sender.
+Updates the fee configuration for an existing pool. It sets new values for the swap fee on each token and the rebate returned to liquidity providers. The function also validates that the new fee values for token X and token Y are both less than `ONE_8` (i.e. below 100%). Finally, it emits an event with the pool ID, the updated fees, the fee rebate, and the transaction sender.
 
 ##### Parameters
 
@@ -156,7 +147,7 @@ A public function, governed through `is-dao-or-extension`, that updates the fee 
 
 #### `set-pool-status`
 
-A public function, governed through `is-dao-or-extension`, that updates the operational status of a pool. It can mark a pool as `paused` (temporarily disabling activity) or `sunset` (permanently deactivating the pool), affecting its availability for swaps and actions like adding or removing liquidity. Finally, it emits an event with the pool ID, the deactivation and pause status, and the transaction sender.
+Updates the operational status of a pool. It can mark a pool as `paused` (temporarily disabling activity) or `sunset` (permanently deactivating the pool), affecting its availability for swaps and actions like adding or removing liquidity. Finally, it emits an event with the pool ID, the deactivation and pause status, and the transaction sender.
 
 ##### Parameters
 
@@ -168,7 +159,7 @@ A public function, governed through `is-dao-or-extension`, that updates the oper
 
 #### `claim-fees`
 
-A public function, governed through `is-dao-or-extension`, that allows the DAO to withdraw accumulated swap fees from a specific pool and tick. The function resets the stored fees to zero and transfers the collected amounts of both tokens to the specified address using the corresponding token contracts.
+Allows the DAO to withdraw accumulated swap fees from a specific pool and tick. The function resets the stored fees to zero and transfers the collected amounts of both tokens to the specified address using the corresponding token contracts.
 
 ##### Parameters
 
@@ -291,7 +282,7 @@ Stores the state of each bin in a pool, indexed by `pool-id` and `tick`. It trac
 
 ## Contract calls
 
-- `executor-dao`: calls are made to verify whether a certain contract-caller is designated as an extension.
+- `executor-dao`: calls are made to verify whether a certain `contract-caller` is designated as an extension.
 - `amm-liquidity-token-v3`: used to mint and burn LP tokens that represent user positions in specific ticks.
 - `token-x-trait` / `token-y-trait`: represent the fungible tokens involved in each pool. These trait contracts are used to perform transfers during swaps and liquidity updates.
 

@@ -5,7 +5,8 @@
 ## 📈 Automated Market Making
 
 * [Our Design](automated-market-making/platform-architecture-that-supports-ecosystem-development.md)
-* [Our Design](automated-market-making/trading-pool.md)
+* [Trading Pool v1](automated-market-making/trading-pool.md)
+* [Trading Pool v2](automated-market-making/trading-pool-v2.md)
 * [Collateral Rebalancing Pool](automated-market-making/collateral-rebalancing-pool.md)
 * [Yield Token Pool](automated-market-making/automated-market-making-designed-for-lending-protocols.md)
 * [Vault](automated-market-making/vault.md)
